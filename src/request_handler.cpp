@@ -13,6 +13,7 @@
 #include <sstream>
 #include <string>
 #include <boost/lexical_cast.hpp>
+#include <boost/filesystem.hpp>
 #include "mime_types.hpp"
 #include "reply.hpp"
 #include "request.hpp"
@@ -47,6 +48,15 @@ void request_handler::handle_request(const request& req, reply& rep)
   if (request_path[request_path.size() - 1] == '/')
   {
     request_path += "index.html";
+  }
+  else
+  {
+    // If it does not end in a slash, but is a directory, then redirect to the slash terminated path
+    if (boost::filesystem::is_directory(doc_root_ + request_path))
+    {
+      rep = reply::redirect_reply(request_path + "/");
+      return;
+    }
   }
 
   // Determine the file extension.

@@ -56,6 +56,8 @@ struct reply
 
   /// Get a stock reply.
   static reply stock_reply(status_type status);
+  /// Get a redirect reply.
+  static reply redirect_reply(const std::string& location);
 };
 
 } // namespace server
