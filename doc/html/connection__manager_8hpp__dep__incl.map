@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$connection_8cpp.html" title="src/connection.cpp" alt="" coords="5,83,136,112"/>
+<area shape="rect" id="node5" href="$connection__manager_8cpp.html" title="src/connection_manager.cpp" alt="" coords="160,83,349,112"/>
+<area shape="rect" id="node7" href="$server_8hpp.html" title="src/server.hpp" alt="" coords="373,83,477,112"/>
+<area shape="rect" id="node9" href="$posix__main_8cpp.html" title="src/posix_main.cpp" alt="" coords="216,160,349,189"/>
+<area shape="rect" id="node11" href="$server_8cpp.html" title="src/server.cpp" alt="" coords="373,160,477,189"/>
+<area shape="rect" id="node13" href="$win__main_8cpp.html" title="src/win_main.cpp" alt="" coords="501,160,624,189"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$namespacehttp_1_1server_1_1mime__types.html#aaa3cd5827dc485ab288a3c446ef023bc" title="Convert a file extension into a MIME type." alt="" coords="340,5,620,35"/>
+<area shape="rect" id="node5" href="$structhttp_1_1server_1_1reply.html#a4c781e107fd381205ad721ec8635176f" title="Get a stock reply." alt="" coords="381,59,579,88"/>
+<area shape="rect" id="node7" href="$namespacehttp_1_1server_1_1stock__replies.html#a4ded47eeac4e3d89b45848961fbc7a41" title="http::server::stock_replies::to_string" alt="" coords="671,59,900,88"/>
+</map>
