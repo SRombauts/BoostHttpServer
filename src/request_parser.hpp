@@ -63,6 +63,9 @@ private:
   /// Check if a byte is a digit.
   static bool is_digit(int c);
 
+  /// Set the content length extracted from headers
+  bool set_content_length (request& req);
+
   /// The current state of the parser.
   enum state
   {
@@ -88,7 +91,8 @@ private:
     space_before_header_value,
     header_value,
     expecting_newline_2,
-    expecting_newline_3
+    expecting_newline_3,
+    content
   } state_;
 };
 

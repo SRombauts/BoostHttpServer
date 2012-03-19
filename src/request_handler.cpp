@@ -38,13 +38,23 @@ void request_handler::handle_request(const request& req, reply& rep)
 
   // Decode and tokenize the query part of the URI
   std::string query;
-  options_t   options;
+  options_t   get_params;
   if (!url_decode(req.query, query))
   {
     rep = reply::stock_reply(reply::bad_request);
     return;
   }
-  query_tokenize (query, options);
+  query_tokenize (query, get_params);
+
+  // Decode and tokenize the content part of the POST request
+  std::string content;
+  options_t   post_params;
+  if (!url_decode(req.content, content))
+  {
+    rep = reply::stock_reply(reply::bad_request);
+    return;
+  }
+  query_tokenize (content, post_params);
 
   // Request path must be absolute and not contain "..".
   if (request_path.empty() || request_path[0] != '/'

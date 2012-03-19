@@ -10,6 +10,7 @@
 
 #include "request_parser.hpp"
 #include "request.hpp"
+#include <sstream>
 
 namespace http {
 namespace server {
@@ -333,7 +334,39 @@ boost::tribool request_parser::consume(request& req, char input)
       return false;
     }
   case expecting_newline_3:
-    return (input == '\n');
+    if (input == '\n')
+    {
+      if (req.method == "POST")
+      {
+        if (set_content_length(req))
+        {
+          state_ = content;
+          return boost::indeterminate;
+        }
+        else
+        {
+          return false;
+        }
+      }
+      else
+      {
+        return true;
+      }
+    }
+    else
+    {
+      return false;
+    }
+  case content:
+    req.content += input;
+    if (req.content.length() == req.content_length)
+    {
+      return true;
+    }
+    else
+    {
+      return boost::indeterminate;
+    }
   default:
     return false;
   }
@@ -366,6 +399,29 @@ bool request_parser::is_tspecial(int c)
 bool request_parser::is_digit(int c)
 {
   return c >= '0' && c <= '9';
+}
+
+bool request_parser::set_content_length (request& req)
+{
+  std::vector<header>::iterator iHeader;
+  for (iHeader  = req.headers.begin();
+       iHeader != req.headers.end();
+       iHeader++ )
+  {
+    if ((*iHeader).name == "Content-Length")
+    {
+      std::istringstream is((*iHeader).value);
+      if (is >> std::dec >> req.content_length)
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+    }
+  }
+  return false;
 }
 
 } // namespace server
