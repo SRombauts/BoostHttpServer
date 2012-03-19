@@ -36,6 +36,16 @@ void request_handler::handle_request(const request& req, reply& rep)
     return;
   }
 
+  // Decode and tokenize the query part of the URI
+  std::string query;
+  options_t   options;
+  if (!url_decode(req.query, query))
+  {
+    rep = reply::stock_reply(reply::bad_request);
+    return;
+  }
+  query_tokenize (query, options);
+
   // Request path must be absolute and not contain "..".
   if (request_path.empty() || request_path[0] != '/'
       || request_path.find("..") != std::string::npos)
@@ -127,6 +137,57 @@ bool request_handler::url_decode(const std::string& in, std::string& out)
   }
   return true;
 }
+
+void request_handler::query_tokenize(const std::string& in, options_t& out)
+{
+  bool        in_option_name = true;
+  std::string option_name;
+  std::string option_value;
+
+  out.clear();
+
+  for (std::size_t i = 0; i < in.size(); ++i)
+  {
+    if (in_option_name)
+    {
+      // parsing the name of an option
+      if (in[i] == '=')
+      {
+        in_option_name = false;
+      }
+      else if (in[i] == '&')
+      {
+        out[option_name] = ""; // option without value
+        option_name.clear ();
+      }
+      else
+      {
+        option_name += in[i];
+      }
+    }
+    else
+    {
+      // parsing the value of an option
+      if (in[i] == '&')
+      {
+        out[option_name] = option_value; // option with value
+        option_name.clear ();
+        option_value.clear ();
+        in_option_name = true;
+      }
+      else
+      {
+        option_value += in[i];
+      }
+    }
+  }
+
+  if (false == option_name.empty())
+  {
+    out[option_name] = option_value; // last option with or without value
+  }
+}
+
 
 } // namespace server
 } // namespace http

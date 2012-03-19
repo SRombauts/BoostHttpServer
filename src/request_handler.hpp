@@ -12,6 +12,7 @@
 #define HTTP_REQUEST_HANDLER_HPP
 
 #include <string>
+#include <map>
 #include <boost/noncopyable.hpp>
 
 namespace http {
@@ -31,6 +32,9 @@ public:
   /// Handle a request and produce a reply.
   void handle_request(const request& req, reply& rep);
 
+  /// Map of option by name/values
+  typedef std::map<std::string,std::string> options_t;
+
 private:
   /// The directory containing the files to be served.
   std::string doc_root_;
@@ -38,6 +42,9 @@ private:
   /// Perform URL-decoding on a string. Returns false if the encoding was
   /// invalid.
   static bool url_decode(const std::string& in, std::string& out);
+
+  /// Tokenize the query part of the URI, splitting it by option name/values.
+  static void query_tokenize(const std::string& in, options_t& out);
 };
 
 } // namespace server
