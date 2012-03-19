@@ -70,6 +70,8 @@ private:
     method,
     uri_start,
     uri,
+    query,
+    fragment,
     http_version_h,
     http_version_t_1,
     http_version_t_2,
