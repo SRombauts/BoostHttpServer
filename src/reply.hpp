@@ -19,6 +19,9 @@
 namespace http {
 namespace server {
 
+/// List of HTTP headers to be included in the reply.
+typedef std::vector<header> header_list;
+
 /// A reply to be sent to a client.
 struct reply
 {
@@ -44,7 +47,7 @@ struct reply
   } status;
 
   /// The headers to be included in the reply.
-  std::vector<header> headers;
+  header_list headers;
 
   /// The content to be sent in the reply.
   std::string content;
