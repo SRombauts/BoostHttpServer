@@ -32,8 +32,8 @@ public:
   /// Handle a request and produce a reply.
   void handle_request(const request& req, reply& rep);
 
-  /// Map of option by name/values
-  typedef std::map<std::string,std::string> options_t;
+  /// Map of options by name/values
+  typedef std::map<std::string,std::string> options_map;
 
 private:
   /// The directory containing the files to be served.
@@ -44,7 +44,7 @@ private:
   static bool url_decode(const std::string& in, std::string& out);
 
   /// Tokenize the query part of the URI, splitting it by option name/values.
-  static void query_tokenize(const std::string& in, options_t& out);
+  static void query_tokenize(const std::string& in, options_map& out);
 };
 
 } // namespace server

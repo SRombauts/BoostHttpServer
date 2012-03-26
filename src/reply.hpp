@@ -19,9 +19,6 @@
 namespace http {
 namespace server {
 
-/// List of HTTP headers to be included in the reply.
-typedef std::vector<header> header_list;
-
 /// A reply to be sent to a client.
 struct reply
 {
@@ -47,10 +44,10 @@ struct reply
   } status;
 
   /// The headers to be included in the reply.
-  header_list headers;
+  headers_list  headers;
 
   /// The content to be sent in the reply.
-  std::string content;
+  std::string   content;
 
   /// Convert the reply into a vector of buffers. The buffers do not own the
   /// underlying memory blocks, therefore the reply object must remain valid and
