@@ -32,6 +32,7 @@ boost::asio::ip::tcp::socket& connection::socket()
 
 void connection::start()
 {
+  // ask to read asynchronously the client request
   socket_.async_read_some(boost::asio::buffer(buffer_),
       boost::bind(&connection::handle_read, shared_from_this(),
         boost::asio::placeholders::error,
@@ -54,6 +55,7 @@ void connection::handle_read(const boost::system::error_code& e,
 
     if (result)
     {
+      // parse done successfully, handle the request
       request_handler_.handle_request(request_, reply_);
       boost::asio::async_write(socket_, reply_.to_buffers(),
           boost::bind(&connection::handle_write, shared_from_this(),
@@ -61,6 +63,7 @@ void connection::handle_read(const boost::system::error_code& e,
     }
     else if (!result)
     {
+      // error interrupted the parse of the request
       reply_ = reply::stock_reply(reply::bad_request);
       boost::asio::async_write(socket_, reply_.to_buffers(),
           boost::bind(&connection::handle_write, shared_from_this(),
@@ -68,6 +71,7 @@ void connection::handle_read(const boost::system::error_code& e,
     }
     else
     {
+      // request not complete, ask to keep reading asynchronously
       socket_.async_read_some(boost::asio::buffer(buffer_),
           boost::bind(&connection::handle_read, shared_from_this(),
             boost::asio::placeholders::error,

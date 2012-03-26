@@ -90,9 +90,11 @@ struct mapping
   { "pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation" },
   { "potx", "application/vnd.openxmlformats-officedocument.presentationml.template" },
   { "ppsx", "application/vnd.openxmlformats-officedocument.presentationml.slideshow" },
-  { 0, 0 } // Marks end of list.
+  // Marks end of list.
+  { 0, 0 }
 };
 
+// TODO SRombauts : optimize with a hash_map ?
 std::string extension_to_type(const std::string& extension)
 {
   for (mapping* m = mappings; m->extension; ++m)
