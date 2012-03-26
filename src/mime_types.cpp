@@ -31,9 +31,10 @@ struct mapping
   { "js",   "application/x-javascript" },
   { "xml",  "text/xml" },
   { "xhtml","application/xhtml+xml" },
+  { "rss",  "application/rss+xml"  },
+  { "atom", "application/atom+xml"  },
   { "txt",  "text/plain" },
   { "csv",  "text/csv"  },
-  { "latex","application/x-latex" },
   // common image mime types
   { "jpeg","image/jpeg" },
   { "jpg", "image/jpeg" },
@@ -45,6 +46,15 @@ struct mapping
   { "tiff","image/tiff" },
   { "tif", "image/tiff" },
   { "bmp", "image/bmp" },
+  // common extended text format
+  { "latex",    "application/x-latex" },
+  { "markdown", "text/x-web-markdown"},
+  { "mdown",    "text/x-web-markdown"},
+  { "mkd",      "text/x-web-markdown"},
+  { "md",       "text/x-web-markdown"},
+  { "rst",      "text/x-rst"},
+  { "rest",     "text/x-rst"},
+  { "textile",  "text/x-web-textile"},
   // common compressed file
   { "zip", "application/zip" },
   { "gz",  "application/x-gzip" },
