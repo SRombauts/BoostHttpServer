@@ -57,6 +57,15 @@ void request_handler::handle_request(const request& req, reply& rep)
   }
   query_tokenize (content, post_params);
 
+  // Check if the request is for a registered dynamic resource
+  resource_map::iterator resource = resource_map_.find(request_path);
+  if (resource_map_.end() != resource)
+  {
+    // A dynamic web page will be generated in reply to the client request
+    (*resource).second (req, rep);
+    return;
+  }
+
   // Request path must be absolute and not contain "..".
   if (request_path.empty() || request_path[0] != '/'
       || request_path.find("..") != std::string::npos)
