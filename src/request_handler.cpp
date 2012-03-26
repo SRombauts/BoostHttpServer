@@ -1,7 +1,7 @@
 ///
 /// \file request_handler.cpp
 /// 
-/// Handle a HTTP request by returning the client the ressource he asked.
+/// Handle a HTTP request by returning the client the resource he asked.
 ///
 /// Copyright (c) 2003-2011 Christopher M. Kohlhoff (chris at kohlhoff dot com)
 ///
@@ -199,6 +199,21 @@ void request_handler::query_tokenize(const std::string& in, options_map& out)
   }
 }
 
+/// Register a dynamic resource (a code generated web page)
+void request_handler::register_resource(const std::string& resource_name, resource_function& function)
+{
+  resource_map_.insert(std::pair<std::string, resource_function>(resource_name, function));
+}
+
+/// Unegister a dynamic resource
+void request_handler::unregister_resource(const std::string& resource_name)
+{
+  resource_map::iterator resource = resource_map_.find(resource_name);
+  if (resource_map_.end() != resource)
+  {
+    resource_map_.erase(resource);
+  }
+}
 
 } // namespace server
 } // namespace http

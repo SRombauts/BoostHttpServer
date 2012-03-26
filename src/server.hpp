@@ -38,6 +38,16 @@ public:
   /// Stop the server.
   void stop();
 
+  /// Register a dynamic resource (a code generated web page)
+  inline void register_resource(const std::string& resource_name, resource_function& function)
+  {
+    request_handler_.register_resource(resource_name, function);
+  }
+  inline void unregister_resource(const std::string& resource_name)
+  {
+    request_handler_.unregister_resource(resource_name);
+  }
+
 private:
   /// Handle completion of an asynchronous accept operation.
   void handle_accept(const boost::system::error_code& e);

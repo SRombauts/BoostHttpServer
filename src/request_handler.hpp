@@ -1,7 +1,7 @@
 ///
 /// \file request_handler.hpp
 ///
-/// Handle a HTTP request by returning the client the ressource he asked.
+/// Handle a HTTP request by returning the client the resource he asked.
 ///
 /// Copyright (c) 2003-2011 Christopher M. Kohlhoff (chris at kohlhoff dot com)
 ///
@@ -15,12 +15,19 @@
 #include <string>
 #include <map>
 #include <boost/noncopyable.hpp>
+#include <boost/function.hpp>
 
 namespace http {
 namespace server {
 
 struct reply;
 struct request;
+
+/// Map of options by name/values
+typedef std::map<std::string, std::string> options_map;
+
+/// Prototype of a function able to generate a reply for the provided client request
+typedef boost::function<void (const request& req, reply& rep)>  resource_function;
 
 /// The common handler for all incoming requests.
 class request_handler
@@ -33,8 +40,9 @@ public:
   /// Handle a request and produce a reply.
   void handle_request(const request& req, reply& rep);
 
-  /// Map of options by name/values
-  typedef std::map<std::string,std::string> options_map;
+  /// Register a dynamic resource (a code generated web page)
+  void register_resource(const std::string& resource_name, resource_function& function);
+  void unregister_resource(const std::string& resource_name);
 
 private:
   /// The directory containing the files to be served.
@@ -46,6 +54,12 @@ private:
 
   /// Tokenize the query part of the URI, splitting it by option name/values.
   static void query_tokenize(const std::string& in, options_map& out);
+
+  /// Map of a functions able to generate a reply for the provided client request
+  typedef std::map<std::string, resource_function>  resource_map;
+
+  /// Map of a functions able to generate a reply for the provided client request
+  resource_map  resource_map_;
 };
 
 } // namespace server
