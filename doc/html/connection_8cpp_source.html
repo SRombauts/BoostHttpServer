@@ -36,6 +36,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -82,111 +83,116 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h1>src/connection.cpp</h1>  </div>
 </div>
 <div class="contents">
-<a href="connection_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">//</span>
-<a name="l00002"></a>00002 <span class="comment">// connection.cpp</span>
-<a name="l00003"></a>00003 <span class="comment">// ~~~~~~~~~~~~~~</span>
-<a name="l00004"></a>00004 <span class="comment">//</span>
-<a name="l00005"></a>00005 <span class="comment">// Copyright (c) 2003-2011 Christopher M. Kohlhoff (chris at kohlhoff dot com)</span>
-<a name="l00006"></a>00006 <span class="comment">//</span>
-<a name="l00007"></a>00007 <span class="comment">// Distributed under the Boost Software License, Version 1.0. (See accompanying</span>
-<a name="l00008"></a>00008 <span class="comment">// file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)</span>
-<a name="l00009"></a>00009 <span class="comment">//</span>
-<a name="l00010"></a>00010 
-<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;<a class="code" href="connection_8hpp.html">connection.hpp</a>&quot;</span>
-<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;vector&gt;</span>
-<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;boost/bind.hpp&gt;</span>
-<a name="l00014"></a>00014 <span class="preprocessor">#include &quot;<a class="code" href="connection__manager_8hpp.html">connection_manager.hpp</a>&quot;</span>
-<a name="l00015"></a>00015 <span class="preprocessor">#include &quot;<a class="code" href="request__handler_8hpp.html">request_handler.hpp</a>&quot;</span>
-<a name="l00016"></a>00016 
-<a name="l00017"></a><a class="code" href="namespacehttp.html">00017</a> <span class="keyword">namespace </span>http {
-<a name="l00018"></a>00018 <span class="keyword">namespace </span>server {
-<a name="l00019"></a>00019 
-<a name="l00020"></a><a class="code" href="namespacehttp_1_1server.html">00020</a> <a class="code" href="classhttp_1_1server_1_1connection.html#a83330857030e532ab15b48a9bae412ce" title="Construct a connection with the given io_service.">connection::connection</a>(boost::asio::io_service&amp; io_service,
-<a name="l00021"></a>00021     <a class="code" href="classhttp_1_1server_1_1connection__manager.html">connection_manager</a>&amp; manager, <a class="code" href="classhttp_1_1server_1_1request__handler.html" title="The common handler for all incoming requests.">request_handler</a>&amp; handler)
-<a name="l00022"></a><a class="code" href="classhttp_1_1server_1_1connection.html#a83330857030e532ab15b48a9bae412ce">00022</a>   : socket_(io_service),
-<a name="l00023"></a>00023     connection_manager_(manager),
-<a name="l00024"></a>00024     request_handler_(handler)
-<a name="l00025"></a>00025 {
-<a name="l00026"></a>00026 }
-<a name="l00027"></a>00027 
-<a name="l00028"></a>00028 boost::asio::ip::tcp::socket&amp; <a class="code" href="classhttp_1_1server_1_1connection.html#a57e63849d4283339e1e3a8591ac85cec" title="Get the socket associated with the connection.">connection::socket</a>()
-<a name="l00029"></a>00029 {
-<a name="l00030"></a><a class="code" href="classhttp_1_1server_1_1connection.html#a57e63849d4283339e1e3a8591ac85cec">00030</a>   <span class="keywordflow">return</span> socket_;
-<a name="l00031"></a>00031 }
-<a name="l00032"></a>00032 
-<a name="l00033"></a>00033 <span class="keywordtype">void</span> <a class="code" href="classhttp_1_1server_1_1connection.html#a5f03df3dc2ef188842942444b7adf54f" title="Start the first asynchronous operation for the connection.">connection::start</a>()
-<a name="l00034"></a>00034 {
-<a name="l00035"></a><a class="code" href="classhttp_1_1server_1_1connection.html#a5f03df3dc2ef188842942444b7adf54f">00035</a>   socket_.async_read_some(boost::asio::buffer(buffer_),
-<a name="l00036"></a>00036       boost::bind(&amp;connection::handle_read, shared_from_this(),
-<a name="l00037"></a>00037         boost::asio::placeholders::error,
-<a name="l00038"></a>00038         boost::asio::placeholders::bytes_transferred));
-<a name="l00039"></a>00039 }
-<a name="l00040"></a>00040 
-<a name="l00041"></a>00041 <span class="keywordtype">void</span> <a class="code" href="classhttp_1_1server_1_1connection.html#a7b8e7d2c99d3c9660242227dfadeea49" title="Stop all asynchronous operations associated with the connection.">connection::stop</a>()
-<a name="l00042"></a>00042 {
-<a name="l00043"></a><a class="code" href="classhttp_1_1server_1_1connection.html#a7b8e7d2c99d3c9660242227dfadeea49">00043</a>   socket_.close();
-<a name="l00044"></a>00044 }
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046 <span class="keywordtype">void</span> connection::handle_read(<span class="keyword">const</span> boost::system::error_code&amp; e,
-<a name="l00047"></a>00047     std::size_t bytes_transferred)
-<a name="l00048"></a>00048 {
-<a name="l00049"></a>00049   <span class="keywordflow">if</span> (!e)
-<a name="l00050"></a>00050   {
-<a name="l00051"></a>00051     boost::tribool result;
-<a name="l00052"></a>00052     boost::tie(result, boost::tuples::ignore) = request_parser_.<a class="code" href="classhttp_1_1server_1_1request__parser.html#aadad00b6eb0d4eca6573ca0ec39691ab">parse</a>(
-<a name="l00053"></a>00053         request_, buffer_.data(), buffer_.data() + bytes_transferred);
-<a name="l00054"></a>00054 
-<a name="l00055"></a>00055     <span class="keywordflow">if</span> (result)
-<a name="l00056"></a>00056     {
-<a name="l00057"></a>00057       request_handler_.<a class="code" href="classhttp_1_1server_1_1request__handler.html#a7430992fc71d181dcd5654b71c6f8d7b" title="Handle a request and produce a reply.">handle_request</a>(request_, reply_);
-<a name="l00058"></a>00058       boost::asio::async_write(socket_, reply_.<a class="code" href="structhttp_1_1server_1_1reply.html#aada1a8123aabeb787da9adcfcf9fc86c">to_buffers</a>(),
-<a name="l00059"></a>00059           boost::bind(&amp;connection::handle_write, shared_from_this(),
-<a name="l00060"></a>00060             boost::asio::placeholders::error));
-<a name="l00061"></a>00061     }
-<a name="l00062"></a>00062     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!result)
-<a name="l00063"></a>00063     {
-<a name="l00064"></a>00064       reply_ = <a class="code" href="structhttp_1_1server_1_1reply.html#a4c781e107fd381205ad721ec8635176f" title="Get a stock reply.">reply::stock_reply</a>(<a class="code" href="structhttp_1_1server_1_1reply.html#a08d3b8d638988f252ab4e5cd3db72ad6aef848a42bd8aca5d6f8659466c650cdb">reply::bad_request</a>);
-<a name="l00065"></a>00065       boost::asio::async_write(socket_, reply_.<a class="code" href="structhttp_1_1server_1_1reply.html#aada1a8123aabeb787da9adcfcf9fc86c">to_buffers</a>(),
-<a name="l00066"></a>00066           boost::bind(&amp;connection::handle_write, shared_from_this(),
-<a name="l00067"></a>00067             boost::asio::placeholders::error));
-<a name="l00068"></a>00068     }
-<a name="l00069"></a>00069     <span class="keywordflow">else</span>
-<a name="l00070"></a>00070     {
-<a name="l00071"></a>00071       socket_.async_read_some(boost::asio::buffer(buffer_),
-<a name="l00072"></a>00072           boost::bind(&amp;connection::handle_read, shared_from_this(),
-<a name="l00073"></a>00073             boost::asio::placeholders::error,
-<a name="l00074"></a>00074             boost::asio::placeholders::bytes_transferred));
-<a name="l00075"></a>00075     }
-<a name="l00076"></a>00076   }
-<a name="l00077"></a>00077   <span class="keywordflow">else</span> <span class="keywordflow">if</span> (e != boost::asio::error::operation_aborted)
-<a name="l00078"></a>00078   {
-<a name="l00079"></a>00079     connection_manager_.stop(shared_from_this());
-<a name="l00080"></a>00080   }
-<a name="l00081"></a>00081 }
-<a name="l00082"></a>00082 
-<a name="l00083"></a>00083 <span class="keywordtype">void</span> connection::handle_write(<span class="keyword">const</span> boost::system::error_code&amp; e)
-<a name="l00084"></a>00084 {
-<a name="l00085"></a>00085   <span class="keywordflow">if</span> (!e)
-<a name="l00086"></a>00086   {
-<a name="l00087"></a>00087     <span class="comment">// Initiate graceful connection closure.</span>
-<a name="l00088"></a>00088     boost::system::error_code ignored_ec;
-<a name="l00089"></a>00089     socket_.shutdown(boost::asio::ip::tcp::socket::shutdown_both, ignored_ec);
-<a name="l00090"></a>00090   }
-<a name="l00091"></a>00091 
-<a name="l00092"></a>00092   <span class="keywordflow">if</span> (e != boost::asio::error::operation_aborted)
-<a name="l00093"></a>00093   {
-<a name="l00094"></a>00094     connection_manager_.stop(shared_from_this());
+<a href="connection_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">///</span>
+<a name="l00002"></a>00002 <span class="comment"></span><span class="comment">/// \file connection.cpp</span>
+<a name="l00003"></a>00003 <span class="comment"></span><span class="comment">///</span>
+<a name="l00004"></a>00004 <span class="comment"></span><span class="comment">/// Manages a single connection from a client.</span>
+<a name="l00005"></a>00005 <span class="comment"></span><span class="comment">///</span>
+<a name="l00006"></a>00006 <span class="comment"></span><span class="comment">/// Copyright (c) 2003-2011 Christopher M. Kohlhoff (chris at kohlhoff dot com)</span>
+<a name="l00007"></a>00007 <span class="comment"></span><span class="comment">///</span>
+<a name="l00008"></a>00008 <span class="comment"></span><span class="comment">/// Distributed under the Boost Software License, Version 1.0. (See accompanying</span>
+<a name="l00009"></a>00009 <span class="comment"></span><span class="comment">/// file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)</span>
+<a name="l00010"></a>00010 <span class="comment"></span><span class="comment">///</span>
+<a name="l00011"></a>00011 <span class="comment"></span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="connection_8hpp.html" title="Manages a single connection from a client.">connection.hpp</a>&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &lt;boost/bind.hpp&gt;</span>
+<a name="l00015"></a>00015 <span class="preprocessor">#include &quot;<a class="code" href="connection__manager_8hpp.html" title="Manages all open connections to clients.">connection_manager.hpp</a>&quot;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include &quot;<a class="code" href="request__handler_8hpp.html" title="Handle a HTTP request by returning the client the ressource he asked.">request_handler.hpp</a>&quot;</span>
+<a name="l00017"></a>00017 
+<a name="l00018"></a><a class="code" href="namespacehttp.html">00018</a> <span class="keyword">namespace </span>http {
+<a name="l00019"></a>00019 <span class="keyword">namespace </span>server {
+<a name="l00020"></a>00020 
+<a name="l00021"></a><a class="code" href="namespacehttp_1_1server.html">00021</a> <a class="code" href="classhttp_1_1server_1_1connection.html#a83330857030e532ab15b48a9bae412ce" title="Construct a connection with the given io_service.">connection::connection</a>(boost::asio::io_service&amp; io_service,
+<a name="l00022"></a>00022     <a class="code" href="classhttp_1_1server_1_1connection__manager.html" title="Manages all open connections to clients.">connection_manager</a>&amp; manager, <a class="code" href="classhttp_1_1server_1_1request__handler.html" title="The common handler for all incoming requests.">request_handler</a>&amp; handler)
+<a name="l00023"></a><a class="code" href="classhttp_1_1server_1_1connection.html#a83330857030e532ab15b48a9bae412ce">00023</a>   : socket_(io_service),
+<a name="l00024"></a>00024     connection_manager_(manager),
+<a name="l00025"></a>00025     request_handler_(handler)
+<a name="l00026"></a>00026 {
+<a name="l00027"></a>00027 }
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029 boost::asio::ip::tcp::socket&amp; <a class="code" href="classhttp_1_1server_1_1connection.html#a57e63849d4283339e1e3a8591ac85cec" title="Get the socket associated with the connection.">connection::socket</a>()
+<a name="l00030"></a>00030 {
+<a name="l00031"></a><a class="code" href="classhttp_1_1server_1_1connection.html#a57e63849d4283339e1e3a8591ac85cec">00031</a>   <span class="keywordflow">return</span> socket_;
+<a name="l00032"></a>00032 }
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034 <span class="keywordtype">void</span> <a class="code" href="classhttp_1_1server_1_1connection.html#a5f03df3dc2ef188842942444b7adf54f" title="Start the first asynchronous operation for the connection.">connection::start</a>()
+<a name="l00035"></a>00035 {
+<a name="l00036"></a><a class="code" href="classhttp_1_1server_1_1connection.html#a5f03df3dc2ef188842942444b7adf54f">00036</a>   <span class="comment">// ask to read asynchronously the client request</span>
+<a name="l00037"></a>00037   socket_.async_read_some(boost::asio::buffer(buffer_),
+<a name="l00038"></a>00038       boost::bind(&amp;connection::handle_read, shared_from_this(),
+<a name="l00039"></a>00039         boost::asio::placeholders::error,
+<a name="l00040"></a>00040         boost::asio::placeholders::bytes_transferred));
+<a name="l00041"></a>00041 }
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 <span class="keywordtype">void</span> <a class="code" href="classhttp_1_1server_1_1connection.html#a7b8e7d2c99d3c9660242227dfadeea49" title="Stop all asynchronous operations associated with the connection.">connection::stop</a>()
+<a name="l00044"></a>00044 {
+<a name="l00045"></a><a class="code" href="classhttp_1_1server_1_1connection.html#a7b8e7d2c99d3c9660242227dfadeea49">00045</a>   socket_.close();
+<a name="l00046"></a>00046 }
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048 <span class="keywordtype">void</span> connection::handle_read(<span class="keyword">const</span> boost::system::error_code&amp; e,
+<a name="l00049"></a>00049     std::size_t bytes_transferred)
+<a name="l00050"></a>00050 {
+<a name="l00051"></a>00051   <span class="keywordflow">if</span> (!e)
+<a name="l00052"></a>00052   {
+<a name="l00053"></a>00053     boost::tribool result;
+<a name="l00054"></a>00054     boost::tie(result, boost::tuples::ignore) = request_parser_.<a class="code" href="classhttp_1_1server_1_1request__parser.html#aadad00b6eb0d4eca6573ca0ec39691ab" title="Parse some data.">parse</a>(
+<a name="l00055"></a>00055         request_, buffer_.data(), buffer_.data() + bytes_transferred);
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057     <span class="keywordflow">if</span> (result)
+<a name="l00058"></a>00058     {
+<a name="l00059"></a>00059       <span class="comment">// parse done successfully, handle the request</span>
+<a name="l00060"></a>00060       request_handler_.<a class="code" href="classhttp_1_1server_1_1request__handler.html#a7430992fc71d181dcd5654b71c6f8d7b" title="Handle a request and produce a reply.">handle_request</a>(request_, reply_);
+<a name="l00061"></a>00061       boost::asio::async_write(socket_, reply_.<a class="code" href="structhttp_1_1server_1_1reply.html#aada1a8123aabeb787da9adcfcf9fc86c" title="Convert the reply into a vector of buffers.">to_buffers</a>(),
+<a name="l00062"></a>00062           boost::bind(&amp;connection::handle_write, shared_from_this(),
+<a name="l00063"></a>00063             boost::asio::placeholders::error));
+<a name="l00064"></a>00064     }
+<a name="l00065"></a>00065     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!result)
+<a name="l00066"></a>00066     {
+<a name="l00067"></a>00067       <span class="comment">// error interrupted the parse of the request</span>
+<a name="l00068"></a>00068       reply_ = <a class="code" href="structhttp_1_1server_1_1reply.html#a4c781e107fd381205ad721ec8635176f" title="Get a stock reply.">reply::stock_reply</a>(<a class="code" href="structhttp_1_1server_1_1reply.html#a08d3b8d638988f252ab4e5cd3db72ad6aef848a42bd8aca5d6f8659466c650cdb">reply::bad_request</a>);
+<a name="l00069"></a>00069       boost::asio::async_write(socket_, reply_.<a class="code" href="structhttp_1_1server_1_1reply.html#aada1a8123aabeb787da9adcfcf9fc86c" title="Convert the reply into a vector of buffers.">to_buffers</a>(),
+<a name="l00070"></a>00070           boost::bind(&amp;connection::handle_write, shared_from_this(),
+<a name="l00071"></a>00071             boost::asio::placeholders::error));
+<a name="l00072"></a>00072     }
+<a name="l00073"></a>00073     <span class="keywordflow">else</span>
+<a name="l00074"></a>00074     {
+<a name="l00075"></a>00075       <span class="comment">// request not complete, ask to keep reading asynchronously</span>
+<a name="l00076"></a>00076       socket_.async_read_some(boost::asio::buffer(buffer_),
+<a name="l00077"></a>00077           boost::bind(&amp;connection::handle_read, shared_from_this(),
+<a name="l00078"></a>00078             boost::asio::placeholders::error,
+<a name="l00079"></a>00079             boost::asio::placeholders::bytes_transferred));
+<a name="l00080"></a>00080     }
+<a name="l00081"></a>00081   }
+<a name="l00082"></a>00082   <span class="keywordflow">else</span> <span class="keywordflow">if</span> (e != boost::asio::error::operation_aborted)
+<a name="l00083"></a>00083   {
+<a name="l00084"></a>00084     connection_manager_.stop(shared_from_this());
+<a name="l00085"></a>00085   }
+<a name="l00086"></a>00086 }
+<a name="l00087"></a>00087 
+<a name="l00088"></a>00088 <span class="keywordtype">void</span> connection::handle_write(<span class="keyword">const</span> boost::system::error_code&amp; e)
+<a name="l00089"></a>00089 {
+<a name="l00090"></a>00090   <span class="keywordflow">if</span> (!e)
+<a name="l00091"></a>00091   {
+<a name="l00092"></a>00092     <span class="comment">// Initiate graceful connection closure.</span>
+<a name="l00093"></a>00093     boost::system::error_code ignored_ec;
+<a name="l00094"></a>00094     socket_.shutdown(boost::asio::ip::tcp::socket::shutdown_both, ignored_ec);
 <a name="l00095"></a>00095   }
-<a name="l00096"></a>00096 }
-<a name="l00097"></a>00097 
-<a name="l00098"></a>00098 } <span class="comment">// namespace server</span>
-<a name="l00099"></a>00099 } <span class="comment">// namespace http</span>
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097   <span class="keywordflow">if</span> (e != boost::asio::error::operation_aborted)
+<a name="l00098"></a>00098   {
+<a name="l00099"></a>00099     connection_manager_.stop(shared_from_this());
+<a name="l00100"></a>00100   }
+<a name="l00101"></a>00101 }
+<a name="l00102"></a>00102 
+<a name="l00103"></a>00103 } <span class="comment">// namespace server</span>
+<a name="l00104"></a>00104 } <span class="comment">// namespace http</span>
 </pre></div></div>
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="connection_8cpp.html">connection.cpp</a>      </li>
-      <li class="footer">Generated on Fri Mar 16 2012 10:41:04 for BoostHttpServer by&#160;
+      <li class="footer">Generated on Mon Mar 26 2012 14:00:24 for BoostHttpServer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </li>
     </ul>

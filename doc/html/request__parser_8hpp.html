@@ -36,6 +36,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -85,21 +86,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h1>src/request_parser.hpp File Reference</h1>  </div>
 </div>
 <div class="contents">
+
+<p>HTTP header parser of incoming requests.  
+<a href="#_details">More...</a></p>
 <div class="textblock"><code>#include &lt;boost/logic/tribool.hpp&gt;</code><br/>
 <code>#include &lt;boost/tuple/tuple.hpp&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for request_parser.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="request__parser_8hpp__incl.png" border="0" usemap="#src_2request__parser_8hpp" alt=""/></div>
-<map name="src_2request__parser_8hpp" id="src_2request__parser_8hpp">
-</map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="request__parser_8hpp__dep__incl.png" border="0" usemap="#src_2request__parser_8hppdep" alt=""/></div>
 <map name="src_2request__parser_8hppdep" id="src_2request__parser_8hppdep">
-<area shape="rect" id="node3" href="connection_8hpp.html" title="src/connection.hpp" alt="" coords="189,83,320,112"/><area shape="rect" id="node21" href="request__parser_8cpp.html" title="src/request_parser.cpp" alt="" coords="344,83,499,112"/><area shape="rect" id="node5" href="connection_8cpp.html" title="src/connection.cpp" alt="" coords="5,237,136,267"/><area shape="rect" id="node7" href="connection__manager_8hpp.html" title="src/connection_manager.hpp" alt="" coords="160,160,349,189"/><area shape="rect" id="node12" href="server_8hpp.html" title="src/server.hpp" alt="" coords="373,237,477,267"/><area shape="rect" id="node10" href="connection__manager_8cpp.html" title="src/connection_manager.cpp" alt="" coords="160,237,349,267"/><area shape="rect" id="node14" href="posix__main_8cpp.html" title="src/posix_main.cpp" alt="" coords="216,315,349,344"/><area shape="rect" id="node16" href="server_8cpp.html" title="src/server.cpp" alt="" coords="373,315,477,344"/><area shape="rect" id="node18" href="win__main_8cpp.html" title="src/win_main.cpp" alt="" coords="501,315,624,344"/></map>
+<area shape="rect" id="node3" href="connection_8hpp.html" title="Manages a single connection from a client." alt="" coords="189,83,320,112"/><area shape="rect" id="node21" href="request__parser_8cpp.html" title="HTTP header parser of incoming requests." alt="" coords="344,83,499,112"/><area shape="rect" id="node5" href="connection_8cpp.html" title="Manages a single connection from a client." alt="" coords="5,237,136,267"/><area shape="rect" id="node7" href="connection__manager_8hpp.html" title="Manages all open connections to clients." alt="" coords="160,160,349,189"/><area shape="rect" id="node12" href="server_8hpp.html" title="The HTTP server accepting client connections." alt="" coords="373,237,477,267"/><area shape="rect" id="node10" href="connection__manager_8cpp.html" title="Manages all open connections to clients." alt="" coords="160,237,349,267"/><area shape="rect" id="node14" href="posix__main_8cpp.html" title="POSIX (Linux/Unix/Cygwin) entry point with clean shutdown signal managment." alt="" coords="216,315,349,344"/><area shape="rect" id="node16" href="server_8cpp.html" title="The HTTP server accepting client connections." alt="" coords="373,315,477,344"/><area shape="rect" id="node18" href="win__main_8cpp.html" title="Win32 (Windows XP/7) entry point with clean shutdown console managment." alt="" coords="501,315,624,344"/></map>
 </div>
 </div>
 <p><a href="request__parser_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -113,12 +115,18 @@ Namespaces</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehttp.html">http</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehttp_1_1server.html">http::server</a></td></tr>
 </table>
-</div>
+<hr/><a name="_details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>HTTP header parser of incoming requests. </p>
+<p>Copyright (c) 2003-2011 Christopher M. Kohlhoff (chris at kohlhoff dot com)</p>
+<p>Distributed under the Boost Software License, Version 1.0. (See accompanying file <a class="el" href="_l_i_c_e_n_s_e__1__0_8txt.html" title="Boost Software License - Version 1.0 - August 17th, 2003.">LICENSE_1_0.txt</a> or copy at <a href="http://www.boost.org/LICENSE_1_0.txt">http://www.boost.org/LICENSE_1_0.txt</a>) </p>
+
+<p>Definition in file <a class="el" href="request__parser_8hpp_source.html">request_parser.hpp</a>.</p>
+</div></div>
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="request__parser_8hpp.html">request_parser.hpp</a>      </li>
-      <li class="footer">Generated on Fri Mar 16 2012 10:41:04 for BoostHttpServer by&#160;
+      <li class="footer">Generated on Mon Mar 26 2012 14:00:24 for BoostHttpServer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </li>
     </ul>

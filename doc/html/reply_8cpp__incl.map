@@ -1,4 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$reply_8hpp.html" title="reply.hpp" alt="" coords="124,83,199,112"/>
-<area shape="rect" id="node11" href="$header_8hpp.html" title="header.hpp" alt="" coords="239,160,324,189"/>
+<area shape="rect" id="node3" href="$reply_8hpp.html" title="A reply to be sent to a client." alt="" coords="134,83,209,112"/>
+<area shape="rect" id="node11" href="$header_8hpp.html" title="Structure of a header in a HTTP request or reply." alt="" coords="209,160,294,189"/>
 </map>

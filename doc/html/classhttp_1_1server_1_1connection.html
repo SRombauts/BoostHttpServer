@@ -36,6 +36,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
@@ -95,7 +96,7 @@ Collaboration diagram for http::server::connection:</div>
 <div class="dyncontent">
 <div class="center"><img src="classhttp_1_1server_1_1connection__coll__graph.png" border="0" usemap="#http_1_1server_1_1connection_coll__map" alt="Collaboration graph"/></div>
 <map name="http_1_1server_1_1connection_coll__map" id="http_1_1server_1_1connection_coll__map">
-<area shape="rect" id="node2" href="structhttp_1_1server_1_1request.html" title="A request received from a client." alt="" coords="1148,49,1287,79"/><area shape="rect" id="node22" href="structhttp_1_1server_1_1reply.html" title="A reply to be sent to a client." alt="" coords="1156,156,1279,185"/><area shape="rect" id="node6" href="structhttp_1_1server_1_1header.html" title="http::server::header" alt="" coords="412,105,545,135"/><area shape="rect" id="node8" title="STL class." alt="" coords="224,133,304,163"/><area shape="rect" id="node15" href="classhttp_1_1server_1_1request__handler.html" title="The common handler for all incoming requests." alt="" coords="572,208,759,237"/><area shape="rect" id="node10" title="STL class." alt="" coords="7,133,172,163"/><area shape="rect" id="node13" href="classhttp_1_1server_1_1request__parser.html" title="Parser for incoming requests." alt="" coords="1127,103,1308,132"/><area shape="rect" id="node18" href="classhttp_1_1server_1_1connection__manager.html" title="http::server::connection_manager" alt="" coords="1109,260,1325,289"/></map>
+<area shape="rect" id="node2" href="structhttp_1_1server_1_1request.html" title="Structure of a HTTP request received from a client." alt="" coords="1148,101,1287,131"/><area shape="rect" id="node22" href="structhttp_1_1server_1_1reply.html" title="A reply to be sent to a client." alt="" coords="1156,208,1279,237"/><area shape="rect" id="node6" href="structhttp_1_1server_1_1header.html" title="Structure of a header in a HTTP request or reply." alt="" coords="412,157,545,187"/><area shape="rect" id="node8" title="STL class." alt="" coords="224,185,304,215"/><area shape="rect" id="node15" href="classhttp_1_1server_1_1request__handler.html" title="The common handler for all incoming requests." alt="" coords="572,260,759,289"/><area shape="rect" id="node10" title="STL class." alt="" coords="7,185,172,215"/><area shape="rect" id="node13" href="classhttp_1_1server_1_1request__parser.html" title="Parser for incoming requests." alt="" coords="1127,155,1308,184"/><area shape="rect" id="node18" href="classhttp_1_1server_1_1connection__manager.html" title="Manages all open connections to clients." alt="" coords="1109,312,1325,341"/></map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="classhttp_1_1server_1_1connection-members.html">List of all members.</a></p>
@@ -114,7 +115,7 @@ Public Member Functions</h2></td></tr>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Represents a single connection from a client. </p>
 
-<p>Definition at line <a class="el" href="connection_8hpp_source.html#l00030">30</a> of file <a class="el" href="connection_8hpp_source.html">connection.hpp</a>.</p>
+<p>Definition at line <a class="el" href="connection_8hpp_source.html#l00031">31</a> of file <a class="el" href="connection_8hpp_source.html">connection.hpp</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a83330857030e532ab15b48a9bae412ce"></a><!-- doxytag: member="http::server::connection::connection" ref="a83330857030e532ab15b48a9bae412ce" args="(boost::asio::io_service &amp;io_service, connection_manager &amp;manager, request_handler &amp;handler)" -->
 <div class="memitem">
@@ -149,7 +150,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Construct a connection with the given io_service. </p>
 
-<p>Definition at line <a class="el" href="connection_8cpp_source.html#l00022">22</a> of file <a class="el" href="connection_8cpp_source.html">connection.cpp</a>.</p>
+<p>Definition at line <a class="el" href="connection_8cpp_source.html#l00023">23</a> of file <a class="el" href="connection_8cpp_source.html">connection.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">  : socket_(io_service),
     connection_manager_(manager),
     request_handler_(handler)
@@ -177,7 +178,7 @@ boost::asio::ip::tcp::socket&amp; <a class="code" href="classhttp_1_1server_1_1c
 
 <p>Get the socket associated with the connection. </p>
 
-<p>Definition at line <a class="el" href="connection_8cpp_source.html#l00030">30</a> of file <a class="el" href="connection_8cpp_source.html">connection.cpp</a>.</p>
+<p>Definition at line <a class="el" href="connection_8cpp_source.html#l00031">31</a> of file <a class="el" href="connection_8cpp_source.html">connection.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
 </pre></div>
 </div>
@@ -198,7 +199,7 @@ boost::asio::ip::tcp::socket&amp; <a class="code" href="classhttp_1_1server_1_1c
 
 <p>Start the first asynchronous operation for the connection. </p>
 
-<p>Definition at line <a class="el" href="connection_8cpp_source.html#l00035">35</a> of file <a class="el" href="connection_8cpp_source.html">connection.cpp</a>.</p>
+<p>Definition at line <a class="el" href="connection_8cpp_source.html#l00036">36</a> of file <a class="el" href="connection_8cpp_source.html">connection.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
 </pre></div>
 </div>
@@ -219,7 +220,7 @@ boost::asio::ip::tcp::socket&amp; <a class="code" href="classhttp_1_1server_1_1c
 
 <p>Stop all asynchronous operations associated with the connection. </p>
 
-<p>Definition at line <a class="el" href="connection_8cpp_source.html#l00043">43</a> of file <a class="el" href="connection_8cpp_source.html">connection.cpp</a>.</p>
+<p>Definition at line <a class="el" href="connection_8cpp_source.html#l00045">45</a> of file <a class="el" href="connection_8cpp_source.html">connection.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -243,7 +244,7 @@ Here is the caller graph for this function:</div>
       <li class="navelem"><a class="el" href="namespacehttp.html">http</a>      </li>
       <li class="navelem"><a class="el" href="namespacehttp_1_1server.html">server</a>      </li>
       <li class="navelem"><a class="el" href="classhttp_1_1server_1_1connection.html">connection</a>      </li>
-      <li class="footer">Generated on Fri Mar 16 2012 10:41:04 for BoostHttpServer by&#160;
+      <li class="footer">Generated on Mon Mar 26 2012 14:00:24 for BoostHttpServer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </li>
     </ul>

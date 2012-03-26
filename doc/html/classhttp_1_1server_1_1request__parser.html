@@ -36,6 +36,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
@@ -102,11 +103,12 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename InputIterator &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">boost::tuple&lt; boost::tribool, <br class="typebreak"/>
 InputIterator &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classhttp_1_1server_1_1request__parser.html#aadad00b6eb0d4eca6573ca0ec39691ab">parse</a> (<a class="el" href="structhttp_1_1server_1_1request.html">request</a> &amp;req, InputIterator begin, InputIterator end)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse some data.  <a href="#aadad00b6eb0d4eca6573ca0ec39691ab"></a><br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Parser for incoming requests. </p>
 
-<p>Definition at line <a class="el" href="request__parser_8hpp_source.html#l00023">23</a> of file <a class="el" href="request__parser_8hpp_source.html">request_parser.hpp</a>.</p>
+<p>Definition at line <a class="el" href="request__parser_8hpp_source.html#l00024">24</a> of file <a class="el" href="request__parser_8hpp_source.html">request_parser.hpp</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a30bfbef18ce9872c363be0a2a0658c8c"></a><!-- doxytag: member="http::server::request_parser::request_parser" ref="a30bfbef18ce9872c363be0a2a0658c8c" args="()" -->
 <div class="memitem">
@@ -124,7 +126,7 @@ InputIterator &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a cl
 
 <p>Construct ready to parse the request method. </p>
 
-<p>Definition at line <a class="el" href="request__parser_8cpp_source.html#l00017">17</a> of file <a class="el" href="request__parser_8cpp_source.html">request_parser.cpp</a>.</p>
+<p>Definition at line <a class="el" href="request__parser_8cpp_source.html#l00019">19</a> of file <a class="el" href="request__parser_8cpp_source.html">request_parser.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">  : state_(method_start)
 {
 }
@@ -164,9 +166,11 @@ template&lt;typename InputIterator &gt; </div>
       </table>
 </div>
 <div class="memdoc">
-<p>Parse some data. The tribool return value is true when a complete request has been parsed, false if the data is invalid, indeterminate when more data is required. The InputIterator return value indicates how much of the input has been consumed. </p>
 
-<p>Definition at line <a class="el" href="request__parser_8hpp_source.html#l00037">37</a> of file <a class="el" href="request__parser_8hpp_source.html">request_parser.hpp</a>.</p>
+<p>Parse some data. </p>
+<p>The tribool return value is true when a complete request has been parsed, false if the data is invalid, indeterminate when more data is required. The InputIterator return value indicates how much of the input has been consumed. </p>
+
+<p>Definition at line <a class="el" href="request__parser_8hpp_source.html#l00038">38</a> of file <a class="el" href="request__parser_8hpp_source.html">request_parser.hpp</a>.</p>
 <div class="fragment"><pre class="fragment">  {
     <span class="keywordflow">while</span> (begin != end)
     {
@@ -196,7 +200,7 @@ template&lt;typename InputIterator &gt; </div>
 
 <p>Reset to initial parser state. </p>
 
-<p>Definition at line <a class="el" href="request__parser_8cpp_source.html#l00022">22</a> of file <a class="el" href="request__parser_8cpp_source.html">request_parser.cpp</a>.</p>
+<p>Definition at line <a class="el" href="request__parser_8cpp_source.html#l00024">24</a> of file <a class="el" href="request__parser_8cpp_source.html">request_parser.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
   state_ = method_start;
 }
@@ -214,7 +218,7 @@ template&lt;typename InputIterator &gt; </div>
       <li class="navelem"><a class="el" href="namespacehttp.html">http</a>      </li>
       <li class="navelem"><a class="el" href="namespacehttp_1_1server.html">server</a>      </li>
       <li class="navelem"><a class="el" href="classhttp_1_1server_1_1request__parser.html">request_parser</a>      </li>
-      <li class="footer">Generated on Fri Mar 16 2012 10:41:04 for BoostHttpServer by&#160;
+      <li class="footer">Generated on Mon Mar 26 2012 14:00:24 for BoostHttpServer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </li>
     </ul>

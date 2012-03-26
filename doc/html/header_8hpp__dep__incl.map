@@ -1,15 +1,15 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$reply_8hpp.html" title="src/reply.hpp" alt="" coords="365,83,461,112"/>
-<area shape="rect" id="node27" href="$request_8hpp.html" title="src/request.hpp" alt="" coords="209,83,321,112"/>
-<area shape="rect" id="node5" href="$connection_8hpp.html" title="src/connection.hpp" alt="" coords="189,160,320,189"/>
-<area shape="rect" id="node23" href="$reply_8cpp.html" title="src/reply.cpp" alt="" coords="528,160,624,189"/>
-<area shape="rect" id="node25" href="$request__handler_8cpp.html" title="src/request_handler.cpp" alt="" coords="344,160,504,189"/>
-<area shape="rect" id="node7" href="$connection_8cpp.html" title="src/connection.cpp" alt="" coords="5,315,136,344"/>
-<area shape="rect" id="node9" href="$connection__manager_8hpp.html" title="src/connection_manager.hpp" alt="" coords="160,237,349,267"/>
-<area shape="rect" id="node14" href="$server_8hpp.html" title="src/server.hpp" alt="" coords="373,315,477,344"/>
-<area shape="rect" id="node12" href="$connection__manager_8cpp.html" title="src/connection_manager.cpp" alt="" coords="160,315,349,344"/>
-<area shape="rect" id="node16" href="$posix__main_8cpp.html" title="src/posix_main.cpp" alt="" coords="216,392,349,421"/>
-<area shape="rect" id="node18" href="$server_8cpp.html" title="src/server.cpp" alt="" coords="373,392,477,421"/>
-<area shape="rect" id="node20" href="$win__main_8cpp.html" title="src/win_main.cpp" alt="" coords="501,392,624,421"/>
-<area shape="rect" id="node31" href="$request__parser_8cpp.html" title="src/request_parser.cpp" alt="" coords="11,160,165,189"/>
+<area shape="rect" id="node3" href="$reply_8hpp.html" title="A reply to be sent to a client." alt="" coords="365,83,461,112"/>
+<area shape="rect" id="node27" href="$request_8hpp.html" title="Structure of a HTTP request." alt="" coords="209,83,321,112"/>
+<area shape="rect" id="node5" href="$connection_8hpp.html" title="Manages a single connection from a client." alt="" coords="189,160,320,189"/>
+<area shape="rect" id="node23" href="$reply_8cpp.html" title="A reply to be sent to a client." alt="" coords="528,160,624,189"/>
+<area shape="rect" id="node25" href="$request__handler_8cpp.html" title="Handle a HTTP request by returning the client the ressource he asked." alt="" coords="344,160,504,189"/>
+<area shape="rect" id="node7" href="$connection_8cpp.html" title="Manages a single connection from a client." alt="" coords="5,315,136,344"/>
+<area shape="rect" id="node9" href="$connection__manager_8hpp.html" title="Manages all open connections to clients." alt="" coords="160,237,349,267"/>
+<area shape="rect" id="node14" href="$server_8hpp.html" title="The HTTP server accepting client connections." alt="" coords="373,315,477,344"/>
+<area shape="rect" id="node12" href="$connection__manager_8cpp.html" title="Manages all open connections to clients." alt="" coords="160,315,349,344"/>
+<area shape="rect" id="node16" href="$posix__main_8cpp.html" title="POSIX (Linux/Unix/Cygwin) entry point with clean shutdown signal managment." alt="" coords="216,392,349,421"/>
+<area shape="rect" id="node18" href="$server_8cpp.html" title="The HTTP server accepting client connections." alt="" coords="373,392,477,421"/>
+<area shape="rect" id="node20" href="$win__main_8cpp.html" title="Win32 (Windows XP/7) entry point with clean shutdown console managment." alt="" coords="501,392,624,421"/>
+<area shape="rect" id="node31" href="$request__parser_8cpp.html" title="HTTP header parser of incoming requests." alt="" coords="11,160,165,189"/>
 </map>

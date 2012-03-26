@@ -36,6 +36,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
@@ -98,11 +99,13 @@ Classes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhttp_1_1server_1_1connection.html">connection</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a single connection from a client.  <a href="classhttp_1_1server_1_1connection.html#_details">More...</a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhttp_1_1server_1_1connection__manager.html">connection_manager</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Manages all open connections to clients.  <a href="classhttp_1_1server_1_1connection__manager.html#_details">More...</a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhttp_1_1server_1_1header.html">header</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure of a header in a HTTP request or reply.  <a href="structhttp_1_1server_1_1header.html#_details">More...</a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhttp_1_1server_1_1reply.html">reply</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A reply to be sent to a client.  <a href="structhttp_1_1server_1_1reply.html#_details">More...</a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhttp_1_1server_1_1request.html">request</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A request received from a client.  <a href="structhttp_1_1server_1_1request.html#_details">More...</a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure of a HTTP request received from a client.  <a href="structhttp_1_1server_1_1request.html#_details">More...</a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhttp_1_1server_1_1request__handler.html">request_handler</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The common handler for all incoming requests.  <a href="classhttp_1_1server_1_1request__handler.html#_details">More...</a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhttp_1_1server_1_1request__parser.html">request_parser</a></td></tr>
@@ -113,6 +116,8 @@ Classes</h2></td></tr>
 Typedefs</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef boost::shared_ptr<br class="typebreak"/>
 &lt; <a class="el" href="classhttp_1_1server_1_1connection.html">connection</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehttp_1_1server.html#a2e8b5f3a41bfe0c1a886ef8d77dccb59">connection_ptr</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; <a class="el" href="structhttp_1_1server_1_1header.html">header</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehttp_1_1server.html#a12b9bb52f42c4d4c6df7b4b9cd7fc361">headers_list</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">List of HTTP headers.  <a href="#a12b9bb52f42c4d4c6df7b4b9cd7fc361"></a><br/></td></tr>
 </table>
 <hr/><h2>Typedef Documentation</h2>
 <a class="anchor" id="a2e8b5f3a41bfe0c1a886ef8d77dccb59"></a><!-- doxytag: member="http::server::connection_ptr" ref="a2e8b5f3a41bfe0c1a886ef8d77dccb59" args="" -->
@@ -126,7 +131,24 @@ Typedefs</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="connection_8hpp_source.html#l00078">78</a> of file <a class="el" href="connection_8hpp_source.html">connection.hpp</a>.</p>
+<p>Definition at line <a class="el" href="connection_8hpp_source.html#l00079">79</a> of file <a class="el" href="connection_8hpp_source.html">connection.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a12b9bb52f42c4d4c6df7b4b9cd7fc361"></a><!-- doxytag: member="http::server::headers_list" ref="a12b9bb52f42c4d4c6df7b4b9cd7fc361" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::vector&lt;<a class="el" href="structhttp_1_1server_1_1header.html">header</a>&gt; <a class="el" href="namespacehttp_1_1server.html#a12b9bb52f42c4d4c6df7b4b9cd7fc361">http::server::headers_list</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>List of HTTP headers. </p>
+
+<p>Definition at line <a class="el" href="header_8hpp_source.html#l00029">29</a> of file <a class="el" href="header_8hpp_source.html">header.hpp</a>.</p>
 
 </div>
 </div>
@@ -136,7 +158,7 @@ Typedefs</h2></td></tr>
     <ul>
       <li class="navelem"><a class="el" href="namespacehttp.html">http</a>      </li>
       <li class="navelem"><a class="el" href="namespacehttp_1_1server.html">server</a>      </li>
-      <li class="footer">Generated on Fri Mar 16 2012 10:41:04 for BoostHttpServer by&#160;
+      <li class="footer">Generated on Mon Mar 26 2012 14:00:24 for BoostHttpServer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </li>
     </ul>

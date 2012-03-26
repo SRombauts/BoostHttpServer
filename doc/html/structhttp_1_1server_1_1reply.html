@@ -36,6 +36,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
@@ -98,7 +99,7 @@ Collaboration diagram for http::server::reply:</div>
 <div class="dyncontent">
 <div class="center"><img src="structhttp_1_1server_1_1reply__coll__graph.png" border="0" usemap="#http_1_1server_1_1reply_coll__map" alt="Collaboration graph"/></div>
 <map name="http_1_1server_1_1reply_coll__map" id="http_1_1server_1_1reply_coll__map">
-<area shape="rect" id="node4" href="structhttp_1_1server_1_1header.html" title="http::server::header" alt="" coords="107,197,240,227"/><area shape="rect" id="node6" title="STL class." alt="" coords="48,85,128,115"/><area shape="rect" id="node8" title="STL class." alt="" coords="5,5,171,35"/></map>
+<area shape="rect" id="node4" href="structhttp_1_1server_1_1header.html" title="Structure of a header in a HTTP request or reply." alt="" coords="107,197,240,227"/><area shape="rect" id="node6" title="STL class." alt="" coords="48,85,128,115"/><area shape="rect" id="node8" title="STL class." alt="" coords="5,5,171,35"/></map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="structhttp_1_1server_1_1reply-members.html">List of all members.</a></p>
@@ -133,23 +134,26 @@ Public Types</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::vector<br class="typebreak"/>
 &lt; boost::asio::const_buffer &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhttp_1_1server_1_1reply.html#aada1a8123aabeb787da9adcfcf9fc86c">to_buffers</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the reply into a vector of buffers.  <a href="#aada1a8123aabeb787da9adcfcf9fc86c"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structhttp_1_1server_1_1reply.html">reply</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhttp_1_1server_1_1reply.html#a4c781e107fd381205ad721ec8635176f">stock_reply</a> (<a class="el" href="structhttp_1_1server_1_1reply.html#a08d3b8d638988f252ab4e5cd3db72ad6">status_type</a> <a class="el" href="structhttp_1_1server_1_1reply.html#ae34131ac243daea29e608ceebef76c6b">status</a>)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a stock reply.  <a href="#a4c781e107fd381205ad721ec8635176f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structhttp_1_1server_1_1reply.html">reply</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhttp_1_1server_1_1reply.html#a3b72ce6d1ee099e09ac6566ecc3a3b31">redirect_reply</a> (const std::string &amp;location)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a redirect reply.  <a href="#a3b72ce6d1ee099e09ac6566ecc3a3b31"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">enum <br class="typebreak"/>
 <a class="el" href="structhttp_1_1server_1_1reply.html#a08d3b8d638988f252ab4e5cd3db72ad6">http::server::reply::status_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhttp_1_1server_1_1reply.html#ae34131ac243daea29e608ceebef76c6b">status</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structhttp_1_1server_1_1header.html">header</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhttp_1_1server_1_1reply.html#a99662bcf3a045a9343ee3abe0bc00acc">headers</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The headers to be included in the reply.  <a href="#a99662bcf3a045a9343ee3abe0bc00acc"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacehttp_1_1server.html#a12b9bb52f42c4d4c6df7b4b9cd7fc361">headers_list</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhttp_1_1server_1_1reply.html#aae0458d493037abdbdb58f6bef735167">headers</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The headers to be included in the reply.  <a href="#aae0458d493037abdbdb58f6bef735167"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhttp_1_1server_1_1reply.html#a22b2078e8e9d45f2ff152a1b41876ee0">content</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The content to be sent in the reply.  <a href="#a22b2078e8e9d45f2ff152a1b41876ee0"></a><br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>A reply to be sent to a client. </p>
 
-<p>Definition at line <a class="el" href="reply_8hpp_source.html#l00023">23</a> of file <a class="el" href="reply_8hpp_source.html">reply.hpp</a>.</p>
+<p>Definition at line <a class="el" href="reply_8hpp_source.html#l00024">24</a> of file <a class="el" href="reply_8hpp_source.html">reply.hpp</a>.</p>
 </div><hr/><h2>Member Enumeration Documentation</h2>
 <a class="anchor" id="a08d3b8d638988f252ab4e5cd3db72ad6"></a><!-- doxytag: member="http::server::reply::status_type" ref="a08d3b8d638988f252ab4e5cd3db72ad6" args="" -->
 <div class="memitem">
@@ -200,7 +204,7 @@ Public Attributes</h2></td></tr>
 </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="reply_8hpp_source.html#l00026">26</a> of file <a class="el" href="reply_8hpp_source.html">reply.hpp</a>.</p>
+<p>Definition at line <a class="el" href="reply_8hpp_source.html#l00027">27</a> of file <a class="el" href="reply_8hpp_source.html">reply.hpp</a>.</p>
 <div class="fragment"><pre class="fragment">  {
     <a class="code" href="structhttp_1_1server_1_1reply.html#a08d3b8d638988f252ab4e5cd3db72ad6a28e2d7cae0b65e27f263dd8c229eb13a">ok</a> = 200,
     <a class="code" href="structhttp_1_1server_1_1reply.html#a08d3b8d638988f252ab4e5cd3db72ad6a78e01cbc5a4d87f95d6188f6917d5847">created</a> = 201,
@@ -223,6 +227,54 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a3b72ce6d1ee099e09ac6566ecc3a3b31"></a><!-- doxytag: member="http::server::reply::redirect_reply" ref="a3b72ce6d1ee099e09ac6566ecc3a3b31" args="(const std::string &amp;location)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structhttp_1_1server_1_1reply.html">reply</a> http::server::reply::redirect_reply </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>location</em></td><td>)</td>
+          <td><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Get a redirect reply. </p>
+
+<p>Definition at line <a class="el" href="reply_8cpp_source.html#l00258">258</a> of file <a class="el" href="reply_8cpp_source.html">reply.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+  reply rep;
+  rep.status = <a class="code" href="structhttp_1_1server_1_1reply.html#a08d3b8d638988f252ab4e5cd3db72ad6a9b3019172ca8778f3dd0073a6e96c249">reply::moved_permanently</a>;
+  rep.content = <a class="code" href="namespacehttp_1_1server_1_1stock__replies.html#a4ded47eeac4e3d89b45848961fbc7a41">stock_replies::to_string</a>(<a class="code" href="structhttp_1_1server_1_1reply.html#a08d3b8d638988f252ab4e5cd3db72ad6a9b3019172ca8778f3dd0073a6e96c249">reply::moved_permanently</a>);
+  rep.headers.resize(1);
+  rep.headers[0].name = <span class="stringliteral">&quot;Location&quot;</span>;
+  rep.headers[0].value = location;
+  <span class="keywordflow">return</span> rep;
+}
+</pre></div>
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="structhttp_1_1server_1_1reply_a3b72ce6d1ee099e09ac6566ecc3a3b31_cgraph.png" border="0" usemap="#structhttp_1_1server_1_1reply_a3b72ce6d1ee099e09ac6566ecc3a3b31_cgraph" alt=""/></div>
+<map name="structhttp_1_1server_1_1reply_a3b72ce6d1ee099e09ac6566ecc3a3b31_cgraph" id="structhttp_1_1server_1_1reply_a3b72ce6d1ee099e09ac6566ecc3a3b31_cgraph">
+<area shape="rect" id="node3" href="namespacehttp_1_1server_1_1stock__replies.html#a4ded47eeac4e3d89b45848961fbc7a41" title="http::server::stock_replies::to_string" alt="" coords="265,5,495,35"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="structhttp_1_1server_1_1reply_a3b72ce6d1ee099e09ac6566ecc3a3b31_icgraph.png" border="0" usemap="#structhttp_1_1server_1_1reply_a3b72ce6d1ee099e09ac6566ecc3a3b31_icgraph" alt=""/></div>
+<map name="structhttp_1_1server_1_1reply_a3b72ce6d1ee099e09ac6566ecc3a3b31_icgraph" id="structhttp_1_1server_1_1reply_a3b72ce6d1ee099e09ac6566ecc3a3b31_icgraph">
+<area shape="rect" id="node3" href="classhttp_1_1server_1_1request__handler.html#a7430992fc71d181dcd5654b71c6f8d7b" title="Handle a request and produce a reply." alt="" coords="265,5,548,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="a4c781e107fd381205ad721ec8635176f"></a><!-- doxytag: member="http::server::reply::stock_reply" ref="a4c781e107fd381205ad721ec8635176f" args="(status_type status)" -->
 <div class="memitem">
 <div class="memproto">
@@ -240,7 +292,7 @@ Public Attributes</h2></td></tr>
 
 <p>Get a stock reply. </p>
 
-<p>Definition at line <a class="el" href="reply_8cpp_source.html#l00242">242</a> of file <a class="el" href="reply_8cpp_source.html">reply.cpp</a>.</p>
+<p>Definition at line <a class="el" href="reply_8cpp_source.html#l00245">245</a> of file <a class="el" href="reply_8cpp_source.html">reply.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
   reply rep;
   rep.status = <a class="code" href="structhttp_1_1server_1_1reply.html#ae34131ac243daea29e608ceebef76c6b">status</a>;
@@ -286,15 +338,19 @@ Here is the caller graph for this function:</div>
       </table>
 </div>
 <div class="memdoc">
-<p>Convert the reply into a vector of buffers. The buffers do not own the underlying memory blocks, therefore the reply object must remain valid and not be changed until the write operation has completed. </p>
 
-<p>Definition at line <a class="el" href="reply_8cpp_source.html#l00103">103</a> of file <a class="el" href="reply_8cpp_source.html">reply.cpp</a>.</p>
+<p>Convert the reply into a vector of buffers. </p>
+<p>Serialisation of the reply.</p>
+<p>The buffers do not own the underlying memory blocks, therefore the reply object must remain valid and not be changed until the write operation has completed. </p>
+
+<p>Definition at line <a class="el" href="reply_8cpp_source.html#l00105">105</a> of file <a class="el" href="reply_8cpp_source.html">reply.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
   std::vector&lt;boost::asio::const_buffer&gt; buffers;
+  
   buffers.push_back(<a class="code" href="namespacehttp_1_1server_1_1status__strings.html#a39ae0992f88e2e533b249a1ec612ca64">status_strings::to_buffer</a>(<a class="code" href="structhttp_1_1server_1_1reply.html#ae34131ac243daea29e608ceebef76c6b">status</a>));
-  <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; <a class="code" href="structhttp_1_1server_1_1reply.html#a99662bcf3a045a9343ee3abe0bc00acc" title="The headers to be included in the reply.">headers</a>.size(); ++i)
+  <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; <a class="code" href="structhttp_1_1server_1_1reply.html#aae0458d493037abdbdb58f6bef735167" title="The headers to be included in the reply.">headers</a>.size(); ++i)
   {
-    header&amp; h = <a class="code" href="structhttp_1_1server_1_1reply.html#a99662bcf3a045a9343ee3abe0bc00acc" title="The headers to be included in the reply.">headers</a>[i];
+    <span class="keyword">const</span> header&amp; h = <a class="code" href="structhttp_1_1server_1_1reply.html#aae0458d493037abdbdb58f6bef735167" title="The headers to be included in the reply.">headers</a>[i];
     buffers.push_back(boost::asio::buffer(h.name));
     buffers.push_back(boost::asio::buffer(<a class="code" href="namespacehttp_1_1server_1_1misc__strings.html#acea0f2b6a0d9bffa9fd2510cd8e95821">misc_strings::name_value_separator</a>));
     buffers.push_back(boost::asio::buffer(h.value));
@@ -330,16 +386,16 @@ Here is the call graph for this function:</div>
 
 <p>The content to be sent in the reply. </p>
 
-<p>Definition at line <a class="el" href="reply_8hpp_source.html#l00050">50</a> of file <a class="el" href="reply_8hpp_source.html">reply.hpp</a>.</p>
+<p>Definition at line <a class="el" href="reply_8hpp_source.html#l00051">51</a> of file <a class="el" href="reply_8hpp_source.html">reply.hpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a99662bcf3a045a9343ee3abe0bc00acc"></a><!-- doxytag: member="http::server::reply::headers" ref="a99662bcf3a045a9343ee3abe0bc00acc" args="" -->
+<a class="anchor" id="aae0458d493037abdbdb58f6bef735167"></a><!-- doxytag: member="http::server::reply::headers" ref="aae0458d493037abdbdb58f6bef735167" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="structhttp_1_1server_1_1header.html">header</a>&gt; <a class="el" href="structhttp_1_1server_1_1reply.html#a99662bcf3a045a9343ee3abe0bc00acc">http::server::reply::headers</a></td>
+          <td class="memname"><a class="el" href="namespacehttp_1_1server.html#a12b9bb52f42c4d4c6df7b4b9cd7fc361">headers_list</a> <a class="el" href="structhttp_1_1server_1_1reply.html#aae0458d493037abdbdb58f6bef735167">http::server::reply::headers</a></td>
         </tr>
       </table>
 </div>
@@ -347,7 +403,7 @@ Here is the call graph for this function:</div>
 
 <p>The headers to be included in the reply. </p>
 
-<p>Definition at line <a class="el" href="reply_8hpp_source.html#l00047">47</a> of file <a class="el" href="reply_8hpp_source.html">reply.hpp</a>.</p>
+<p>Definition at line <a class="el" href="reply_8hpp_source.html#l00048">48</a> of file <a class="el" href="reply_8hpp_source.html">reply.hpp</a>.</p>
 
 </div>
 </div>
@@ -375,7 +431,7 @@ Here is the call graph for this function:</div>
       <li class="navelem"><a class="el" href="namespacehttp.html">http</a>      </li>
       <li class="navelem"><a class="el" href="namespacehttp_1_1server.html">server</a>      </li>
       <li class="navelem"><a class="el" href="structhttp_1_1server_1_1reply.html">reply</a>      </li>
-      <li class="footer">Generated on Fri Mar 16 2012 10:41:04 for BoostHttpServer by&#160;
+      <li class="footer">Generated on Mon Mar 26 2012 14:00:24 for BoostHttpServer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </li>
     </ul>

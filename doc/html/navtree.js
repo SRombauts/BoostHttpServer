@@ -1,6 +1,10 @@
 var NAVTREE =
 [
   [ "BoostHttpServer", "index.html", [
+    [ "Boost C++ HTTP Server", "index.html", null ],
+    [ "Related Pages", "pages.html", [
+      [ "Todo List", "todo.html", null ]
+    ] ],
     [ "Class List", "annotated.html", [
       [ "http::server::connection", "classhttp_1_1server_1_1connection.html", null ],
       [ "http::server::connection_manager", "classhttp_1_1server_1_1connection__manager.html", null ],

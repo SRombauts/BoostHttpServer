@@ -1,15 +1,13 @@
 ///
-/// @file   header.hpp
-/// @module server
-/// @brief  Structure of a header in a request or a reply
+/// \file header.hpp
+///
+/// Structure of a header in a HTTP request or reply.
 /// 
-
-//
-// Copyright (c) 2003-2011 Christopher M. Kohlhoff (chris at kohlhoff dot com)
-//
-// Distributed under the Boost Software License, Version 1.0. (See accompanying
-// file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
-//
+/// Copyright (c) 2003-2011 Christopher M. Kohlhoff (chris at kohlhoff dot com)
+///
+/// Distributed under the Boost Software License, Version 1.0. (See accompanying
+/// file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+///
 
 #ifndef HTTP_HEADER_HPP
 #define HTTP_HEADER_HPP

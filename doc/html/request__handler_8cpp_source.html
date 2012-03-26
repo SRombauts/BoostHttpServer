@@ -36,6 +36,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -82,134 +83,216 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h1>src/request_handler.cpp</h1>  </div>
 </div>
 <div class="contents">
-<a href="request__handler_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">//</span>
-<a name="l00002"></a>00002 <span class="comment">// request_handler.cpp</span>
-<a name="l00003"></a>00003 <span class="comment">// ~~~~~~~~~~~~~~~~~~~</span>
-<a name="l00004"></a>00004 <span class="comment">//</span>
-<a name="l00005"></a>00005 <span class="comment">// Copyright (c) 2003-2011 Christopher M. Kohlhoff (chris at kohlhoff dot com)</span>
-<a name="l00006"></a>00006 <span class="comment">//</span>
-<a name="l00007"></a>00007 <span class="comment">// Distributed under the Boost Software License, Version 1.0. (See accompanying</span>
-<a name="l00008"></a>00008 <span class="comment">// file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)</span>
-<a name="l00009"></a>00009 <span class="comment">//</span>
-<a name="l00010"></a>00010 
-<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;<a class="code" href="request__handler_8hpp.html">request_handler.hpp</a>&quot;</span>
-<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;fstream&gt;</span>
-<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;sstream&gt;</span>
-<a name="l00014"></a>00014 <span class="preprocessor">#include &lt;string&gt;</span>
-<a name="l00015"></a>00015 <span class="preprocessor">#include &lt;boost/lexical_cast.hpp&gt;</span>
-<a name="l00016"></a>00016 <span class="preprocessor">#include &quot;<a class="code" href="mime__types_8hpp.html">mime_types.hpp</a>&quot;</span>
-<a name="l00017"></a>00017 <span class="preprocessor">#include &quot;<a class="code" href="reply_8hpp.html">reply.hpp</a>&quot;</span>
-<a name="l00018"></a>00018 <span class="preprocessor">#include &quot;<a class="code" href="request_8hpp.html">request.hpp</a>&quot;</span>
-<a name="l00019"></a>00019 
-<a name="l00020"></a>00020 <span class="keyword">namespace </span>http {
-<a name="l00021"></a>00021 <span class="keyword">namespace </span>server {
-<a name="l00022"></a>00022 
-<a name="l00023"></a><a class="code" href="classhttp_1_1server_1_1request__handler.html#ab0a7c5f4a85b74017d39095a3355d356">00023</a> <a class="code" href="classhttp_1_1server_1_1request__handler.html#ab0a7c5f4a85b74017d39095a3355d356" title="Construct with a directory containing files to be served.">request_handler::request_handler</a>(<span class="keyword">const</span> std::string&amp; doc_root)
-<a name="l00024"></a>00024   : doc_root_(doc_root)
-<a name="l00025"></a>00025 {
-<a name="l00026"></a>00026 }
-<a name="l00027"></a>00027 
-<a name="l00028"></a><a class="code" href="classhttp_1_1server_1_1request__handler.html#a7430992fc71d181dcd5654b71c6f8d7b">00028</a> <span class="keywordtype">void</span> <a class="code" href="classhttp_1_1server_1_1request__handler.html#a7430992fc71d181dcd5654b71c6f8d7b" title="Handle a request and produce a reply.">request_handler::handle_request</a>(<span class="keyword">const</span> <a class="code" href="structhttp_1_1server_1_1request.html" title="A request received from a client.">request</a>&amp; req, <a class="code" href="structhttp_1_1server_1_1reply.html" title="A reply to be sent to a client.">reply</a>&amp; rep)
-<a name="l00029"></a>00029 {
-<a name="l00030"></a>00030   <span class="comment">// Decode url to path.</span>
-<a name="l00031"></a>00031   std::string request_path;
-<a name="l00032"></a>00032   <span class="keywordflow">if</span> (!url_decode(req.<a class="code" href="structhttp_1_1server_1_1request.html#a42621446fc15d7b7a4274a85fde21aa2">uri</a>, request_path))
-<a name="l00033"></a>00033   {
-<a name="l00034"></a>00034     rep = <a class="code" href="structhttp_1_1server_1_1reply.html#a4c781e107fd381205ad721ec8635176f" title="Get a stock reply.">reply::stock_reply</a>(<a class="code" href="structhttp_1_1server_1_1reply.html#a08d3b8d638988f252ab4e5cd3db72ad6aef848a42bd8aca5d6f8659466c650cdb">reply::bad_request</a>);
-<a name="l00035"></a>00035     <span class="keywordflow">return</span>;
-<a name="l00036"></a>00036   }
-<a name="l00037"></a>00037 
-<a name="l00038"></a>00038   <span class="comment">// Request path must be absolute and not contain &quot;..&quot;.</span>
-<a name="l00039"></a>00039   <span class="keywordflow">if</span> (request_path.empty() || request_path[0] != <span class="charliteral">&#39;/&#39;</span>
-<a name="l00040"></a>00040       || request_path.find(<span class="stringliteral">&quot;..&quot;</span>) != std::string::npos)
-<a name="l00041"></a>00041   {
-<a name="l00042"></a>00042     rep = <a class="code" href="structhttp_1_1server_1_1reply.html#a4c781e107fd381205ad721ec8635176f" title="Get a stock reply.">reply::stock_reply</a>(<a class="code" href="structhttp_1_1server_1_1reply.html#a08d3b8d638988f252ab4e5cd3db72ad6aef848a42bd8aca5d6f8659466c650cdb">reply::bad_request</a>);
-<a name="l00043"></a>00043     <span class="keywordflow">return</span>;
-<a name="l00044"></a>00044   }
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046   <span class="comment">// If path ends in slash (i.e. is a directory) then add &quot;index.html&quot;.</span>
-<a name="l00047"></a>00047   <span class="keywordflow">if</span> (request_path[request_path.size() - 1] == <span class="charliteral">&#39;/&#39;</span>)
-<a name="l00048"></a>00048   {
-<a name="l00049"></a>00049     request_path += <span class="stringliteral">&quot;index.html&quot;</span>;
-<a name="l00050"></a>00050   }
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052   <span class="comment">// Determine the file extension.</span>
-<a name="l00053"></a>00053   std::size_t last_slash_pos = request_path.find_last_of(<span class="stringliteral">&quot;/&quot;</span>);
-<a name="l00054"></a>00054   std::size_t last_dot_pos = request_path.find_last_of(<span class="stringliteral">&quot;.&quot;</span>);
-<a name="l00055"></a>00055   std::string extension;
-<a name="l00056"></a>00056   <span class="keywordflow">if</span> (last_dot_pos != std::string::npos &amp;&amp; last_dot_pos &gt; last_slash_pos)
-<a name="l00057"></a>00057   {
-<a name="l00058"></a>00058     extension = request_path.substr(last_dot_pos + 1);
-<a name="l00059"></a>00059   }
-<a name="l00060"></a>00060 
-<a name="l00061"></a>00061   <span class="comment">// Open the file to send back.</span>
-<a name="l00062"></a>00062   std::string full_path = doc_root_ + request_path;
-<a name="l00063"></a>00063   std::ifstream is(full_path.c_str(), std::ios::in | std::ios::binary);
-<a name="l00064"></a>00064   <span class="keywordflow">if</span> (!is)
-<a name="l00065"></a>00065   {
-<a name="l00066"></a>00066     rep = <a class="code" href="structhttp_1_1server_1_1reply.html#a4c781e107fd381205ad721ec8635176f" title="Get a stock reply.">reply::stock_reply</a>(<a class="code" href="structhttp_1_1server_1_1reply.html#a08d3b8d638988f252ab4e5cd3db72ad6aec2335faa1890825e6eab8772aec5f7d">reply::not_found</a>);
-<a name="l00067"></a>00067     <span class="keywordflow">return</span>;
-<a name="l00068"></a>00068   }
-<a name="l00069"></a>00069 
-<a name="l00070"></a>00070   <span class="comment">// Fill out the reply to be sent to the client.</span>
-<a name="l00071"></a>00071   rep.<a class="code" href="structhttp_1_1server_1_1reply.html#ae34131ac243daea29e608ceebef76c6b">status</a> = <a class="code" href="namespacehttp_1_1server_1_1status__strings.html#ab0a8fa4741e9a5550a9622de2dfa7bd7">reply::ok</a>;
-<a name="l00072"></a>00072   <span class="keywordtype">char</span> buf[512];
-<a name="l00073"></a>00073   <span class="keywordflow">while</span> (is.read(buf, <span class="keyword">sizeof</span>(buf)).gcount() &gt; 0)
-<a name="l00074"></a>00074     rep.<a class="code" href="structhttp_1_1server_1_1reply.html#a22b2078e8e9d45f2ff152a1b41876ee0" title="The content to be sent in the reply.">content</a>.append(buf, is.gcount());
-<a name="l00075"></a>00075   rep.<a class="code" href="structhttp_1_1server_1_1reply.html#a99662bcf3a045a9343ee3abe0bc00acc" title="The headers to be included in the reply.">headers</a>.resize(2);
-<a name="l00076"></a>00076   rep.<a class="code" href="structhttp_1_1server_1_1reply.html#a99662bcf3a045a9343ee3abe0bc00acc" title="The headers to be included in the reply.">headers</a>[0].name = <span class="stringliteral">&quot;Content-Length&quot;</span>;
-<a name="l00077"></a>00077   rep.<a class="code" href="structhttp_1_1server_1_1reply.html#a99662bcf3a045a9343ee3abe0bc00acc" title="The headers to be included in the reply.">headers</a>[0].value = boost::lexical_cast&lt;std::string&gt;(rep.<a class="code" href="structhttp_1_1server_1_1reply.html#a22b2078e8e9d45f2ff152a1b41876ee0" title="The content to be sent in the reply.">content</a>.size());
-<a name="l00078"></a>00078   rep.<a class="code" href="structhttp_1_1server_1_1reply.html#a99662bcf3a045a9343ee3abe0bc00acc" title="The headers to be included in the reply.">headers</a>[1].name = <span class="stringliteral">&quot;Content-Type&quot;</span>;
-<a name="l00079"></a>00079   rep.<a class="code" href="structhttp_1_1server_1_1reply.html#a99662bcf3a045a9343ee3abe0bc00acc" title="The headers to be included in the reply.">headers</a>[1].value = <a class="code" href="namespacehttp_1_1server_1_1mime__types.html#aaa3cd5827dc485ab288a3c446ef023bc" title="Convert a file extension into a MIME type.">mime_types::extension_to_type</a>(extension);
-<a name="l00080"></a>00080 }
-<a name="l00081"></a>00081 
-<a name="l00082"></a>00082 <span class="keywordtype">bool</span> request_handler::url_decode(<span class="keyword">const</span> std::string&amp; in, std::string&amp; out)
-<a name="l00083"></a>00083 {
-<a name="l00084"></a>00084   out.clear();
-<a name="l00085"></a>00085   out.reserve(in.size());
-<a name="l00086"></a>00086   <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; in.size(); ++i)
-<a name="l00087"></a>00087   {
-<a name="l00088"></a>00088     <span class="keywordflow">if</span> (in[i] == <span class="charliteral">&#39;%&#39;</span>)
-<a name="l00089"></a>00089     {
-<a name="l00090"></a>00090       <span class="keywordflow">if</span> (i + 3 &lt;= in.size())
-<a name="l00091"></a>00091       {
-<a name="l00092"></a>00092         <span class="keywordtype">int</span> value = 0;
-<a name="l00093"></a>00093         std::istringstream is(in.substr(i + 1, 2));
-<a name="l00094"></a>00094         <span class="keywordflow">if</span> (is &gt;&gt; std::hex &gt;&gt; value)
-<a name="l00095"></a>00095         {
-<a name="l00096"></a>00096           out += <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span>(value);
-<a name="l00097"></a>00097           i += 2;
-<a name="l00098"></a>00098         }
-<a name="l00099"></a>00099         <span class="keywordflow">else</span>
-<a name="l00100"></a>00100         {
-<a name="l00101"></a>00101           <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00102"></a>00102         }
-<a name="l00103"></a>00103       }
-<a name="l00104"></a>00104       <span class="keywordflow">else</span>
-<a name="l00105"></a>00105       {
-<a name="l00106"></a>00106         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00107"></a>00107       }
-<a name="l00108"></a>00108     }
-<a name="l00109"></a>00109     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (in[i] == <span class="charliteral">&#39;+&#39;</span>)
-<a name="l00110"></a>00110     {
-<a name="l00111"></a>00111       out += <span class="charliteral">&#39; &#39;</span>;
-<a name="l00112"></a>00112     }
-<a name="l00113"></a>00113     <span class="keywordflow">else</span>
-<a name="l00114"></a>00114     {
-<a name="l00115"></a>00115       out += in[i];
-<a name="l00116"></a>00116     }
-<a name="l00117"></a>00117   }
-<a name="l00118"></a>00118   <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00119"></a>00119 }
-<a name="l00120"></a>00120 
-<a name="l00121"></a>00121 } <span class="comment">// namespace server</span>
-<a name="l00122"></a>00122 } <span class="comment">// namespace http</span>
+<a href="request__handler_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">///</span>
+<a name="l00002"></a>00002 <span class="comment"></span><span class="comment">/// \file request_handler.cpp</span>
+<a name="l00003"></a>00003 <span class="comment"></span><span class="comment">/// </span>
+<a name="l00004"></a>00004 <span class="comment"></span><span class="comment">/// Handle a HTTP request by returning the client the ressource he asked.</span>
+<a name="l00005"></a>00005 <span class="comment"></span><span class="comment">///</span>
+<a name="l00006"></a>00006 <span class="comment"></span><span class="comment">/// Copyright (c) 2003-2011 Christopher M. Kohlhoff (chris at kohlhoff dot com)</span>
+<a name="l00007"></a>00007 <span class="comment"></span><span class="comment">///</span>
+<a name="l00008"></a>00008 <span class="comment"></span><span class="comment">/// Distributed under the Boost Software License, Version 1.0. (See accompanying</span>
+<a name="l00009"></a>00009 <span class="comment"></span><span class="comment">/// file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)</span>
+<a name="l00010"></a>00010 <span class="comment"></span><span class="comment">///</span>
+<a name="l00011"></a>00011 <span class="comment"></span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="request__handler_8hpp.html" title="Handle a HTTP request by returning the client the ressource he asked.">request_handler.hpp</a>&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;fstream&gt;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &lt;sstream&gt;</span>
+<a name="l00015"></a>00015 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include &lt;boost/lexical_cast.hpp&gt;</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &lt;boost/filesystem.hpp&gt;</span>
+<a name="l00018"></a>00018 <span class="preprocessor">#include &quot;<a class="code" href="mime__types_8hpp.html" title="Conversion of a file extension into a MIME type.">mime_types.hpp</a>&quot;</span>
+<a name="l00019"></a>00019 <span class="preprocessor">#include &quot;<a class="code" href="reply_8hpp.html" title="A reply to be sent to a client.">reply.hpp</a>&quot;</span>
+<a name="l00020"></a>00020 <span class="preprocessor">#include &quot;<a class="code" href="request_8hpp.html" title="Structure of a HTTP request.">request.hpp</a>&quot;</span>
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022 <span class="keyword">namespace </span>http {
+<a name="l00023"></a>00023 <span class="keyword">namespace </span>server {
+<a name="l00024"></a>00024 
+<a name="l00025"></a><a class="code" href="classhttp_1_1server_1_1request__handler.html#ab0a7c5f4a85b74017d39095a3355d356">00025</a> <a class="code" href="classhttp_1_1server_1_1request__handler.html#ab0a7c5f4a85b74017d39095a3355d356" title="Construct with a directory containing files to be served.">request_handler::request_handler</a>(<span class="keyword">const</span> std::string&amp; doc_root)
+<a name="l00026"></a>00026   : doc_root_(doc_root)
+<a name="l00027"></a>00027 {
+<a name="l00028"></a>00028 }
+<a name="l00029"></a>00029 
+<a name="l00030"></a><a class="code" href="classhttp_1_1server_1_1request__handler.html#a7430992fc71d181dcd5654b71c6f8d7b">00030</a> <span class="keywordtype">void</span> <a class="code" href="classhttp_1_1server_1_1request__handler.html#a7430992fc71d181dcd5654b71c6f8d7b" title="Handle a request and produce a reply.">request_handler::handle_request</a>(<span class="keyword">const</span> <a class="code" href="structhttp_1_1server_1_1request.html" title="Structure of a HTTP request received from a client.">request</a>&amp; req, <a class="code" href="structhttp_1_1server_1_1reply.html" title="A reply to be sent to a client.">reply</a>&amp; rep)
+<a name="l00031"></a>00031 {
+<a name="l00032"></a>00032   <span class="comment">// Decode url to path.</span>
+<a name="l00033"></a>00033   std::string request_path;
+<a name="l00034"></a>00034   <span class="keywordflow">if</span> (!url_decode(req.<a class="code" href="structhttp_1_1server_1_1request.html#a42621446fc15d7b7a4274a85fde21aa2">uri</a>, request_path))
+<a name="l00035"></a>00035   {
+<a name="l00036"></a>00036     rep = <a class="code" href="structhttp_1_1server_1_1reply.html#a4c781e107fd381205ad721ec8635176f" title="Get a stock reply.">reply::stock_reply</a>(<a class="code" href="structhttp_1_1server_1_1reply.html#a08d3b8d638988f252ab4e5cd3db72ad6aef848a42bd8aca5d6f8659466c650cdb">reply::bad_request</a>);
+<a name="l00037"></a>00037     <span class="keywordflow">return</span>;
+<a name="l00038"></a>00038   }
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040   <span class="comment">// Decode and tokenize the query part of the URI</span>
+<a name="l00041"></a>00041   std::string query;
+<a name="l00042"></a>00042   <a class="code" href="classhttp_1_1server_1_1request__handler.html#a90d88b47afbb1d7946a6562e9f316ce9" title="Map of options by name/values.">options_map</a> get_params;
+<a name="l00043"></a>00043   <span class="keywordflow">if</span> (!url_decode(req.<a class="code" href="structhttp_1_1server_1_1request.html#a8b19475084d54e2ca61e89669ad24832">query</a>, query))
+<a name="l00044"></a>00044   {
+<a name="l00045"></a>00045     rep = <a class="code" href="structhttp_1_1server_1_1reply.html#a4c781e107fd381205ad721ec8635176f" title="Get a stock reply.">reply::stock_reply</a>(<a class="code" href="structhttp_1_1server_1_1reply.html#a08d3b8d638988f252ab4e5cd3db72ad6aef848a42bd8aca5d6f8659466c650cdb">reply::bad_request</a>);
+<a name="l00046"></a>00046     <span class="keywordflow">return</span>;
+<a name="l00047"></a>00047   }
+<a name="l00048"></a>00048   query_tokenize (query, get_params);
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050   <span class="comment">// Decode and tokenize the content part of the POST request</span>
+<a name="l00051"></a>00051   std::string content;
+<a name="l00052"></a>00052   <a class="code" href="classhttp_1_1server_1_1request__handler.html#a90d88b47afbb1d7946a6562e9f316ce9" title="Map of options by name/values.">options_map</a> post_params;
+<a name="l00053"></a>00053   <span class="keywordflow">if</span> (!url_decode(req.<a class="code" href="structhttp_1_1server_1_1request.html#a455caa8403d949cb47225b0a6d5df462">content</a>, content))
+<a name="l00054"></a>00054   {
+<a name="l00055"></a>00055     rep = <a class="code" href="structhttp_1_1server_1_1reply.html#a4c781e107fd381205ad721ec8635176f" title="Get a stock reply.">reply::stock_reply</a>(<a class="code" href="structhttp_1_1server_1_1reply.html#a08d3b8d638988f252ab4e5cd3db72ad6aef848a42bd8aca5d6f8659466c650cdb">reply::bad_request</a>);
+<a name="l00056"></a>00056     <span class="keywordflow">return</span>;
+<a name="l00057"></a>00057   }
+<a name="l00058"></a>00058   query_tokenize (content, post_params);
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060   <span class="comment">// Request path must be absolute and not contain &quot;..&quot;.</span>
+<a name="l00061"></a>00061   <span class="keywordflow">if</span> (request_path.empty() || request_path[0] != <span class="charliteral">&#39;/&#39;</span>
+<a name="l00062"></a>00062       || request_path.find(<span class="stringliteral">&quot;..&quot;</span>) != std::string::npos)
+<a name="l00063"></a>00063   {
+<a name="l00064"></a>00064     rep = <a class="code" href="structhttp_1_1server_1_1reply.html#a4c781e107fd381205ad721ec8635176f" title="Get a stock reply.">reply::stock_reply</a>(<a class="code" href="structhttp_1_1server_1_1reply.html#a08d3b8d638988f252ab4e5cd3db72ad6aef848a42bd8aca5d6f8659466c650cdb">reply::bad_request</a>);
+<a name="l00065"></a>00065     <span class="keywordflow">return</span>;
+<a name="l00066"></a>00066   }
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068   <span class="comment">// If path ends in slash (i.e. is a directory) then add &quot;index.html&quot;.</span>
+<a name="l00069"></a>00069   <span class="keywordflow">if</span> (request_path[request_path.size() - 1] == <span class="charliteral">&#39;/&#39;</span>)
+<a name="l00070"></a>00070   {
+<a name="l00071"></a>00071     request_path += <span class="stringliteral">&quot;index.html&quot;</span>;
+<a name="l00072"></a>00072   }
+<a name="l00073"></a>00073   <span class="keywordflow">else</span>
+<a name="l00074"></a>00074   {
+<a name="l00075"></a>00075     <span class="comment">// If it does not end in a slash, but is a directory, then redirect to the slash terminated path</span>
+<a name="l00076"></a>00076     <span class="keywordflow">if</span> (boost::filesystem::is_directory(doc_root_ + request_path))
+<a name="l00077"></a>00077     {
+<a name="l00078"></a>00078       rep = <a class="code" href="structhttp_1_1server_1_1reply.html#a3b72ce6d1ee099e09ac6566ecc3a3b31" title="Get a redirect reply.">reply::redirect_reply</a>(request_path + <span class="stringliteral">&quot;/&quot;</span>);
+<a name="l00079"></a>00079       <span class="keywordflow">return</span>;
+<a name="l00080"></a>00080     }
+<a name="l00081"></a>00081   }
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083   <span class="comment">// Determine the file extension.</span>
+<a name="l00084"></a>00084   std::size_t last_slash_pos = request_path.find_last_of(<span class="stringliteral">&quot;/&quot;</span>);
+<a name="l00085"></a>00085   std::size_t last_dot_pos = request_path.find_last_of(<span class="stringliteral">&quot;.&quot;</span>);
+<a name="l00086"></a>00086   std::string extension;
+<a name="l00087"></a>00087   <span class="keywordflow">if</span> (last_dot_pos != std::string::npos &amp;&amp; last_dot_pos &gt; last_slash_pos)
+<a name="l00088"></a>00088   {
+<a name="l00089"></a>00089     extension = request_path.substr(last_dot_pos + 1);
+<a name="l00090"></a>00090   }
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092   <span class="comment">// Open the file to send back.</span>
+<a name="l00093"></a>00093   std::string full_path = doc_root_ + request_path;
+<a name="l00094"></a>00094   std::ifstream is(full_path.c_str(), std::ios::in | std::ios::binary);
+<a name="l00095"></a>00095   <span class="keywordflow">if</span> (!is)
+<a name="l00096"></a>00096   {
+<a name="l00097"></a>00097     rep = <a class="code" href="structhttp_1_1server_1_1reply.html#a4c781e107fd381205ad721ec8635176f" title="Get a stock reply.">reply::stock_reply</a>(<a class="code" href="structhttp_1_1server_1_1reply.html#a08d3b8d638988f252ab4e5cd3db72ad6aec2335faa1890825e6eab8772aec5f7d">reply::not_found</a>);
+<a name="l00098"></a>00098     <span class="keywordflow">return</span>;
+<a name="l00099"></a>00099   }
+<a name="l00100"></a>00100 
+<a name="l00101"></a>00101   <span class="comment">// Fill out the reply to be sent to the client.</span>
+<a name="l00102"></a>00102   rep.<a class="code" href="structhttp_1_1server_1_1reply.html#ae34131ac243daea29e608ceebef76c6b">status</a> = <a class="code" href="namespacehttp_1_1server_1_1status__strings.html#ab0a8fa4741e9a5550a9622de2dfa7bd7">reply::ok</a>;
+<a name="l00103"></a>00103   <span class="keywordtype">char</span> buf[512];
+<a name="l00104"></a>00104   <span class="keywordflow">while</span> (is.read(buf, <span class="keyword">sizeof</span>(buf)).gcount() &gt; 0)
+<a name="l00105"></a>00105     rep.<a class="code" href="structhttp_1_1server_1_1reply.html#a22b2078e8e9d45f2ff152a1b41876ee0" title="The content to be sent in the reply.">content</a>.append(buf, (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>)is.gcount());
+<a name="l00106"></a>00106   rep.<a class="code" href="structhttp_1_1server_1_1reply.html#aae0458d493037abdbdb58f6bef735167" title="The headers to be included in the reply.">headers</a>.resize(2);
+<a name="l00107"></a>00107   rep.<a class="code" href="structhttp_1_1server_1_1reply.html#aae0458d493037abdbdb58f6bef735167" title="The headers to be included in the reply.">headers</a>[0].name = <span class="stringliteral">&quot;Content-Length&quot;</span>;
+<a name="l00108"></a>00108   rep.<a class="code" href="structhttp_1_1server_1_1reply.html#aae0458d493037abdbdb58f6bef735167" title="The headers to be included in the reply.">headers</a>[0].value = boost::lexical_cast&lt;std::string&gt;(rep.<a class="code" href="structhttp_1_1server_1_1reply.html#a22b2078e8e9d45f2ff152a1b41876ee0" title="The content to be sent in the reply.">content</a>.size());
+<a name="l00109"></a>00109   rep.<a class="code" href="structhttp_1_1server_1_1reply.html#aae0458d493037abdbdb58f6bef735167" title="The headers to be included in the reply.">headers</a>[1].name = <span class="stringliteral">&quot;Content-Type&quot;</span>;
+<a name="l00110"></a>00110   rep.<a class="code" href="structhttp_1_1server_1_1reply.html#aae0458d493037abdbdb58f6bef735167" title="The headers to be included in the reply.">headers</a>[1].value = <a class="code" href="namespacehttp_1_1server_1_1mime__types.html#aaa3cd5827dc485ab288a3c446ef023bc" title="Convert a file extension into a MIME type.">mime_types::extension_to_type</a>(extension);
+<a name="l00111"></a>00111 }
+<a name="l00112"></a>00112 
+<a name="l00113"></a>00113 <span class="keywordtype">bool</span> request_handler::url_decode(<span class="keyword">const</span> std::string&amp; in, std::string&amp; out)
+<a name="l00114"></a>00114 {
+<a name="l00115"></a>00115   out.clear();
+<a name="l00116"></a>00116   out.reserve(in.size());
+<a name="l00117"></a>00117   <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; in.size(); ++i)
+<a name="l00118"></a>00118   {
+<a name="l00119"></a>00119     <span class="keywordflow">if</span> (in[i] == <span class="charliteral">&#39;%&#39;</span>)
+<a name="l00120"></a>00120     {
+<a name="l00121"></a>00121       <span class="keywordflow">if</span> (i + 3 &lt;= in.size())
+<a name="l00122"></a>00122       {
+<a name="l00123"></a>00123         <span class="keywordtype">int</span> value = 0;
+<a name="l00124"></a>00124         std::istringstream is(in.substr(i + 1, 2));
+<a name="l00125"></a>00125         <span class="keywordflow">if</span> (is &gt;&gt; std::hex &gt;&gt; value)
+<a name="l00126"></a>00126         {
+<a name="l00127"></a>00127           out += <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span>(value);
+<a name="l00128"></a>00128           i += 2;
+<a name="l00129"></a>00129         }
+<a name="l00130"></a>00130         <span class="keywordflow">else</span>
+<a name="l00131"></a>00131         {
+<a name="l00132"></a>00132           <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00133"></a>00133         }
+<a name="l00134"></a>00134       }
+<a name="l00135"></a>00135       <span class="keywordflow">else</span>
+<a name="l00136"></a>00136       {
+<a name="l00137"></a>00137         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00138"></a>00138       }
+<a name="l00139"></a>00139     }
+<a name="l00140"></a>00140     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (in[i] == <span class="charliteral">&#39;+&#39;</span>)
+<a name="l00141"></a>00141     {
+<a name="l00142"></a>00142       out += <span class="charliteral">&#39; &#39;</span>;
+<a name="l00143"></a>00143     }
+<a name="l00144"></a>00144     <span class="keywordflow">else</span>
+<a name="l00145"></a>00145     {
+<a name="l00146"></a>00146       out += in[i];
+<a name="l00147"></a>00147     }
+<a name="l00148"></a>00148   }
+<a name="l00149"></a>00149   <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00150"></a>00150 }
+<a name="l00151"></a>00151 
+<a name="l00152"></a>00152 <span class="keywordtype">void</span> request_handler::query_tokenize(<span class="keyword">const</span> std::string&amp; in, options_map&amp; out)
+<a name="l00153"></a>00153 {
+<a name="l00154"></a>00154   <span class="keywordtype">bool</span>        in_option_name = <span class="keyword">true</span>;
+<a name="l00155"></a>00155   std::string option_name;
+<a name="l00156"></a>00156   std::string option_value;
+<a name="l00157"></a>00157 
+<a name="l00158"></a>00158   out.clear();
+<a name="l00159"></a>00159 
+<a name="l00160"></a>00160   <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; in.size(); ++i)
+<a name="l00161"></a>00161   {
+<a name="l00162"></a>00162     <span class="keywordflow">if</span> (in_option_name)
+<a name="l00163"></a>00163     {
+<a name="l00164"></a>00164       <span class="comment">// parsing the name of an option</span>
+<a name="l00165"></a>00165       <span class="keywordflow">if</span> (in[i] == <span class="charliteral">&#39;=&#39;</span>)
+<a name="l00166"></a>00166       {
+<a name="l00167"></a>00167         in_option_name = <span class="keyword">false</span>;
+<a name="l00168"></a>00168       }
+<a name="l00169"></a>00169       <span class="keywordflow">else</span> <span class="keywordflow">if</span> (in[i] == <span class="charliteral">&#39;&amp;&#39;</span>)
+<a name="l00170"></a>00170       {
+<a name="l00171"></a>00171         out[option_name] = <span class="stringliteral">&quot;&quot;</span>; <span class="comment">// option without value</span>
+<a name="l00172"></a>00172         option_name.clear ();
+<a name="l00173"></a>00173       }
+<a name="l00174"></a>00174       <span class="keywordflow">else</span>
+<a name="l00175"></a>00175       {
+<a name="l00176"></a>00176         option_name += in[i];
+<a name="l00177"></a>00177       }
+<a name="l00178"></a>00178     }
+<a name="l00179"></a>00179     <span class="keywordflow">else</span>
+<a name="l00180"></a>00180     {
+<a name="l00181"></a>00181       <span class="comment">// parsing the value of an option</span>
+<a name="l00182"></a>00182       <span class="keywordflow">if</span> (in[i] == <span class="charliteral">&#39;&amp;&#39;</span>)
+<a name="l00183"></a>00183       {
+<a name="l00184"></a>00184         out[option_name] = option_value; <span class="comment">// option with value</span>
+<a name="l00185"></a>00185         option_name.clear ();
+<a name="l00186"></a>00186         option_value.clear ();
+<a name="l00187"></a>00187         in_option_name = <span class="keyword">true</span>;
+<a name="l00188"></a>00188       }
+<a name="l00189"></a>00189       <span class="keywordflow">else</span>
+<a name="l00190"></a>00190       {
+<a name="l00191"></a>00191         option_value += in[i];
+<a name="l00192"></a>00192       }
+<a name="l00193"></a>00193     }
+<a name="l00194"></a>00194   }
+<a name="l00195"></a>00195 
+<a name="l00196"></a>00196   <span class="keywordflow">if</span> (<span class="keyword">false</span> == option_name.empty())
+<a name="l00197"></a>00197   {
+<a name="l00198"></a>00198     out[option_name] = option_value; <span class="comment">// last option with or without value</span>
+<a name="l00199"></a>00199   }
+<a name="l00200"></a>00200 }
+<a name="l00201"></a>00201 
+<a name="l00202"></a>00202 
+<a name="l00203"></a>00203 } <span class="comment">// namespace server</span>
+<a name="l00204"></a>00204 } <span class="comment">// namespace http</span>
 </pre></div></div>
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="request__handler_8cpp.html">request_handler.cpp</a>      </li>
-      <li class="footer">Generated on Fri Mar 16 2012 10:41:04 for BoostHttpServer by&#160;
+      <li class="footer">Generated on Mon Mar 26 2012 14:00:24 for BoostHttpServer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </li>
     </ul>
