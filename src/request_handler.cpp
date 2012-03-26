@@ -38,7 +38,7 @@ void request_handler::handle_request(const request& req, reply& rep)
 
   // Decode and tokenize the query part of the URI
   std::string query;
-  options_t   get_params;
+  options_map get_params;
   if (!url_decode(req.query, query))
   {
     rep = reply::stock_reply(reply::bad_request);
@@ -48,7 +48,7 @@ void request_handler::handle_request(const request& req, reply& rep)
 
   // Decode and tokenize the content part of the POST request
   std::string content;
-  options_t   post_params;
+  options_map post_params;
   if (!url_decode(req.content, content))
   {
     rep = reply::stock_reply(reply::bad_request);
@@ -101,7 +101,7 @@ void request_handler::handle_request(const request& req, reply& rep)
   rep.status = reply::ok;
   char buf[512];
   while (is.read(buf, sizeof(buf)).gcount() > 0)
-    rep.content.append(buf, is.gcount());
+    rep.content.append(buf, (unsigned int)is.gcount());
   rep.headers.resize(2);
   rep.headers[0].name = "Content-Length";
   rep.headers[0].value = boost::lexical_cast<std::string>(rep.content.size());
@@ -148,7 +148,7 @@ bool request_handler::url_decode(const std::string& in, std::string& out)
   return true;
 }
 
-void request_handler::query_tokenize(const std::string& in, options_t& out)
+void request_handler::query_tokenize(const std::string& in, options_map& out)
 {
   bool        in_option_name = true;
   std::string option_name;

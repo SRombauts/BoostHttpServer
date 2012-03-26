@@ -44,10 +44,10 @@ struct reply
   } status;
 
   /// The headers to be included in the reply.
-  std::vector<header> headers;
+  headers_list  headers;
 
   /// The content to be sent in the reply.
-  std::string content;
+  std::string   content;
 
   /// Convert the reply into a vector of buffers. The buffers do not own the
   /// underlying memory blocks, therefore the reply object must remain valid and

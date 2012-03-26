@@ -1,0 +1,12 @@
+Welcome to the Boost C++ HTTP Server
+
+This is a simple C++ embeddable web server build from the
+Boost.Asio multithreaded HTTP 1.0 Server Example. It is released under the
+<a href="http://www.boost.org/users/license.html">Boost license</a>
+(see <a href="LICENSE_1_0.txt">LICENSE_1_0.txt</a>)
+that encourages both commercial and non-commercial use.
+
+Boost provides free peer-reviewed portable C++ source libraries
+that work well with the C++ Standard Library.
+Boost libraries are intended to be widely useful, and usable across a broad
+spectrum of applications.

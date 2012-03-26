@@ -403,7 +403,7 @@ bool request_parser::is_digit(int c)
 
 bool request_parser::set_content_length (request& req)
 {
-  std::vector<header>::iterator iHeader;
+  headers_list::iterator iHeader;
   for (iHeader  = req.headers.begin();
        iHeader != req.headers.end();
        iHeader++ )

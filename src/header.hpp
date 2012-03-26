@@ -1,6 +1,9 @@
-//
-// header.hpp
-// ~~~~~~~~~~
+///
+/// @file   header.hpp
+/// @module server
+/// @brief  Structure of a header in a request or a reply
+/// 
+
 //
 // Copyright (c) 2003-2011 Christopher M. Kohlhoff (chris at kohlhoff dot com)
 //
@@ -12,15 +15,20 @@
 #define HTTP_HEADER_HPP
 
 #include <string>
+#include <vector>
 
 namespace http {
 namespace server {
 
+/// Structure of a header in a HTTP request or reply
 struct header
 {
-  std::string name;
-  std::string value;
+  std::string name;   ///< normalized name of the header
+  std::string value;  ///< string value of the header
 };
+
+/// List of HTTP headers.
+typedef std::vector<header> headers_list;
 
 } // namespace server
 } // namespace http
