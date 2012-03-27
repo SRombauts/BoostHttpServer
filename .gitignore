@@ -1,2 +1,5 @@
 Release
 Debug
+*.o
+*.d
+BoostHttpServer
