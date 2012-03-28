@@ -8,6 +8,8 @@
 /// \todo Improve code documentation : add Doxygen comments! 
 ///
 /// \todo Doxygen doc with some how-to and tutorials
+/// - How to install Boost
+/// - How to register and build dynamic web resources
 ///
 /// \todo Add dynamic page generation :
 /// - Add a register_include()
