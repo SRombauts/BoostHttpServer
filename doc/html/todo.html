@@ -88,23 +88,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <dl>
 <dt>File <a class="el" href="_t_o_d_o_8txt.html">TODO.txt</a>  </dt>
 <dd><p class="startdd">Describe the goal of the project, and why not using other embedded web server : to enable pure monothreaded portable Boost application!</p>
-<p>Add a CMake project, and a default Makefile</p>
-<p>Configure and compile for Android</p>
 <p>Improve code documentation : add Doxygen comments! </p>
 <p>Doxygen doc with some how-to and tutorials</p>
-<p>Add basic authentication method </p>
+<ul>
+<li>How to install Boost</li>
+<li>How to register and build dynamic web resources</li>
+</ul>
+<p>Add some web ressource building helpers</p>
+<ul>
+<li>autofill the HTTP headers of the reply</li>
+<li>Add an HTML builder library</li>
+</ul>
 <p>Add dynamic page generation :</p>
 <ul>
-<li>Add a RegisterRessource()</li>
-<li>Add a RegisterInclude()</li>
-<li>Add a RegisterAction()</li>
-<li>Make some variants and combinations</li>
-<li>Make some interface class for that</li>
+<li>Add a register_include()</li>
+<li>Add a register_action()</li>
+<li>Make some variants by specifing file extensions...</li>
+<li>Use boost::bind and boost::function for that, not interface class</li>
 </ul>
+<p>Add a CMake project</p>
+<p>Configure and compile for Android</p>
 <p>See how to share time with the app (timers) : share the io_service.</p>
 <p>Test with a complexe website, and a demo</p>
 <p>Validate with Apache tool</p>
 <p>Add a Boost.Test test suite</p>
+<p>Add basic authentication method </p>
 <p>Look for optimization, like memory copy -&gt; reference passing</p>
 <p class="enddd">Look for security vulnerability :</p>
 <ul>
@@ -117,7 +125,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="footer">Generated on Mon Mar 26 2012 14:00:24 for BoostHttpServer by&#160;
+      <li class="footer">Generated on Wed Mar 28 2012 09:08:56 for BoostHttpServer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </li>
     </ul>

@@ -11,6 +11,10 @@
 /// - How to install Boost
 /// - How to register and build dynamic web resources
 ///
+/// \todo Add some web ressource building helpers
+/// - autofill the HTTP headers of the reply
+/// - Add an HTML builder library
+///
 /// \todo Add dynamic page generation :
 /// - Add a register_include()
 /// - Add a register_action()
