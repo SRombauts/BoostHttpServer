@@ -33,7 +33,7 @@ void request_handler::handle_request(const request& req, reply& rep)
   std::string request_path;
   if (!url_decode(req.uri, request_path))
   {
-    rep = reply::stock_reply(reply::bad_request);
+    reply::stock_reply(reply::bad_request, rep);
     return;
   }
 
@@ -42,7 +42,7 @@ void request_handler::handle_request(const request& req, reply& rep)
   options_map get_params;
   if (!url_decode(req.query, query))
   {
-    rep = reply::stock_reply(reply::bad_request);
+    reply::stock_reply(reply::bad_request, rep);
     return;
   }
   query_tokenize (query, get_params);
@@ -52,7 +52,7 @@ void request_handler::handle_request(const request& req, reply& rep)
   options_map post_params;
   if (!url_decode(req.content, content))
   {
-    rep = reply::stock_reply(reply::bad_request);
+    reply::stock_reply(reply::bad_request, rep);
     return;
   }
   query_tokenize (content, post_params);
@@ -70,7 +70,7 @@ void request_handler::handle_request(const request& req, reply& rep)
   if (request_path.empty() || request_path[0] != '/'
       || request_path.find("..") != std::string::npos)
   {
-    rep = reply::stock_reply(reply::bad_request);
+    reply::stock_reply(reply::bad_request, rep);
     return;
   }
 
@@ -84,7 +84,7 @@ void request_handler::handle_request(const request& req, reply& rep)
     // If it does not end in a slash, but is a directory, then redirect to the slash terminated path
     if (boost::filesystem::is_directory(doc_root_ + request_path))
     {
-      rep = reply::redirect_reply(request_path + "/");
+      reply::redirect_reply(request_path + "/", rep);
       return;
     }
   }
@@ -103,7 +103,7 @@ void request_handler::handle_request(const request& req, reply& rep)
   std::ifstream is(full_path.c_str(), std::ios::in | std::ios::binary);
   if (!is)
   {
-    rep = reply::stock_reply(reply::not_found);
+    reply::stock_reply(reply::not_found, rep);
     return;
   }
 

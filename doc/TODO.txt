@@ -1,26 +1,25 @@
 ///
 /// \file  TODO.txt
 /// 
-/// General todo list to be included in Doxygen documentation.
+/// General (roughly ordered by priority) todo list to be included in Doxygen documentation.
 ///
 /// \todo Describe the goal of the project, and why not using other embedded web server : to enable pure monothreaded portable Boost application!
-///
-/// \todo Add a CMake project, and a default Makefile
-///
-/// \todo Configure and compile for Android
 ///
 /// \todo Improve code documentation : add Doxygen comments! 
 ///
 /// \todo Doxygen doc with some how-to and tutorials
-///
-/// \todo Add basic authentication method 
+/// - How to install Boost
+/// - How to register and build dynamic web resources
 ///
 /// \todo Add dynamic page generation :
-/// - Add a RegisterRessource()
-/// - Add a RegisterInclude()
-/// - Add a RegisterAction()
-/// - Make some variants and combinations
-/// - Make some interface class for that
+/// - Add a register_include()
+/// - Add a register_action()
+/// - Make some variants by specifing file extensions...
+/// - Use boost::bind and boost::function for that, not interface class
+///
+/// \todo Add a CMake project
+///
+/// \todo Configure and compile for Android
 ///
 /// \todo See how to share time with the app (timers) : share the io_service.
 ///
@@ -29,6 +28,8 @@
 /// \todo Validate with Apache tool
 ///
 /// \todo Add a Boost.Test test suite
+///
+/// \todo Add basic authentication method 
 ///
 /// \todo Look for optimization, like memory copy -> reference passing
 ///
