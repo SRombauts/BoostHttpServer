@@ -1,8 +1,5 @@
 
-# options:
-
-AR ?= ar
-RANLIB ?= ranlib
+### Options: ###
 
 # C++ compiler 
 CXX = g++
@@ -30,65 +27,63 @@ endif
 
 ### Variables: ###
 
-CPPDEPS = -MT$@ -MF`echo $@ | sed -e 's,\.o$$,.d,'` -MD -MP
+CPPDEPS = -MT $@ -MF`echo $@ | sed -e 's,\.o$$,.d,'` -MD -MP
 
-BOOST_HTTP_SERVER_CXXFLAGS = -pthread $(BUILD_FLAGS) $(CXXFLAGS)
+BOOST_HTTP_SERVER_CXXFLAGS = $(BUILD_FLAGS) $(CXXFLAGS)
 BOOST_HTTP_SERVER_OBJECTS =  \
-	BoostHttpServer_connection.o \
-	BoostHttpServer_connection_manager.o \
-	BoostHttpServer_mime_types.o \
-	BoostHttpServer_posix_main.o \
-	BoostHttpServer_reply.o \
-	BoostHttpServer_request_handler.o \
-	BoostHttpServer_request_parser.o \
-	BoostHttpServer_server.o
+	$(BUILD)/BoostHttpServer_connection.o \
+	$(BUILD)/BoostHttpServer_connection_manager.o \
+	$(BUILD)/BoostHttpServer_mime_types.o \
+	$(BUILD)/BoostHttpServer_posix_main.o \
+	$(BUILD)/BoostHttpServer_reply.o \
+	$(BUILD)/BoostHttpServer_request_handler.o \
+	$(BUILD)/BoostHttpServer_request_parser.o \
+	$(BUILD)/BoostHttpServer_server.o
 	
 ### Targets: ###
 
-all: BoostHttpServer
-
-install: 
-
-uninstall: 
+all: $(BUILD) $(BUILD)/BoostHttpServer
 
 clean: 
-	rm -f ./*.o
-	rm -f ./*.d
-	rm -f BoostHttpServer
+	rm -f $(BUILD)/*.o
+	rm -f $(BUILD)/*.d
+	rm -f $(BUILD)/BoostHttpServer
+
+$(BUILD): $(BUILD)/
+	mkdir -p $(BUILD)
+
+$(BUILD)/BoostHttpServer: $(BOOST_HTTP_SERVER_OBJECTS)
+	$(CXX) -o $@ $(BOOST_HTTP_SERVER_OBJECTS) $(LINK_FLAGS) -lboost_thread-mt -lboost_system-mt -lboost_filesystem-mt
 
 
-BoostHttpServer: $(BOOST_HTTP_SERVER_OBJECTS)
-	$(CXX) -o $@ $(BOOST_HTTP_SERVER_OBJECTS) -pthread $(LINK_FLAGS) -lboost_thread-mt -lboost_system-mt -lboost_filesystem-mt
-
-
-BoostHttpServer_connection.o: src/connection.cpp
+$(BUILD)/BoostHttpServer_connection.o: src/connection.cpp
 	$(CXX) -c -o $@ $(BOOST_HTTP_SERVER_CXXFLAGS) $(CPPDEPS) $<
 
-BoostHttpServer_connection_manager.o: src/connection_manager.cpp
+$(BUILD)/BoostHttpServer_connection_manager.o: src/connection_manager.cpp
 	$(CXX) -c -o $@ $(BOOST_HTTP_SERVER_CXXFLAGS) $(CPPDEPS) $<
 
-BoostHttpServer_mime_types.o: src/mime_types.cpp
+$(BUILD)/BoostHttpServer_mime_types.o: src/mime_types.cpp
 	$(CXX) -c -o $@ $(BOOST_HTTP_SERVER_CXXFLAGS) $(CPPDEPS) $<
 
-BoostHttpServer_posix_main.o: src/posix_main.cpp
+$(BUILD)/BoostHttpServer_posix_main.o: src/posix_main.cpp
 	$(CXX) -c -o $@ $(BOOST_HTTP_SERVER_CXXFLAGS) $(CPPDEPS) $<
 
-BoostHttpServer_reply.o: src/reply.cpp
+$(BUILD)/BoostHttpServer_reply.o: src/reply.cpp
 	$(CXX) -c -o $@ $(BOOST_HTTP_SERVER_CXXFLAGS) $(CPPDEPS) $<
 
-BoostHttpServer_request_handler.o: src/request_handler.cpp
+$(BUILD)/BoostHttpServer_request_handler.o: src/request_handler.cpp
 	$(CXX) -c -o $@ $(BOOST_HTTP_SERVER_CXXFLAGS) $(CPPDEPS) $<
 
-BoostHttpServer_request_parser.o: src/request_parser.cpp
+$(BUILD)/BoostHttpServer_request_parser.o: src/request_parser.cpp
 	$(CXX) -c -o $@ $(BOOST_HTTP_SERVER_CXXFLAGS) $(CPPDEPS) $<
 
-BoostHttpServer_server.o: src/server.cpp
+$(BUILD)/BoostHttpServer_server.o: src/server.cpp
 	$(CXX) -c -o $@ $(BOOST_HTTP_SERVER_CXXFLAGS) $(CPPDEPS) $<
 
 
-
-.PHONY: all install uninstall clean
+.PHONY: all clean
 
 
 # Dependencies tracking:
--include ./*.d
+-include $(BUILD)/*.d
+
