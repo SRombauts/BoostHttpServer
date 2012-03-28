@@ -14,7 +14,7 @@
 #include <boost/asio.hpp>
 #include <boost/bind.hpp>
 #include <boost/function.hpp>
-#include "server.hpp"
+#include "../server/server.hpp"
 
 #if defined(_WIN32)
 
