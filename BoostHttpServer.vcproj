@@ -168,90 +168,90 @@
 	</References>
 	<Files>
 		<Filter
-			Name="Source Files"
+			Name="server sources"
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\src\connection.cpp"
+				RelativePath=".\src\server\connection.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\src\connection_manager.cpp"
+				RelativePath=".\src\server\connection_manager.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\src\mime_types.cpp"
+				RelativePath=".\src\server\mime_types.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\src\reply.cpp"
+				RelativePath=".\src\server\reply.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\src\request_handler.cpp"
+				RelativePath=".\src\server\request_handler.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\src\request_parser.cpp"
+				RelativePath=".\src\server\request_parser.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\src\server.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\win_main.cpp"
+				RelativePath=".\src\server\server.cpp"
 				>
 			</File>
 		</Filter>
 		<Filter
-			Name="Header Files"
+			Name="server headers"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\src\connection.hpp"
+				RelativePath=".\src\server\connection.hpp"
 				>
 			</File>
 			<File
-				RelativePath=".\src\connection_manager.hpp"
+				RelativePath=".\src\server\connection_manager.hpp"
 				>
 			</File>
 			<File
-				RelativePath=".\src\header.hpp"
+				RelativePath=".\src\server\header.hpp"
 				>
 			</File>
 			<File
-				RelativePath=".\src\mime_types.hpp"
+				RelativePath=".\src\server\mime_types.hpp"
 				>
 			</File>
 			<File
-				RelativePath=".\src\reply.hpp"
+				RelativePath=".\src\server\reply.hpp"
 				>
 			</File>
 			<File
-				RelativePath=".\src\request.hpp"
+				RelativePath=".\src\server\request.hpp"
 				>
 			</File>
 			<File
-				RelativePath=".\src\request_handler.hpp"
+				RelativePath=".\src\server\request_handler.hpp"
 				>
 			</File>
 			<File
-				RelativePath=".\src\request_parser.hpp"
+				RelativePath=".\src\server\request_parser.hpp"
 				>
 			</File>
 			<File
-				RelativePath=".\src\server.hpp"
+				RelativePath=".\src\server\server.hpp"
 				>
 			</File>
 		</Filter>
 		<Filter
-			Name="Resource Files"
+			Name="main"
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
+			<File
+				RelativePath=".\src\example1_static\win_main.cpp"
+				>
+			</File>
 		</Filter>
 	</Files>
 	<Globals>

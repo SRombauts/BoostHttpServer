@@ -31,10 +31,10 @@ CPPDEPS = -MT $@ -MF`echo $@ | sed -e 's,\.o$$,.d,'` -MD -MP
 
 BOOST_HTTP_SERVER_CXXFLAGS = $(BUILD_FLAGS) $(CXXFLAGS)
 BOOST_HTTP_SERVER_OBJECTS =  \
+	$(BUILD)/BoostHttpServer_posix_main.o \
 	$(BUILD)/BoostHttpServer_connection.o \
 	$(BUILD)/BoostHttpServer_connection_manager.o \
 	$(BUILD)/BoostHttpServer_mime_types.o \
-	$(BUILD)/BoostHttpServer_posix_main.o \
 	$(BUILD)/BoostHttpServer_reply.o \
 	$(BUILD)/BoostHttpServer_request_handler.o \
 	$(BUILD)/BoostHttpServer_request_parser.o \
@@ -56,28 +56,29 @@ $(BUILD)/BoostHttpServer: $(BOOST_HTTP_SERVER_OBJECTS)
 	$(CXX) -o $@ $(BOOST_HTTP_SERVER_OBJECTS) $(LINK_FLAGS) -lboost_thread-mt -lboost_system-mt -lboost_filesystem-mt
 
 
-$(BUILD)/BoostHttpServer_connection.o: src/connection.cpp
+$(BUILD)/BoostHttpServer_posix_main.o: src/example1_static/posix_main.cpp
 	$(CXX) -c -o $@ $(BOOST_HTTP_SERVER_CXXFLAGS) $(CPPDEPS) $<
 
-$(BUILD)/BoostHttpServer_connection_manager.o: src/connection_manager.cpp
+
+$(BUILD)/BoostHttpServer_connection.o: src/server/connection.cpp
 	$(CXX) -c -o $@ $(BOOST_HTTP_SERVER_CXXFLAGS) $(CPPDEPS) $<
 
-$(BUILD)/BoostHttpServer_mime_types.o: src/mime_types.cpp
+$(BUILD)/BoostHttpServer_connection_manager.o: src/server/connection_manager.cpp
 	$(CXX) -c -o $@ $(BOOST_HTTP_SERVER_CXXFLAGS) $(CPPDEPS) $<
 
-$(BUILD)/BoostHttpServer_posix_main.o: src/posix_main.cpp
+$(BUILD)/BoostHttpServer_mime_types.o: src/server/mime_types.cpp
 	$(CXX) -c -o $@ $(BOOST_HTTP_SERVER_CXXFLAGS) $(CPPDEPS) $<
 
-$(BUILD)/BoostHttpServer_reply.o: src/reply.cpp
+$(BUILD)/BoostHttpServer_reply.o: src/server/reply.cpp
 	$(CXX) -c -o $@ $(BOOST_HTTP_SERVER_CXXFLAGS) $(CPPDEPS) $<
 
-$(BUILD)/BoostHttpServer_request_handler.o: src/request_handler.cpp
+$(BUILD)/BoostHttpServer_request_handler.o: src/server/request_handler.cpp
 	$(CXX) -c -o $@ $(BOOST_HTTP_SERVER_CXXFLAGS) $(CPPDEPS) $<
 
-$(BUILD)/BoostHttpServer_request_parser.o: src/request_parser.cpp
+$(BUILD)/BoostHttpServer_request_parser.o: src/server/request_parser.cpp
 	$(CXX) -c -o $@ $(BOOST_HTTP_SERVER_CXXFLAGS) $(CPPDEPS) $<
 
-$(BUILD)/BoostHttpServer_server.o: src/server.cpp
+$(BUILD)/BoostHttpServer_server.o: src/server/server.cpp
 	$(CXX) -c -o $@ $(BOOST_HTTP_SERVER_CXXFLAGS) $(CPPDEPS) $<
 
 
