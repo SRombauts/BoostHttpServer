@@ -242,9 +242,8 @@ std::string to_string(reply::status_type status)
 
 } // namespace stock_replies
 
-reply reply::stock_reply(reply::status_type status)
+void reply::stock_reply(reply::status_type status, reply& rep)
 {
-  reply rep;
   rep.status = status;
   rep.content = stock_replies::to_string(status);
   rep.headers.resize(2);
@@ -252,18 +251,15 @@ reply reply::stock_reply(reply::status_type status)
   rep.headers[0].value = boost::lexical_cast<std::string>(rep.content.size());
   rep.headers[1].name = "Content-Type";
   rep.headers[1].value = "text/html";
-  return rep;
 }
 
-reply reply::redirect_reply(const std::string& location)
+void reply::redirect_reply(const std::string& location, reply& rep)
 {
-  reply rep;
   rep.status = reply::moved_permanently;
   rep.content = stock_replies::to_string(reply::moved_permanently);
   rep.headers.resize(1);
   rep.headers[0].name = "Location";
   rep.headers[0].value = location;
-  return rep;
 }
 
 } // namespace server

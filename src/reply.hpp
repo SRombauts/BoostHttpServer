@@ -56,9 +56,9 @@ struct reply
   std::vector<boost::asio::const_buffer> to_buffers();
 
   /// Get a stock reply.
-  static reply stock_reply(status_type status);
+  static void stock_reply(status_type status, reply& rep);
   /// Get a redirect reply.
-  static reply redirect_reply(const std::string& location);
+  static void redirect_reply(const std::string& location, reply& rep);
 };
 
 } // namespace server
