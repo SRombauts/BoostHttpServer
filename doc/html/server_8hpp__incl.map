@@ -1,9 +1,9 @@
 <map id="G" name="G">
-<area shape="rect" id="node9" href="$connection_8hpp.html" title="Manages a single connection from a client." alt="" coords="577,160,687,189"/>
-<area shape="rect" id="node33" href="$request__handler_8hpp.html" title="Handle a HTTP request by returning the client the ressource he asked." alt="" coords="5,237,144,267"/>
-<area shape="rect" id="node45" href="$connection__manager_8hpp.html" title="Manages all open connections to clients." alt="" coords="429,83,595,112"/>
-<area shape="rect" id="node19" href="$reply_8hpp.html" title="A reply to be sent to a client." alt="" coords="1147,237,1221,267"/>
-<area shape="rect" id="node29" href="$request_8hpp.html" title="Structure of a HTTP request." alt="" coords="1032,237,1123,267"/>
-<area shape="rect" id="node39" href="$request__parser_8hpp.html" title="HTTP header parser of incoming requests." alt="" coords="875,237,1008,267"/>
-<area shape="rect" id="node25" href="$header_8hpp.html" title="Structure of a header in a HTTP request or reply." alt="" coords="1079,315,1164,344"/>
+<area shape="rect" id="node9" href="$connection_8hpp.html" title="Manages a single connection from a client." alt="" coords="609,155,719,181"/>
+<area shape="rect" id="node33" href="$request__handler_8hpp.html" title="Handle a HTTP request by returning the client the resource he asked." alt="" coords="97,229,236,256"/>
+<area shape="rect" id="node47" href="$connection__manager_8hpp.html" title="Manages all open connections to clients." alt="" coords="630,80,796,107"/>
+<area shape="rect" id="node19" href="$reply_8hpp.html" title="A reply to be sent to a client." alt="" coords="1239,229,1313,256"/>
+<area shape="rect" id="node29" href="$request_8hpp.html" title="Structure of a HTTP request." alt="" coords="967,229,1057,256"/>
+<area shape="rect" id="node41" href="$request__parser_8hpp.html" title="HTTP header parser of incoming requests." alt="" coords="1081,229,1215,256"/>
+<area shape="rect" id="node25" href="$header_8hpp.html" title="Structure of a header in a HTTP request or reply." alt="" coords="1169,304,1255,331"/>
 </map>

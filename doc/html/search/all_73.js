@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['server',['server',['../classhttp_1_1server_1_1server.html',1,'http::server']]],
+  ['server',['server',['../classhttp_1_1server_1_1server.html#a37d804d35c76a43fc5a3f9a2c3d56951',1,'http::server::server']]],
+  ['server_2ecpp',['server.cpp',['../server_8cpp.html',1,'']]],
+  ['server_2ehpp',['server.hpp',['../server_8hpp.html',1,'']]],
+  ['service_5funavailable',['service_unavailable',['../structhttp_1_1server_1_1reply.html#a08d3b8d638988f252ab4e5cd3db72ad6a468c1abd8ff82e10fd9568665436f1f9',1,'http::server::reply::service_unavailable()'],['../namespacehttp_1_1server_1_1status__strings.html#a067ef82c179a1793b2dc1498dfc27010',1,'http::server::status_strings::service_unavailable()'],['../namespacehttp_1_1server_1_1stock__replies.html#ac4fb133a439e899fe3bcea64b14995d5',1,'http::server::stock_replies::service_unavailable()']]],
+  ['set_5fcontent_5flength',['set_content_length',['../classhttp_1_1server_1_1request__parser.html#aec92d9fe38ff90d4ee5d9f29b929fd40',1,'http::server::request_parser']]],
+  ['socket',['socket',['../classhttp_1_1server_1_1connection.html#a57e63849d4283339e1e3a8591ac85cec',1,'http::server::connection']]],
+  ['socket_5f',['socket_',['../classhttp_1_1server_1_1connection.html#a7e8031589455cbaecc6f28fcbd001f65',1,'http::server::connection']]],
+  ['space_5fbefore_5fheader_5fvalue',['space_before_header_value',['../classhttp_1_1server_1_1request__parser.html#a9022d650c1b9a3b1daaa66ec01680cd8aae07d51f400cce645f7171b2390792f8',1,'http::server::request_parser']]],
+  ['start',['start',['../classhttp_1_1server_1_1connection.html#a5f03df3dc2ef188842942444b7adf54f',1,'http::server::connection::start()'],['../classhttp_1_1server_1_1connection__manager.html#a760ef5e1ae95821799f0eec2dc2c2409',1,'http::server::connection_manager::start()']]],
+  ['state',['state',['../classhttp_1_1server_1_1request__parser.html#a9022d650c1b9a3b1daaa66ec01680cd8',1,'http::server::request_parser']]],
+  ['state_5f',['state_',['../classhttp_1_1server_1_1request__parser.html#aa5ff4742325be2423d284ee69aa11964',1,'http::server::request_parser']]],
+  ['status',['status',['../structhttp_1_1server_1_1reply.html#ae34131ac243daea29e608ceebef76c6b',1,'http::server::reply']]],
+  ['status_5ftype',['status_type',['../structhttp_1_1server_1_1reply.html#a08d3b8d638988f252ab4e5cd3db72ad6',1,'http::server::reply']]],
+  ['stock_5freply',['stock_reply',['../structhttp_1_1server_1_1reply.html#a62bfe22950ec22542b43dcb13be6a97c',1,'http::server::reply']]],
+  ['stop',['stop',['../classhttp_1_1server_1_1connection.html#a7b8e7d2c99d3c9660242227dfadeea49',1,'http::server::connection::stop()'],['../classhttp_1_1server_1_1connection__manager.html#a331802ba238905f7a77a8be481f8690e',1,'http::server::connection_manager::stop()'],['../classhttp_1_1server_1_1server.html#a3e14f0edee8c56ee9cec1669afd02226',1,'http::server::server::stop()']]],
+  ['stop_5fall',['stop_all',['../classhttp_1_1server_1_1connection__manager.html#a286d83b5b2758cf8d178379f38c266d8',1,'http::server::connection_manager']]]
+];

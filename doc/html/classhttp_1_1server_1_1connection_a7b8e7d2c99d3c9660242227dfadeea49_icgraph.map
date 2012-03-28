@@ -1,3 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$classhttp_1_1server_1_1connection__manager.html#a286d83b5b2758cf8d178379f38c266d8" title="Stop all connections." alt="" coords="245,5,515,35"/>
+<area shape="rect" id="node3" href="$classhttp_1_1server_1_1connection__manager.html#a286d83b5b2758cf8d178379f38c266d8" title="Stop all connections." alt="" coords="245,5,512,32"/>
+<area shape="rect" id="node5" href="$classhttp_1_1server_1_1server.html#ae6d71712bec989cd08e92c797c7331fd" title="Handle a request to stop the server." alt="" coords="561,5,767,32"/>
+<area shape="rect" id="node7" href="$classhttp_1_1server_1_1server.html#a3e14f0edee8c56ee9cec1669afd02226" title="Stop the server." alt="" coords="817,5,978,32"/>
+<area shape="rect" id="node9" href="$posix__main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="1027,5,1077,32"/>
 </map>

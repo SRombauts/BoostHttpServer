@@ -11,6 +11,10 @@
 /// - How to install Boost
 /// - How to register and build dynamic web resources
 ///
+/// \todo Add some more examples
+/// - A simple example for fully dynamic web page (overload the /index.html)
+/// - Somme more complex examples with actions
+///
 /// \todo Add some web ressource building helpers
 /// - autofill the HTTP headers of the reply
 /// - Add an HTML builder library

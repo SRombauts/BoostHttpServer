@@ -1,10 +1,10 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$server_8hpp.html" title="The HTTP server accepting client connections." alt="" coords="531,83,613,112"/>
-<area shape="rect" id="node11" href="$connection_8hpp.html" title="Manages a single connection from a client." alt="" coords="577,237,687,267"/>
-<area shape="rect" id="node35" href="$request__handler_8hpp.html" title="Handle a HTTP request by returning the client the ressource he asked." alt="" coords="5,315,144,344"/>
-<area shape="rect" id="node47" href="$connection__manager_8hpp.html" title="Manages all open connections to clients." alt="" coords="429,160,595,189"/>
-<area shape="rect" id="node21" href="$reply_8hpp.html" title="A reply to be sent to a client." alt="" coords="1147,315,1221,344"/>
-<area shape="rect" id="node31" href="$request_8hpp.html" title="Structure of a HTTP request." alt="" coords="1032,315,1123,344"/>
-<area shape="rect" id="node41" href="$request__parser_8hpp.html" title="HTTP header parser of incoming requests." alt="" coords="875,315,1008,344"/>
-<area shape="rect" id="node27" href="$header_8hpp.html" title="Structure of a header in a HTTP request or reply." alt="" coords="1079,392,1164,421"/>
+<area shape="rect" id="node3" href="$server_8hpp.html" title="The HTTP server accepting client connections." alt="" coords="611,80,692,107"/>
+<area shape="rect" id="node11" href="$connection_8hpp.html" title="Manages a single connection from a client." alt="" coords="609,229,719,256"/>
+<area shape="rect" id="node35" href="$request__handler_8hpp.html" title="Handle a HTTP request by returning the client the resource he asked." alt="" coords="97,304,236,331"/>
+<area shape="rect" id="node49" href="$connection__manager_8hpp.html" title="Manages all open connections to clients." alt="" coords="630,155,796,181"/>
+<area shape="rect" id="node21" href="$reply_8hpp.html" title="A reply to be sent to a client." alt="" coords="1239,304,1313,331"/>
+<area shape="rect" id="node31" href="$request_8hpp.html" title="Structure of a HTTP request." alt="" coords="967,304,1057,331"/>
+<area shape="rect" id="node43" href="$request__parser_8hpp.html" title="HTTP header parser of incoming requests." alt="" coords="1081,304,1215,331"/>
+<area shape="rect" id="node27" href="$header_8hpp.html" title="Structure of a header in a HTTP request or reply." alt="" coords="1169,379,1255,405"/>
 </map>

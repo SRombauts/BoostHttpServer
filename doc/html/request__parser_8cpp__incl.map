@@ -1,5 +1,5 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$request__parser_8hpp.html" title="HTTP header parser of incoming requests." alt="" coords="175,83,308,112"/>
-<area shape="rect" id="node9" href="$request_8hpp.html" title="Structure of a HTTP request." alt="" coords="332,83,423,112"/>
-<area shape="rect" id="node13" href="$header_8hpp.html" title="Structure of a header in a HTTP request or reply." alt="" coords="408,160,493,189"/>
+<area shape="rect" id="node3" href="$request__parser_8hpp.html" title="HTTP header parser of incoming requests." alt="" coords="177,80,311,107"/>
+<area shape="rect" id="node9" href="$request_8hpp.html" title="Structure of a HTTP request." alt="" coords="335,80,425,107"/>
+<area shape="rect" id="node13" href="$header_8hpp.html" title="Structure of a header in a HTTP request or reply." alt="" coords="411,155,497,181"/>
 </map>

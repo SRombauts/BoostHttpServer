@@ -1,6 +1,8 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$namespacehttp_1_1server_1_1mime__types.html#aaa3cd5827dc485ab288a3c446ef023bc" title="Convert a file extension into a MIME type." alt="" coords="340,5,620,35"/>
-<area shape="rect" id="node5" href="$structhttp_1_1server_1_1reply.html#a3b72ce6d1ee099e09ac6566ecc3a3b31" title="Get a redirect reply." alt="" coords="375,59,585,88"/>
-<area shape="rect" id="node9" href="$structhttp_1_1server_1_1reply.html#a4c781e107fd381205ad721ec8635176f" title="Get a stock reply." alt="" coords="381,112,579,141"/>
-<area shape="rect" id="node7" href="$namespacehttp_1_1server_1_1stock__replies.html#a4ded47eeac4e3d89b45848961fbc7a41" title="http::server::stock_replies::to_string" alt="" coords="671,85,900,115"/>
+<area shape="rect" id="node3" href="$classhttp_1_1server_1_1request__handler.html#aed78ca8a5e7f443011ba844bff7bcc55" title="Perform URL&#45;decoding on a string." alt="" coords="349,5,606,32"/>
+<area shape="rect" id="node5" href="$structhttp_1_1server_1_1reply.html#a62bfe22950ec22542b43dcb13be6a97c" title="Get a stock reply." alt="" coords="379,56,576,83"/>
+<area shape="rect" id="node9" href="$classhttp_1_1server_1_1request__handler.html#a1a93f649562fcd0771771d2288efe4e6" title="Tokenize the query part of the URI, splitting it by option name/values." alt="" coords="336,107,619,133"/>
+<area shape="rect" id="node11" href="$structhttp_1_1server_1_1reply.html#a36466cc5d1edb9877c9e965264c38fbd" title="Get a redirect reply." alt="" coords="373,157,581,184"/>
+<area shape="rect" id="node14" href="$namespacehttp_1_1server_1_1mime__types.html#aaa3cd5827dc485ab288a3c446ef023bc" title="Convert a file extension into a MIME type." alt="" coords="338,208,617,235"/>
+<area shape="rect" id="node7" href="$namespacehttp_1_1server_1_1stock__replies.html#a4ded47eeac4e3d89b45848961fbc7a41" title="http::server::stock_replies::to_string" alt="" coords="667,107,896,133"/>
 </map>
