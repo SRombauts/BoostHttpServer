@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual C++ Express 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BoostHttpServer", "BoostHttpServer.vcproj", "{710A6ECA-6CF9-475F-A02F-1FF7AAB85D46}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "example1_static", "example1_static.vcproj", "{710A6ECA-6CF9-475F-A02F-1FF7AAB85D46}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "example2_dynamic", "example2_dynamic.vcproj", "{5833DA4D-BEDA-4E3A-B3DB-16B5A9559256}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +15,10 @@ Global
 		{710A6ECA-6CF9-475F-A02F-1FF7AAB85D46}.Debug|Win32.Build.0 = Debug|Win32
 		{710A6ECA-6CF9-475F-A02F-1FF7AAB85D46}.Release|Win32.ActiveCfg = Release|Win32
 		{710A6ECA-6CF9-475F-A02F-1FF7AAB85D46}.Release|Win32.Build.0 = Release|Win32
+		{5833DA4D-BEDA-4E3A-B3DB-16B5A9559256}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5833DA4D-BEDA-4E3A-B3DB-16B5A9559256}.Debug|Win32.Build.0 = Debug|Win32
+		{5833DA4D-BEDA-4E3A-B3DB-16B5A9559256}.Release|Win32.ActiveCfg = Release|Win32
+		{5833DA4D-BEDA-4E3A-B3DB-16B5A9559256}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
