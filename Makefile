@@ -30,8 +30,18 @@ endif
 CPPDEPS = -MT $@ -MF`echo $@ | sed -e 's,\.o$$,.d,'` -MD -MP
 
 BOOST_HTTP_SERVER_CXXFLAGS = $(BUILD_FLAGS) $(CXXFLAGS)
-BOOST_HTTP_SERVER_OBJECTS =  \
+BOOST_HTTP_SERVER_EXAMPLE1_OBJECTS =  \
 	$(BUILD)/BoostHttpServer_posix_main.o \
+	$(BUILD)/BoostHttpServer_connection.o \
+	$(BUILD)/BoostHttpServer_connection_manager.o \
+	$(BUILD)/BoostHttpServer_mime_types.o \
+	$(BUILD)/BoostHttpServer_reply.o \
+	$(BUILD)/BoostHttpServer_request_handler.o \
+	$(BUILD)/BoostHttpServer_request_parser.o \
+	$(BUILD)/BoostHttpServer_server.o
+	
+BOOST_HTTP_SERVER_EXAMPLE2_OBJECTS =  \
+	$(BUILD)/BoostHttpServer_main.o \
 	$(BUILD)/BoostHttpServer_connection.o \
 	$(BUILD)/BoostHttpServer_connection_manager.o \
 	$(BUILD)/BoostHttpServer_mime_types.o \
@@ -42,21 +52,30 @@ BOOST_HTTP_SERVER_OBJECTS =  \
 	
 ### Targets: ###
 
-all: $(BUILD) $(BUILD)/BoostHttpServer
+all: $(BUILD) $(BUILD)/example1_static $(BUILD)/example2_dynamic
 
 clean: 
 	rm -f $(BUILD)/*.o
 	rm -f $(BUILD)/*.d
-	rm -f $(BUILD)/BoostHttpServer
+	rm -f $(BUILD)/example1_static
+	rm -f $(BUILD)/example2_dynamic
 
 $(BUILD): $(BUILD)/
 	mkdir -p $(BUILD)
 
-$(BUILD)/BoostHttpServer: $(BOOST_HTTP_SERVER_OBJECTS)
-	$(CXX) -o $@ $(BOOST_HTTP_SERVER_OBJECTS) $(LINK_FLAGS) -lboost_thread-mt -lboost_system-mt -lboost_filesystem-mt
+$(BUILD)/example1_static: $(BOOST_HTTP_SERVER_EXAMPLE1_OBJECTS)
+	$(CXX) -o $@ $(BOOST_HTTP_SERVER_EXAMPLE1_OBJECTS) $(LINK_FLAGS) -lboost_thread-mt -lboost_system-mt -lboost_filesystem-mt
+
+
+$(BUILD)/example2_dynamic: $(BOOST_HTTP_SERVER_EXAMPLE2_OBJECTS)
+	$(CXX) -o $@ $(BOOST_HTTP_SERVER_EXAMPLE2_OBJECTS) $(LINK_FLAGS) -lboost_thread-mt -lboost_system-mt -lboost_filesystem-mt
 
 
 $(BUILD)/BoostHttpServer_posix_main.o: src/example1_static/posix_main.cpp
+	$(CXX) -c -o $@ $(BOOST_HTTP_SERVER_CXXFLAGS) $(CPPDEPS) $<
+
+
+$(BUILD)/BoostHttpServer_main.o: src/example2_dynamic/main.cpp
 	$(CXX) -c -o $@ $(BOOST_HTTP_SERVER_CXXFLAGS) $(CPPDEPS) $<
 
 
