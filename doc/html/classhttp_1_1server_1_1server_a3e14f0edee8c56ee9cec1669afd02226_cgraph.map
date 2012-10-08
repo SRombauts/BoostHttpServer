@@ -1,5 +1,5 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classhttp_1_1server_1_1server.html#ae6d71712bec989cd08e92c797c7331fd" title="Handle a request to stop the server." alt="" coords="217,5,423,32"/>
-<area shape="rect" id="node5" href="$classhttp_1_1server_1_1connection__manager.html#a286d83b5b2758cf8d178379f38c266d8" title="Stop all connections." alt="" coords="472,5,739,32"/>
-<area shape="rect" id="node7" href="$classhttp_1_1server_1_1connection.html#a7b8e7d2c99d3c9660242227dfadeea49" title="Stop all asynchronous operations associated with the connection." alt="" coords="787,5,978,32"/>
+<map id="http::server::server::stop" name="http::server::server::stop">
+<area shape="rect" id="node3" href="$classhttp_1_1server_1_1server.html#ae6d71712bec989cd08e92c797c7331fd" title="Handle a request to stop the server." alt="" coords="188,5,319,51"/>
+<area shape="rect" id="node5" href="$classhttp_1_1server_1_1connection__manager.html#a286d83b5b2758cf8d178379f38c266d8" title="Stop all connections." alt="" coords="369,5,527,51"/>
+<area shape="rect" id="node7" href="$classhttp_1_1server_1_1connection.html#a7b8e7d2c99d3c9660242227dfadeea49" title="Stop all asynchronous operations associated with the connection." alt="" coords="577,5,735,51"/>
 </map>

@@ -1,10 +1,10 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$structhttp_1_1server_1_1request.html" title="Structure of a HTTP request received from a client." alt="" coords="1151,65,1289,92"/>
-<area shape="rect" id="node25" href="$structhttp_1_1server_1_1reply.html" title="A reply to be sent to a client." alt="" coords="1159,167,1281,193"/>
-<area shape="rect" id="node6" href="$structhttp_1_1server_1_1header.html" title="Structure of a header in a HTTP request or reply." alt="" coords="453,116,587,143"/>
-<area shape="rect" id="node8" title="STL class." alt="" coords="224,167,304,193"/>
-<area shape="rect" id="node15" href="$classhttp_1_1server_1_1request__handler.html" title="The common handler for all incoming requests." alt="" coords="795,219,981,245"/>
-<area shape="rect" id="node10" title="STL class." alt="" coords="6,167,173,193"/>
-<area shape="rect" id="node13" href="$classhttp_1_1server_1_1request__parser.html" title="Parser for incoming requests." alt="" coords="1130,116,1310,143"/>
-<area shape="rect" id="node21" href="$classhttp_1_1server_1_1connection__manager.html" title="brief Manages all open connections to clients." alt="" coords="1113,280,1327,307"/>
+<map id="http::server::connection" name="http::server::connection">
+<area shape="rect" id="node2" href="$structhttp_1_1server_1_1request.html" title="Structure of a HTTP request received from a client." alt="" coords="925,59,1064,88"/>
+<area shape="rect" id="node25" href="$structhttp_1_1server_1_1reply.html" title="A reply to be sent to a client." alt="" coords="933,181,1056,211"/>
+<area shape="rect" id="node6" href="$structhttp_1_1server_1_1header.html" title="Structure of a header in a HTTP request or reply." alt="" coords="356,128,489,157"/>
+<area shape="rect" id="node8" title="STL class." alt="" coords="184,180,264,209"/>
+<area shape="rect" id="node15" href="$classhttp_1_1server_1_1request__handler.html" title="The common handler for all incoming requests." alt="" coords="641,231,780,278"/>
+<area shape="rect" id="node10" title="STL class." alt="" coords="7,171,132,218"/>
+<area shape="rect" id="node13" href="$classhttp_1_1server_1_1request__parser.html" title="Parser for incoming requests." alt="" coords="925,111,1064,158"/>
+<area shape="rect" id="node21" href="$classhttp_1_1server_1_1connection__manager.html" title="brief Manages all open connections to clients." alt="" coords="916,299,1073,346"/>
 </map>

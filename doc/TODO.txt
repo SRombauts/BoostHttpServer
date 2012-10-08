@@ -29,6 +29,10 @@
 ///
 /// \todo Configure and compile for Android
 ///
+/// \todo See how to integrate the web server onto an existing Boost.asio application.
+///
+/// \todo See how to integrate the web server onto an SDL application.
+///       
 /// \todo See how to share time with the app (timers) : share the io_service.
 ///
 /// \todo Test with a complexe website, and a demo

@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['main',['main',['../posix__main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'posix_main.cpp']]],
+  ['main',['main',['../posix__main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;posix_main.cpp'],['../main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;main.cpp']]],
+  ['main_2ecpp',['main.cpp',['../main_8cpp.html',1,'']]],
   ['mapping',['mapping',['../structhttp_1_1server_1_1mime__types_1_1mapping.html',1,'http::server::mime_types']]],
   ['mappings',['mappings',['../namespacehttp_1_1server_1_1mime__types.html#a45b8af69a248bd438b985081226300a7',1,'http::server::mime_types']]],
   ['method',['method',['../structhttp_1_1server_1_1request.html#af34fac6ff4957cef539ff893dad27f65',1,'http::server::request::method()'],['../classhttp_1_1server_1_1request__parser.html#a9022d650c1b9a3b1daaa66ec01680cd8adcec9f67cd08b5a511931c36090e49c1',1,'http::server::request_parser::method()']]],

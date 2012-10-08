@@ -1,8 +1,8 @@
-<map id="G" name="G">
-<area shape="rect" id="node7" href="$connection_8hpp.html" title="Manages a single connection from a client." alt="" coords="638,80,748,107"/>
-<area shape="rect" id="node18" href="$reply_8hpp.html" title="A reply to be sent to a client." alt="" coords="87,155,161,181"/>
-<area shape="rect" id="node29" href="$request_8hpp.html" title="Structure of a HTTP request." alt="" coords="740,155,831,181"/>
-<area shape="rect" id="node33" href="$request__handler_8hpp.html" title="Handle a HTTP request by returning the client the resource he asked." alt="" coords="855,155,993,181"/>
-<area shape="rect" id="node41" href="$request__parser_8hpp.html" title="HTTP header parser of incoming requests." alt="" coords="1147,155,1280,181"/>
-<area shape="rect" id="node25" href="$header_8hpp.html" title="Structure of a header in a HTTP request or reply." alt="" coords="295,229,381,256"/>
+<map id="src/server/connection_manager.hpp" name="src/server/connection_manager.hpp">
+<area shape="rect" id="node7" href="$connection_8hpp.html" title="Manages a single connection from a client." alt="" coords="577,101,687,131"/>
+<area shape="rect" id="node18" href="$reply_8hpp.html" title="A reply to be sent to a client." alt="" coords="89,188,164,217"/>
+<area shape="rect" id="node29" href="$request_8hpp.html" title="Structure of a HTTP request." alt="" coords="657,188,748,217"/>
+<area shape="rect" id="node33" href="$request__handler_8hpp.html" title="Handle a HTTP request by returning the client the resource he asked." alt="" coords="772,188,911,217"/>
+<area shape="rect" id="node41" href="$request__parser_8hpp.html" title="HTTP header parser of incoming requests." alt="" coords="1061,188,1195,217"/>
+<area shape="rect" id="node25" href="$header_8hpp.html" title="Structure of a header in a HTTP request or reply." alt="" coords="279,275,364,304"/>
 </map>

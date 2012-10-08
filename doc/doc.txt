@@ -16,4 +16,14 @@
 /// Boost libraries are intended to be widely useful, and usable across a broad
 /// spectrum of applications.
 /// 
-
+/// \section Requirements
+///
+/// example1 :
+/// libboost_system-mt
+/// libboost_thread-mt
+/// libboost_filesystem-mt
+/// 
+/// example2 :
+/// libboost_system
+/// libboost_filesystem
+/// 

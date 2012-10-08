@@ -1,5 +1,6 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$posix__main_8cpp.html" title="POSIX (Linux/Unix/Cygwin) entry point with clean shutdown signal managment." alt="" coords="5,80,240,107"/>
-<area shape="rect" id="node5" href="$win__main_8cpp.html" title="Win32 (Windows XP/7) entry point with clean shutdown console managment." alt="" coords="265,80,487,107"/>
-<area shape="rect" id="node7" href="$server_8cpp.html" title="The HTTP server accepting client connections." alt="" coords="512,80,653,107"/>
+<map id="src/server/server.hpp" name="src/server/server.hpp">
+<area shape="rect" id="node3" href="$posix__main_8cpp.html" title="POSIX (Linux/Unix/Cygwin) entry point with clean shutdown signal managment." alt="" coords="5,83,144,130"/>
+<area shape="rect" id="node5" href="$win__main_8cpp.html" title="Win32 (Windows XP/7) entry point with clean shutdown console managment." alt="" coords="168,83,307,130"/>
+<area shape="rect" id="node7" href="$main_8cpp.html" title="Portable entry point for dynamic web page generation example." alt="" coords="331,83,485,130"/>
+<area shape="rect" id="node9" href="$server_8cpp.html" title="The HTTP server accepting client connections." alt="" coords="509,92,653,121"/>
 </map>

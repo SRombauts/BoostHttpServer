@@ -1,11 +1,12 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$connection_8hpp.html" title="Manages a single connection from a client." alt="" coords="499,80,669,107"/>
-<area shape="rect" id="node21" href="$request__parser_8cpp.html" title="HTTP header parser of incoming requests." alt="" coords="694,80,887,107"/>
-<area shape="rect" id="node5" href="$server_8hpp.html" title="The HTTP server accepting client connections." alt="" coords="305,229,447,256"/>
-<area shape="rect" id="node13" href="$connection__manager_8hpp.html" title="Manages all open connections to clients." alt="" coords="471,155,697,181"/>
-<area shape="rect" id="node16" href="$connection_8cpp.html" title="Manages a single connection from a client." alt="" coords="721,229,892,256"/>
-<area shape="rect" id="node7" href="$posix__main_8cpp.html" title="POSIX (Linux/Unix/Cygwin) entry point with clean shutdown signal managment." alt="" coords="5,304,240,331"/>
-<area shape="rect" id="node9" href="$win__main_8cpp.html" title="Win32 (Windows XP/7) entry point with clean shutdown console managment." alt="" coords="265,304,487,331"/>
-<area shape="rect" id="node11" href="$server_8cpp.html" title="The HTTP server accepting client connections." alt="" coords="512,304,653,331"/>
-<area shape="rect" id="node18" href="$connection__manager_8cpp.html" title="Manages all open connections to clients." alt="" coords="471,229,697,256"/>
+<map id="src/server/request_parser.hpp" name="src/server/request_parser.hpp">
+<area shape="rect" id="node3" href="$connection_8hpp.html" title="Manages a single connection from a client." alt="" coords="407,111,577,140"/>
+<area shape="rect" id="node23" href="$request__parser_8cpp.html" title="HTTP header parser of incoming requests." alt="" coords="601,102,727,149"/>
+<area shape="rect" id="node5" href="$server_8hpp.html" title="The HTTP server accepting client connections." alt="" coords="251,303,395,332"/>
+<area shape="rect" id="node15" href="$connection__manager_8hpp.html" title="Manages all open connections to clients." alt="" coords="419,198,565,245"/>
+<area shape="rect" id="node18" href="$connection_8cpp.html" title="Manages a single connection from a client." alt="" coords="589,303,760,332"/>
+<area shape="rect" id="node7" href="$posix__main_8cpp.html" title="POSIX (Linux/Unix/Cygwin) entry point with clean shutdown signal managment." alt="" coords="5,390,144,437"/>
+<area shape="rect" id="node9" href="$win__main_8cpp.html" title="Win32 (Windows XP/7) entry point with clean shutdown console managment." alt="" coords="168,390,307,437"/>
+<area shape="rect" id="node11" href="$main_8cpp.html" title="Portable entry point for dynamic web page generation example." alt="" coords="331,390,485,437"/>
+<area shape="rect" id="node13" href="$server_8cpp.html" title="The HTTP server accepting client connections." alt="" coords="509,399,653,428"/>
+<area shape="rect" id="node20" href="$connection__manager_8cpp.html" title="Manages all open connections to clients." alt="" coords="419,294,565,341"/>
 </map>

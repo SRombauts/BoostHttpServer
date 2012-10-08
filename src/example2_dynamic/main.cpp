@@ -20,8 +20,8 @@
 #include <boost/lexical_cast.hpp>
 #include "../server/server.hpp"
 
-
 /// Function to generate the our first dynamic resource : web page "/"
+/// TODO : unused parameters req
 void on_request_page_root (const http::server::request& req, http::server::reply& rep)
 {
   rep.status = http::server::reply::ok;
@@ -34,6 +34,7 @@ void on_request_page_root (const http::server::request& req, http::server::reply
 }
 
 /// Function to generate the our first dynamic resource, and ask the server to stop : web page "/stop"
+/// TODO : unused parameters req
 void on_request_page_stop (const http::server::request& req, http::server::reply& rep, http::server::server* serv)
 {
   rep.status = http::server::reply::ok;

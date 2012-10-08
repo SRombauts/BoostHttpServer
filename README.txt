@@ -10,3 +10,5 @@ Boost provides free peer-reviewed portable C++ source libraries
 that work well with the C++ Standard Library.
 Boost libraries are intended to be widely useful, and usable across a broad
 spectrum of applications.
+
+See also "doc/TODO.txt" et "doc/doc.txt"

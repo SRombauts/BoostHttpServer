@@ -1,5 +1,5 @@
-<map id="G" name="G">
-<area shape="rect" id="node4" href="$structhttp_1_1server_1_1header.html" title="Structure of a header in a HTTP request or reply." alt="" coords="107,187,240,213"/>
-<area shape="rect" id="node6" title="STL class." alt="" coords="48,83,128,109"/>
-<area shape="rect" id="node8" title="STL class." alt="" coords="5,5,171,32"/>
+<map id="http::server::request" name="http::server::request">
+<area shape="rect" id="node4" href="$structhttp_1_1server_1_1header.html" title="Structure of a header in a HTTP request or reply." alt="" coords="87,216,220,245"/>
+<area shape="rect" id="node6" title="STL class." alt="" coords="28,104,108,133"/>
+<area shape="rect" id="node8" title="STL class." alt="" coords="5,6,131,53"/>
 </map>
