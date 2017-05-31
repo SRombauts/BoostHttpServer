@@ -1,4 +1,0 @@
-<map id="http::server::server::server" name="http::server::server::server">
-<area shape="rect" id="node3" href="$classhttp_1_1server_1_1server.html#a866e1b78c03302391daaa02b12f23e8c" title="Handle completion of an asynchronous accept operation." alt="" coords="188,5,319,51"/>
-<area shape="rect" id="node5" href="$classhttp_1_1server_1_1connection__manager.html#a760ef5e1ae95821799f0eec2dc2c2409" title="Add the specified connection to the manager and start it." alt="" coords="369,5,527,51"/>
-</map>

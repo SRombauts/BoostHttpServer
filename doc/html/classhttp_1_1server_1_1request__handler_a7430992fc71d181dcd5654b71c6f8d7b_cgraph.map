@@ -1,8 +1,0 @@
-<map id="http::server::request_handler::handle_request" name="http::server::request_handler::handle_request">
-<area shape="rect" id="node3" href="$classhttp_1_1server_1_1request__handler.html#aed78ca8a5e7f443011ba844bff7bcc55" title="Perform URL&#45;decoding on a string." alt="" coords="239,5,380,51"/>
-<area shape="rect" id="node5" href="$structhttp_1_1server_1_1reply.html#a62bfe22950ec22542b43dcb13be6a97c" title="Get a stock reply." alt="" coords="248,74,371,121"/>
-<area shape="rect" id="node9" href="$classhttp_1_1server_1_1request__handler.html#a1a93f649562fcd0771771d2288efe4e6" title="Tokenize the query part of the URI, splitting it by option name/values." alt="" coords="227,143,392,190"/>
-<area shape="rect" id="node11" href="$structhttp_1_1server_1_1reply.html#a36466cc5d1edb9877c9e965264c38fbd" title="Get a redirect reply." alt="" coords="248,213,371,259"/>
-<area shape="rect" id="node14" href="$namespacehttp_1_1server_1_1mime__types.html#aaa3cd5827dc485ab288a3c446ef023bc" title="Convert a file extension into a MIME type." alt="" coords="223,282,396,329"/>
-<area shape="rect" id="node7" href="$namespacehttp_1_1server_1_1stock__replies.html#a4ded47eeac4e3d89b45848961fbc7a41" title="http::server::stock\l_replies::to_string" alt="" coords="445,143,573,190"/>
-</map>

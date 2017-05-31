@@ -1,4 +1,0 @@
-<map id="http::server::request_handler::handle_request" name="http::server::request_handler::handle_request">
-<area shape="rect" id="node3" href="$classhttp_1_1server_1_1connection.html#aa3a039946f820cad818832c7e2fe9d51" title="Handle completion of a read operation." alt="" coords="223,5,380,51"/>
-<area shape="rect" id="node5" href="$classhttp_1_1server_1_1connection.html#a5f03df3dc2ef188842942444b7adf54f" title="Start the first asynchronous operation for the connection." alt="" coords="431,5,588,51"/>
-</map>

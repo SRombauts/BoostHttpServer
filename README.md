@@ -12,4 +12,4 @@ that work well with the C++ Standard Library.
 Boost libraries are intended to be widely useful, and usable across a broad
 spectrum of applications.
 
-See also [Doxygen documentation](doc).
+See also [generated Doxygen documentation](docs/).

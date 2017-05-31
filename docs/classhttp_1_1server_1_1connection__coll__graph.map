@@ -1,0 +1,10 @@
+<map id="http::server::connection" name="http::server::connection">
+<area shape="rect" id="node4" href="$structhttp_1_1server_1_1request.html" title="Structure of a HTTP request received from a client. " alt="" coords="907,122,1045,149"/>
+<area shape="rect" id="node15" href="$structhttp_1_1server_1_1reply.html" title="A reply to be sent to a client. " alt="" coords="914,239,1038,266"/>
+<area shape="rect" id="node6" href="$structhttp_1_1server_1_1header.html" title="Structure of a header in a HTTP request or reply. " alt="" coords="351,174,486,201"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="181,225,261,251"/>
+<area shape="rect" id="node10" href="$classhttp_1_1server_1_1request__handler.html" title="The common handler for all incoming requests. " alt="" coords="643,316,782,357"/>
+<area shape="rect" id="node8" title="STL class. " alt="" coords="5,217,132,259"/>
+<area shape="rect" id="node9" href="$classhttp_1_1server_1_1request__parser.html" title="Parser for incoming requests. " alt="" coords="907,173,1045,215"/>
+<area shape="rect" id="node13" href="$classhttp_1_1server_1_1connection__manager.html" title="brief Manages all open connections to clients. " alt="" coords="633,403,792,444"/>
+</map>

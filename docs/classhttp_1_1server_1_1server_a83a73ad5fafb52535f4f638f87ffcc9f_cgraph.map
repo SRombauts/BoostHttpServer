@@ -1,0 +1,8 @@
+<map id="http::server::server::unregister_resource" name="http::server::server::unregister_resource">
+<area shape="rect" id="node2" href="$classhttp_1_1server_1_1request__handler.html#a3cf9a24f657e644a617c92dcbd8d9dae" title="Unegister a dynamic resource. " alt="" coords="197,5,336,61"/>
+<area shape="rect" id="node3" href="$classhttp_1_1server_1_1server.html#a866e1b78c03302391daaa02b12f23e8c" title="Handle completion of an asynchronous accept operation. " alt="" coords="201,85,333,126"/>
+<area shape="rect" id="node5" href="$classhttp_1_1server_1_1server.html#ae6d71712bec989cd08e92c797c7331fd" title="Handle a request to stop the server. " alt="" coords="201,150,333,191"/>
+<area shape="rect" id="node4" href="$classhttp_1_1server_1_1connection__manager.html#a760ef5e1ae95821799f0eec2dc2c2409" title="Add the specified connection to the manager and start it. " alt="" coords="384,85,543,126"/>
+<area shape="rect" id="node6" href="$classhttp_1_1server_1_1connection__manager.html#a286d83b5b2758cf8d178379f38c266d8" title="Stop all connections. " alt="" coords="384,150,543,191"/>
+<area shape="rect" id="node7" href="$classhttp_1_1server_1_1connection.html#a7b8e7d2c99d3c9660242227dfadeea49" title="Stop all asynchronous operations associated with the connection. " alt="" coords="591,150,749,191"/>
+</map>

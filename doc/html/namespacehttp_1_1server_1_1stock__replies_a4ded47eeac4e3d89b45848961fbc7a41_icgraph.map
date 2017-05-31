@@ -1,7 +1,0 @@
-<map id="http::server::stock_replies::to_string" name="http::server::stock_replies::to_string">
-<area shape="rect" id="node3" href="$structhttp_1_1server_1_1reply.html#a62bfe22950ec22542b43dcb13be6a97c" title="Get a stock reply." alt="" coords="183,5,305,51"/>
-<area shape="rect" id="node12" href="$structhttp_1_1server_1_1reply.html#a36466cc5d1edb9877c9e965264c38fbd" title="Get a redirect reply." alt="" coords="183,74,305,121"/>
-<area shape="rect" id="node5" href="$classhttp_1_1server_1_1connection.html#aa3a039946f820cad818832c7e2fe9d51" title="Handle completion of a read operation." alt="" coords="572,35,729,82"/>
-<area shape="rect" id="node9" href="$classhttp_1_1server_1_1request__handler.html#a7430992fc71d181dcd5654b71c6f8d7b" title="Handle a request and produce a reply." alt="" coords="356,65,521,111"/>
-<area shape="rect" id="node7" href="$classhttp_1_1server_1_1connection.html#a5f03df3dc2ef188842942444b7adf54f" title="Start the first asynchronous operation for the connection." alt="" coords="780,35,937,82"/>
-</map>

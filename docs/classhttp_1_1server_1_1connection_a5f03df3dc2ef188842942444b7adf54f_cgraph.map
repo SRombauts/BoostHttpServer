@@ -1,0 +1,21 @@
+<map id="http::server::connection::start" name="http::server::connection::start">
+<area shape="rect" id="node2" href="$classhttp_1_1server_1_1connection.html#aa3a039946f820cad818832c7e2fe9d51" title="Handle completion of a read operation. " alt="" coords="212,535,371,576"/>
+<area shape="rect" id="node3" href="$classhttp_1_1server_1_1request__parser.html#a108c86110687d389a55dd1ddc7ea8e45" title="Parse some data. " alt="" coords="433,177,571,219"/>
+<area shape="rect" id="node10" href="$classhttp_1_1server_1_1request__handler.html#a7430992fc71d181dcd5654b71c6f8d7b" title="Handle a request and produce a reply. " alt="" coords="419,501,585,543"/>
+<area shape="rect" id="node12" href="$structhttp_1_1server_1_1reply.html#a62bfe22950ec22542b43dcb13be6a97c" title="Get a stock reply. " alt="" coords="659,337,783,379"/>
+<area shape="rect" id="node17" href="$structhttp_1_1server_1_1reply.html#aada1a8123aabeb787da9adcfcf9fc86c" title="Convert the reply into a vector of buffers. " alt="" coords="440,568,564,609"/>
+<area shape="rect" id="node19" href="$classhttp_1_1server_1_1connection.html#a54a89c3860150c1b8bd9041605815a69" title="Handle completion of a write operation. " alt="" coords="423,695,581,736"/>
+<area shape="rect" id="node20" href="$classhttp_1_1server_1_1connection__manager.html#a331802ba238905f7a77a8be481f8690e" title="Stop the specified connection. " alt="" coords="641,729,800,771"/>
+<area shape="rect" id="node4" href="$classhttp_1_1server_1_1request__parser.html#ab006f2ed87a1c013a47969c2be045585" title="Handle the next character of input. " alt="" coords="651,119,790,160"/>
+<area shape="rect" id="node5" href="$classhttp_1_1server_1_1request__parser.html#a404d24f79f85f2824f629edd54cfddb8" title="Check if a byte is an HTTP character. " alt="" coords="857,215,996,256"/>
+<area shape="rect" id="node6" href="$classhttp_1_1server_1_1request__parser.html#add150bfdbbaadc7d8bb62d4049899854" title="Check if a byte is an HTTP control character. " alt="" coords="857,280,996,321"/>
+<area shape="rect" id="node7" href="$classhttp_1_1server_1_1request__parser.html#a00939133a743b2eb7b122a86dc049266" title="Check if a byte is defined as an HTTP tspecial character. " alt="" coords="857,5,996,47"/>
+<area shape="rect" id="node8" href="$classhttp_1_1server_1_1request__parser.html#ad7f5315062e6c79270eb6a9849472ef8" title="Check if a byte is a digit. " alt="" coords="857,71,996,112"/>
+<area shape="rect" id="node9" href="$classhttp_1_1server_1_1request__parser.html#aec92d9fe38ff90d4ee5d9f29b929fd40" title="Set the content length extracted from headers. " alt="" coords="856,135,997,191"/>
+<area shape="rect" id="node11" href="$classhttp_1_1server_1_1request__handler.html#aed78ca8a5e7f443011ba844bff7bcc55" title="Perform URL&#45;decoding on a string. " alt="" coords="649,599,792,640"/>
+<area shape="rect" id="node14" href="$classhttp_1_1server_1_1request__handler.html#a1a93f649562fcd0771771d2288efe4e6" title="Tokenize the query part of the URI, splitting it by option name/values. " alt="" coords="637,468,804,509"/>
+<area shape="rect" id="node15" href="$structhttp_1_1server_1_1reply.html#a36466cc5d1edb9877c9e965264c38fbd" title="Get a redirect reply. " alt="" coords="659,403,783,444"/>
+<area shape="rect" id="node16" href="$namespacehttp_1_1server_1_1mime__types.html#aaa3cd5827dc485ab288a3c446ef023bc" title="Convert a file extension into a MIME type. " alt="" coords="633,533,808,575"/>
+<area shape="rect" id="node13" href="$namespacehttp_1_1server_1_1stock__replies.html#a4ded47eeac4e3d89b45848961fbc7a41" title="http::server::stock\l_replies::to_string" alt="" coords="863,373,991,415"/>
+<area shape="rect" id="node18" href="$namespacehttp_1_1server_1_1status__strings.html#a39ae0992f88e2e533b249a1ec612ca64" title="http::server::status\l_strings::to_buffer" alt="" coords="655,664,787,705"/>
+</map>

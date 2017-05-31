@@ -1,5 +1,0 @@
-<map id="http::server::connection_manager::stop" name="http::server::connection_manager::stop">
-<area shape="rect" id="node3" href="$classhttp_1_1server_1_1connection.html#aa3a039946f820cad818832c7e2fe9d51" title="Handle completion of a read operation." alt="" coords="423,5,580,51"/>
-<area shape="rect" id="node7" href="$classhttp_1_1server_1_1connection.html#a54a89c3860150c1b8bd9041605815a69" title="Handle completion of a write operation." alt="" coords="215,34,372,81"/>
-<area shape="rect" id="node5" href="$classhttp_1_1server_1_1connection.html#a5f03df3dc2ef188842942444b7adf54f" title="Start the first asynchronous operation for the connection." alt="" coords="631,5,788,51"/>
-</map>

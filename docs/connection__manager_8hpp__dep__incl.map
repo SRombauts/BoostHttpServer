@@ -1,0 +1,9 @@
+<map id="src/server/connection_manager.hpp" name="src/server/connection_manager.hpp">
+<area shape="rect" id="node2" href="$server_8hpp.html" title="The HTTP server accepting client connections. " alt="" coords="250,102,395,129"/>
+<area shape="rect" id="node7" href="$connection_8cpp.html" title="Manages a single connection from a client. " alt="" coords="419,102,591,129"/>
+<area shape="rect" id="node8" href="$connection__manager_8cpp.html" title="Manages all open connections to clients. " alt="" coords="616,95,763,136"/>
+<area shape="rect" id="node3" href="$posix__main_8cpp.html" title="POSIX (Linux/Unix/Cygwin) entry point with clean shutdown signal managment. " alt="" coords="5,184,144,225"/>
+<area shape="rect" id="node4" href="$win__main_8cpp.html" title="Win32 (Windows XP/7) entry point with clean shutdown console managment. " alt="" coords="168,184,307,225"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title="Portable entry point for dynamic web page generation example. " alt="" coords="331,184,487,225"/>
+<area shape="rect" id="node6" href="$server_8cpp.html" title="The HTTP server accepting client connections. " alt="" coords="511,191,657,218"/>
+</map>

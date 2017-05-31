@@ -1,7 +1,0 @@
-<map id="src/server/request_handler.cpp" name="src/server/request_handler.cpp">
-<area shape="rect" id="node3" href="$request__handler_8hpp.html" title="Handle a HTTP request by returning the client the resource he asked." alt="" coords="33,101,172,131"/>
-<area shape="rect" id="node22" href="$mime__types_8hpp.html" title="Conversion of a file extension into a MIME type." alt="" coords="528,179,645,208"/>
-<area shape="rect" id="node25" href="$reply_8hpp.html" title="A reply to be sent to a client." alt="" coords="937,101,1012,131"/>
-<area shape="rect" id="node36" href="$request_8hpp.html" title="Structure of a HTTP request." alt="" coords="822,101,913,131"/>
-<area shape="rect" id="node32" href="$header_8hpp.html" title="Structure of a header in a HTTP request or reply." alt="" coords="924,179,1009,208"/>
-</map>

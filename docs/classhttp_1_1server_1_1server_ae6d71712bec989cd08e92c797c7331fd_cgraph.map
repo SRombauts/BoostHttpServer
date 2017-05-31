@@ -1,0 +1,4 @@
+<map id="http::server::server::handle_stop" name="http::server::server::handle_stop">
+<area shape="rect" id="node2" href="$classhttp_1_1server_1_1connection__manager.html#a286d83b5b2758cf8d178379f38c266d8" title="Stop all connections. " alt="" coords="185,5,344,47"/>
+<area shape="rect" id="node3" href="$classhttp_1_1server_1_1connection.html#a7b8e7d2c99d3c9660242227dfadeea49" title="Stop all asynchronous operations associated with the connection. " alt="" coords="392,5,551,47"/>
+</map>

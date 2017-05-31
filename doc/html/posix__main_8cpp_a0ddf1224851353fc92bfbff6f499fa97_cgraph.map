@@ -1,7 +1,0 @@
-<map id="main" name="main">
-<area shape="rect" id="node3" href="$classhttp_1_1server_1_1server.html#aae3c85e95647003eef1c83e778204936" title="Run the server&#39;s io_service loop." alt="" coords="105,5,263,35"/>
-<area shape="rect" id="node5" href="$classhttp_1_1server_1_1server.html#a3e14f0edee8c56ee9cec1669afd02226" title="Stop the server." alt="" coords="119,58,249,105"/>
-<area shape="rect" id="node7" href="$classhttp_1_1server_1_1server.html#ae6d71712bec989cd08e92c797c7331fd" title="Handle a request to stop the server." alt="" coords="313,58,444,105"/>
-<area shape="rect" id="node9" href="$classhttp_1_1server_1_1connection__manager.html#a286d83b5b2758cf8d178379f38c266d8" title="Stop all connections." alt="" coords="495,58,652,105"/>
-<area shape="rect" id="node11" href="$classhttp_1_1server_1_1connection.html#a7b8e7d2c99d3c9660242227dfadeea49" title="Stop all asynchronous operations associated with the connection." alt="" coords="703,58,860,105"/>
-</map>

@@ -1,0 +1,9 @@
+<map id="src/server/connection_manager.cpp" name="src/server/connection_manager.cpp">
+<area shape="rect" id="node2" href="$connection__manager_8hpp.html" title="Manages all open connections to clients. " alt="" coords="551,95,718,121"/>
+<area shape="rect" id="node5" href="$connection_8hpp.html" title="Manages a single connection from a client. " alt="" coords="579,169,690,196"/>
+<area shape="rect" id="node10" href="$reply_8hpp.html" title="A reply to be sent to a client. " alt="" coords="89,251,164,278"/>
+<area shape="rect" id="node14" href="$request_8hpp.html" title="Structure of a HTTP request. " alt="" coords="660,251,751,278"/>
+<area shape="rect" id="node15" href="$request__handler_8hpp.html" title="Handle a HTTP request by returning the client the resource he asked. " alt="" coords="775,251,913,278"/>
+<area shape="rect" id="node18" href="$request__parser_8hpp.html" title="HTTP header parser of incoming requests. " alt="" coords="1067,251,1200,278"/>
+<area shape="rect" id="node13" href="$header_8hpp.html" title="Structure of a header in a HTTP request or reply. " alt="" coords="279,333,366,360"/>
+</map>

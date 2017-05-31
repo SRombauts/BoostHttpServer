@@ -1,0 +1,9 @@
+<map id="http::server::connection::stop" name="http::server::connection::stop">
+<area shape="rect" id="node2" href="$classhttp_1_1server_1_1connection__manager.html#a286d83b5b2758cf8d178379f38c266d8" title="Stop all connections. " alt="" coords="212,57,371,98"/>
+<area shape="rect" id="node3" href="$classhttp_1_1server_1_1server.html#ae6d71712bec989cd08e92c797c7331fd" title="Handle a request to stop the server. " alt="" coords="419,57,551,98"/>
+<area shape="rect" id="node4" href="$classhttp_1_1server_1_1server.html#a3e14f0edee8c56ee9cec1669afd02226" title="Stop the server. " alt="" coords="605,23,737,65"/>
+<area shape="rect" id="node8" href="$classhttp_1_1server_1_1server.html#a83a73ad5fafb52535f4f638f87ffcc9f" title="http::server::server\l::unregister_resource" alt="" coords="599,89,743,130"/>
+<area shape="rect" id="node5" href="$posix__main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="842,5,893,32"/>
+<area shape="rect" id="node6" href="$main_8cpp.html#a060dd0ab5d9b8c6b0ae2796551bd7f3b" title="Function to generate the our first dynamic resource, and ask the server to stop : web page &quot;/stop&quot; TO..." alt="" coords="791,56,944,83"/>
+<area shape="rect" id="node7" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="992,56,1043,83"/>
+</map>

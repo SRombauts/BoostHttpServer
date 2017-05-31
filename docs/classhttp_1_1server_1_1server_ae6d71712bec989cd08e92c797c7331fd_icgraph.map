@@ -1,0 +1,7 @@
+<map id="http::server::server::handle_stop" name="http::server::server::handle_stop">
+<area shape="rect" id="node2" href="$classhttp_1_1server_1_1server.html#a3e14f0edee8c56ee9cec1669afd02226" title="Stop the server. " alt="" coords="191,23,323,65"/>
+<area shape="rect" id="node6" href="$classhttp_1_1server_1_1server.html#a83a73ad5fafb52535f4f638f87ffcc9f" title="http::server::server\l::unregister_resource" alt="" coords="185,89,329,130"/>
+<area shape="rect" id="node3" href="$posix__main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="429,5,479,32"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#a060dd0ab5d9b8c6b0ae2796551bd7f3b" title="Function to generate the our first dynamic resource, and ask the server to stop : web page &quot;/stop&quot; TO..." alt="" coords="377,56,531,83"/>
+<area shape="rect" id="node5" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="579,56,629,83"/>
+</map>
