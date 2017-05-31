@@ -64,11 +64,11 @@ $(BUILD): $(BUILD)/
 	mkdir -p $(BUILD)
 
 $(BUILD)/example1_static: $(BOOST_HTTP_SERVER_EXAMPLE1_OBJECTS)
-	$(CXX) -o $@ $(BOOST_HTTP_SERVER_EXAMPLE1_OBJECTS) $(LINK_FLAGS) -lboost_system-mt -lboost_thread-mt -lboost_filesystem-mt
+	$(CXX) -o $@ $(BOOST_HTTP_SERVER_EXAMPLE1_OBJECTS) $(LINK_FLAGS) -lboost_system -lboost_thread -lboost_filesystem -pthread
 
 
 $(BUILD)/example2_dynamic: $(BOOST_HTTP_SERVER_EXAMPLE2_OBJECTS)
-	$(CXX) -o $@ $(BOOST_HTTP_SERVER_EXAMPLE2_OBJECTS) $(LINK_FLAGS) -lboost_system -lboost_filesystem
+	$(CXX) -o $@ $(BOOST_HTTP_SERVER_EXAMPLE2_OBJECTS) $(LINK_FLAGS) -lboost_system -lboost_filesystem -pthread
 
 
 $(BUILD)/BoostHttpServer_posix_main.o: src/example1_static/posix_main.cpp
