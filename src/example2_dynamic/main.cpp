@@ -21,24 +21,28 @@
 #include "../server/server.hpp"
 
 /// Function to generate the our first dynamic resource : web page "/"
-/// TODO : unused parameters req
 void on_request_page_root (const http::server::request& /*req*/, const http::server::params_map& /*params*/, http::server::reply& rep)
 {
-  rep.status = http::server::reply::ok;
-  rep.content = "<html><head><title>Welcome</title></head><body><a href=\"/stop\">stop</a></body></html>";
+  rep.content = "<html><head><title>Welcome</title></head><body><p>Welcome</p><a href=\"/stop\">stop</a></body></html>";
   rep.headers.push_back(http::server::header{"Content-Type", "text/html"});
+  rep.status = http::server::reply::ok;
 }
 
 /// Function to generate the our first dynamic resource, and ask the server to stop : web page "/stop"
-/// TODO : unused parameters req
 void on_request_page_stop (const http::server::request& /*req*/, const http::server::params_map& params, http::server::reply& rep, http::server::server* serv)
 {
-  rep.status = http::server::reply::ok;
-  rep.content = "<html>stopped</html>";
+  if (params.find("confirm") != params.end())
+  {
+	  // ask asynchronously the server to stop : we will get our stop page before
+	  serv->stop();
+	  rep.content = "<html><head><title>Stopped</title><body><p>Stopped</p></body></html>";
+  }
+  else
+  {
+	  rep.content = "<html><head><title>Stop</title><body><p>Stop</p><a href=\"/\">back</a><br/><a href=\"/stop?confirm\">confirm</a></body></html>";
+  }
   rep.headers.push_back(http::server::header{"Content-Type", "text/html"});
-  
-  // ask asynchronously the server to stop : we will get our stop page before
-  serv->stop ();
+  rep.status = http::server::reply::ok;
 }
 
 
@@ -61,8 +65,8 @@ int main(int argc, char* argv[])
     http::server::server serv(argv[1], argv[2], argv[3]);
 
     // Register our two dynamic resources (web page "/" and "/stop")
-    http::server::resource_function function_on_request_page_root = boost::bind(on_request_page_root, _1, _2);
-    http::server::resource_function function_on_request_page_stop = boost::bind(on_request_page_stop, _1, _2, &serv);
+    http::server::resource_function function_on_request_page_root = boost::bind(on_request_page_root, _1, _2, _3);
+    http::server::resource_function function_on_request_page_stop = boost::bind(on_request_page_stop, _1, _2, _3, &serv);
 
     serv.register_resource("/",    function_on_request_page_root);
     serv.register_resource("/stop",function_on_request_page_stop);
