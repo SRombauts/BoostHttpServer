@@ -62,7 +62,7 @@ void request_handler::handle_request(const request& req, reply& rep)
   {
     // A dynamic web page will be generated in reply to the client request (with at least 2 header's option)
     rep.headers.reserve(2);
-    (*resource).second (req, rep);
+    (*resource).second (req, params, rep);
     rep.headers.push_back(http::server::header{"Content-Length", std::to_string(rep.content.size())});
     return;
   }

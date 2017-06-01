@@ -22,7 +22,7 @@
 
 /// Function to generate the our first dynamic resource : web page "/"
 /// TODO : unused parameters req
-void on_request_page_root (const http::server::request& /*req*/, http::server::reply& rep)
+void on_request_page_root (const http::server::request& /*req*/, const http::server::params_map& /*params*/, http::server::reply& rep)
 {
   rep.status = http::server::reply::ok;
   rep.content = "<html><head><title>Welcome</title></head><body><a href=\"/stop\">stop</a></body></html>";
@@ -31,7 +31,7 @@ void on_request_page_root (const http::server::request& /*req*/, http::server::r
 
 /// Function to generate the our first dynamic resource, and ask the server to stop : web page "/stop"
 /// TODO : unused parameters req
-void on_request_page_stop (const http::server::request& /*req*/, http::server::reply& rep, http::server::server* serv)
+void on_request_page_stop (const http::server::request& /*req*/, const http::server::params_map& params, http::server::reply& rep, http::server::server* serv)
 {
   rep.status = http::server::reply::ok;
   rep.content = "<html>stopped</html>";

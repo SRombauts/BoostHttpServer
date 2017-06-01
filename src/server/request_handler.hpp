@@ -27,7 +27,7 @@ struct request;
 typedef std::map<std::string, std::string> params_map;
 
 /// Prototype of a function able to generate a reply for the provided client request
-typedef boost::function<void (const request& req, reply& rep)>  resource_function;
+typedef boost::function<void (const request& req, const params_map& params, reply& rep)>  resource_function;
 
 /// The common handler for all incoming requests.
 class request_handler
