@@ -27,7 +27,6 @@ struct request
   std::string method;
   std::string uri;
   std::string query;
-  std::string fragment;
   int         http_version_major;
   int         http_version_minor;
   headers_list headers;

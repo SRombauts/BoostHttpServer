@@ -79,11 +79,6 @@ boost::tribool request_parser::consume(request& req, char input)
       state_ = query;
       return boost::indeterminate;
     }
-    else if (input == '#')
-    {
-      state_ = fragment;
-      return boost::indeterminate;
-    }
     else if (is_ctl(input))
     {
       return false;
@@ -99,11 +94,6 @@ boost::tribool request_parser::consume(request& req, char input)
       state_ = http_version_h;
       return boost::indeterminate;
     }
-    else if (input == '#')
-    {
-      state_ = fragment;
-      return boost::indeterminate;
-    }
     else if (is_ctl(input))
     {
       return false;
@@ -111,21 +101,6 @@ boost::tribool request_parser::consume(request& req, char input)
     else
     {
       req.query.push_back(input);
-      return boost::indeterminate;
-    }
-  case fragment:
-    if (input == ' ')
-    {
-      state_ = http_version_h;
-      return boost::indeterminate;
-    }
-    else if (is_ctl(input))
-    {
-      return false;
-    }
-    else
-    {
-      req.fragment.push_back(input);
       return boost::indeterminate;
     }
   case http_version_h:
