@@ -38,24 +38,23 @@ void request_handler::handle_request(const request& req, reply& rep)
   }
 
   // Decode and tokenize the query part of the URI
+  params_map params;
   std::string query;
-  options_map get_params;
   if (!url_decode(req.query, query))
   {
     reply::stock_reply(reply::bad_request, rep);
     return;
   }
-  query_tokenize (query, get_params);
+  query_tokenize (query, params);
 
   // Decode and tokenize the content part of the POST request
   std::string content;
-  options_map post_params;
   if (!url_decode(req.content, content))
   {
     reply::stock_reply(reply::bad_request, rep);
     return;
   }
-  query_tokenize (content, post_params);
+  query_tokenize (content, params);
 
   // Check if the request is for a registered dynamic resource
   resource_map::iterator resource = resource_map_.find(request_path);
@@ -158,13 +157,11 @@ bool request_handler::url_decode(const std::string& in, std::string& out)
   return true;
 }
 
-void request_handler::query_tokenize(const std::string& in, options_map& out)
+void request_handler::query_tokenize(const std::string& in, params_map& out)
 {
   bool        in_option_name = true;
   std::string option_name;
   std::string option_value;
-
-  out.clear();
 
   for (std::size_t i = 0; i < in.size(); ++i)
   {

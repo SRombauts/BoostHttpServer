@@ -24,7 +24,7 @@ struct reply;
 struct request;
 
 /// Map of options by name/values
-typedef std::map<std::string, std::string> options_map;
+typedef std::map<std::string, std::string> params_map;
 
 /// Prototype of a function able to generate a reply for the provided client request
 typedef boost::function<void (const request& req, reply& rep)>  resource_function;
@@ -53,7 +53,7 @@ private:
   static bool url_decode(const std::string& in, std::string& out);
 
   /// Tokenize the query part of the URI, splitting it by option name/values.
-  static void query_tokenize(const std::string& in, options_map& out);
+  static void query_tokenize(const std::string& in, params_map& out);
 
   /// Map of a functions able to generate a reply for the provided client request
   typedef std::map<std::string, resource_function>  resource_map;
