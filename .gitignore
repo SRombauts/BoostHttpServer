@@ -4,3 +4,5 @@ Debug
 *.ncb
 *.user
 *.suo
+*.VC.db
+*.VC.VC.opendb
