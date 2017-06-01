@@ -5,7 +5,7 @@
 CXX = g++
 
 # flags for C++
-CXXFLAGS ?= -Wall -Wextra -pedantic -pedantic -Wformat-security -Winit-self -Wswitch-default -Wswitch-enum -Wfloat-equal -Wundef -Wshadow -Wcast-qual -Wconversion -Wlogical-op -Winline -Wsuggest-attribute=pure -Wsuggest-attribute=const -Wsuggest-attribute=noreturn
+CXXFLAGS ?= -std=c++11 -Wall -Wextra -pedantic -Wformat-security -Winit-self -Wswitch-default -Wswitch-enum -Wfloat-equal -Wundef -Wshadow -Wcast-qual -Wconversion -Wlogical-op -Winline
 
 # [Debug,Release]
 BUILD ?= Debug
@@ -13,10 +13,10 @@ BUILD ?= Debug
 ### Conditionally set variables: ###
 
 ifeq ($(BUILD),Debug)
-BUILD_FLAGS = -g3 -rdynamic -fstack-protector-all -fno-inline -O0 -DDEBUG -D_DEBUG
+BUILD_FLAGS = -g3 -D_GLIBCXX_DEBUG -fstack-protector-all -O0 -DDEBUG -D_DEBUG
 endif
 ifeq ($(BUILD),Release)
-BUILD_FLAGS = -O2
+BUILD_FLAGS = -O2 -fstack-protector -NDDEBUG
 endif
 ifeq ($(BUILD),Debug)
 LINK_FLAGS = -g3 -rdynamic

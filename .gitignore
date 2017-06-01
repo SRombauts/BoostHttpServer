@@ -1,5 +1,6 @@
-Release
-Debug
+/Release/
+/Debug/
+/.settings/
 
 *.ncb
 *.user
