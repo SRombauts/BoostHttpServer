@@ -246,20 +246,17 @@ void reply::stock_reply(reply::status_type status, reply& rep)
 {
   rep.status = status;
   rep.content = stock_replies::to_string(status);
-  rep.headers.resize(2);
-  rep.headers[0].name = "Content-Length";
-  rep.headers[0].value = boost::lexical_cast<std::string>(rep.content.size());
-  rep.headers[1].name = "Content-Type";
-  rep.headers[1].value = "text/html";
+  rep.headers.reserve(2);
+  rep.headers.push_back(http::server::header{"Content-Length", std::to_string(rep.content.size())});
+  rep.headers.push_back(http::server::header{"Content-Type", "text/html"});
 }
 
 void reply::redirect_reply(const std::string& location, reply& rep)
 {
   rep.status = reply::moved_permanently;
   rep.content = stock_replies::to_string(reply::moved_permanently);
-  rep.headers.resize(1);
-  rep.headers[0].name = "Location";
-  rep.headers[0].value = location;
+  rep.headers.reserve(1);
+  rep.headers.push_back(http::server::header{"Location", location});
 }
 
 } // namespace server

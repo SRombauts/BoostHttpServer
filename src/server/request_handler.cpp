@@ -60,8 +60,10 @@ void request_handler::handle_request(const request& req, reply& rep)
   resource_map::iterator resource = resource_map_.find(request_path);
   if (resource_map_.end() != resource)
   {
-    // A dynamic web page will be generated in reply to the client request
+    // A dynamic web page will be generated in reply to the client request (with at least 2 header's option)
+    rep.headers.reserve(2);
     (*resource).second (req, rep);
+    rep.headers.push_back(http::server::header{"Content-Length", std::to_string(rep.content.size())});
     return;
   }
 
@@ -110,12 +112,12 @@ void request_handler::handle_request(const request& req, reply& rep)
   rep.status = reply::ok;
   char buf[512];
   while (is.read(buf, sizeof(buf)).gcount() > 0)
+  {
     rep.content.append(buf, (unsigned int)is.gcount());
-  rep.headers.resize(2);
-  rep.headers[0].name = "Content-Length";
-  rep.headers[0].value = boost::lexical_cast<std::string>(rep.content.size());
-  rep.headers[1].name = "Content-Type";
-  rep.headers[1].value = mime_types::extension_to_type(extension);
+  }
+  rep.headers.reserve(2);
+  rep.headers.push_back(http::server::header{"Content-Length", std::to_string(rep.content.size())});
+  rep.headers.push_back(http::server::header{"Content-Type", "text/html"});
 }
 
 bool request_handler::url_decode(const std::string& in, std::string& out)
@@ -211,7 +213,7 @@ void request_handler::register_resource(const std::string& resource_name, resour
   resource_map_.insert(std::pair<std::string, resource_function>(resource_name, function));
 }
 
-/// Unegister a dynamic resource
+/// Unregister a dynamic resource
 void request_handler::unregister_resource(const std::string& resource_name)
 {
   resource_map::iterator resource = resource_map_.find(resource_name);

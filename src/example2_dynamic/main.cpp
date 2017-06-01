@@ -26,11 +26,7 @@ void on_request_page_root (const http::server::request& /*req*/, http::server::r
 {
   rep.status = http::server::reply::ok;
   rep.content = "<html><head><title>Welcome</title></head><body><a href=\"/stop\">stop</a></body></html>";
-  rep.headers.resize(2);
-  rep.headers[0].name = "Content-Length";
-  rep.headers[0].value = boost::lexical_cast<std::string>(rep.content.size());
-  rep.headers[1].name = "Content-Type";
-  rep.headers[1].value = "text/html";
+  rep.headers.push_back(http::server::header{"Content-Type", "text/html"});
 }
 
 /// Function to generate the our first dynamic resource, and ask the server to stop : web page "/stop"
@@ -39,11 +35,7 @@ void on_request_page_stop (const http::server::request& /*req*/, http::server::r
 {
   rep.status = http::server::reply::ok;
   rep.content = "<html>stopped</html>";
-  rep.headers.resize(2);
-  rep.headers[0].name = "Content-Length";
-  rep.headers[0].value = boost::lexical_cast<std::string>(rep.content.size());
-  rep.headers[1].name = "Content-Type";
-  rep.headers[1].value = "text/html";
+  rep.headers.push_back(http::server::header{"Content-Type", "text/html"});
   
   // ask asynchronously the server to stop : we will get our stop page before
   serv->stop ();
