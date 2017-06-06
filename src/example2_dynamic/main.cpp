@@ -22,7 +22,7 @@
 
 #include "../../CTML/CTML/CTML.h"
 
-/// Function to generate the our first dynamic resource : web page "/"
+/// Function to generate our first dynamic resource : root "/" web page
 void on_request_page_root (const http::server::request& /*req*/, const http::server::params_map& /*params*/, http::server::reply& rep)
 {
 //rep.content = "<html><head><title>Welcome</title></head><body><p>Welcome</p><a href=\"/stop\">stop</a></body></html>";
@@ -35,7 +35,7 @@ void on_request_page_root (const http::server::request& /*req*/, const http::ser
   rep.status = http::server::reply::ok;
 }
 
-/// Function to generate the our first dynamic resource, and ask the server to stop : web page "/stop"
+/// Generate content for the "/stop" web page, display a confirmation link, and ask the server to stop if confirmed
 void on_request_page_stop (const http::server::request& /*req*/, const http::server::params_map& params, http::server::reply& rep, http::server::server* serv)
 {
   if (params.find("confirm") != params.end())
@@ -72,11 +72,8 @@ int main(int argc, char* argv[])
     http::server::server serv(argv[1], argv[2], argv[3]);
 
     // Register our two dynamic resources (web page "/" and "/stop")
-    http::server::resource_function function_on_request_page_root = boost::bind(on_request_page_root, _1, _2, _3);
-    http::server::resource_function function_on_request_page_stop = boost::bind(on_request_page_stop, _1, _2, _3, &serv);
-
-    serv.register_resource("/",    function_on_request_page_root);
-    serv.register_resource("/stop",function_on_request_page_stop);
+    serv.register_resource("/",      http::server::resource_function(boost::bind(on_request_page_root, _1, _2, _3)));
+    serv.register_resource("/stop",  http::server::resource_function(boost::bind(on_request_page_stop, _1, _2, _3, &serv)));
 
     // Run the server until stopped.
     serv.run();

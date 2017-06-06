@@ -39,9 +39,9 @@ public:
   void stop();
 
   /// Register a dynamic resource (a code generated web page)
-  inline void register_resource(const std::string& resource_name, resource_function& function)
+  inline void register_resource(const std::string&& resource_name, resource_function&& function)
   {
-    request_handler_.register_resource(resource_name, function);
+    request_handler_.register_resource(resource_name, std::move(function));
   }
   inline void unregister_resource(const std::string& resource_name)
   {

@@ -41,7 +41,7 @@ public:
   void handle_request(const request& req, reply& rep);
 
   /// Register a dynamic resource (a code generated web page)
-  void register_resource(const std::string& resource_name, resource_function& function);
+  void register_resource(const std::string& resource_name, resource_function&& function);
   void unregister_resource(const std::string& resource_name);
 
 private:

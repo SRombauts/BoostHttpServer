@@ -208,9 +208,9 @@ void request_handler::query_tokenize(const std::string& in, params_map& out)
 }
 
 /// Register a dynamic resource (a code generated web page)
-void request_handler::register_resource(const std::string& resource_name, resource_function& function)
+void request_handler::register_resource(const std::string& resource_name, resource_function&& function)
 {
-  resource_map_.insert(std::pair<std::string, resource_function>(resource_name, function));
+  resource_map_.insert(std::pair<std::string, resource_function>(resource_name, std::move(function)));
 }
 
 /// Unregister a dynamic resource
