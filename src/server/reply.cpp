@@ -3,7 +3,8 @@
 ///
 /// A reply to be sent to a client.
 ///
-/// Copyright (c) 2003-2011 Christopher M. Kohlhoff (chris at kohlhoff dot com)
+/// Copyright (c) 2003-2017 Christopher M. Kohlhoff (chris at kohlhoff dot com)
+/// Copyright (c) 2012-2017 Sebastien Rombauts (sebastien.rombauts@gmail.com)
 ///
 /// Distributed under the Boost Software License, Version 1.0. (See accompanying
 /// file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -11,11 +12,11 @@
 
 #include "reply.hpp"
 #include <string>
-#include <boost/lexical_cast.hpp>
 
 namespace http {
 namespace server {
 
+/// HTTP Status Code strings
 namespace status_strings {
 
 const std::string ok =
@@ -94,6 +95,7 @@ boost::asio::const_buffer to_buffer(reply::status_type status)
 
 } // namespace status_strings
 
+/// Separators and endline strings
 namespace misc_strings {
 
 const char name_value_separator[] = { ':', ' ' };
@@ -105,7 +107,6 @@ const char crlf[] = { '\r', '\n' };
 std::vector<boost::asio::const_buffer> reply::to_buffers()
 {
   std::vector<boost::asio::const_buffer> buffers;
-  
   buffers.push_back(status_strings::to_buffer(status));
   for (std::size_t i = 0; i < headers.size(); ++i)
   {
@@ -120,6 +121,7 @@ std::vector<boost::asio::const_buffer> reply::to_buffers()
   return buffers;
 }
 
+/// Various HTML page for standard status replies
 namespace stock_replies {
 
 const char ok[] = "";

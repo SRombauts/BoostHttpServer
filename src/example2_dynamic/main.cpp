@@ -6,7 +6,7 @@
 /// This sample demonstrate the way to fully generate by code a website,
 /// and to stop cleanly the server from a webpage.
 ///
-/// Copyright (c) 2012 Sebastien Rombauts (sebastien dot rombauts at gmail dot com)
+/// Copyright (c) 2012-2017 Sebastien Rombauts (sebastien.rombauts@gmail.com)
 ///
 /// Distributed under the Boost Software License, Version 1.0. (See accompanying
 /// file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)

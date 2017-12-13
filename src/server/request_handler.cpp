@@ -3,7 +3,8 @@
 /// 
 /// Handle a HTTP request by returning the client the resource he asked.
 ///
-/// Copyright (c) 2003-2011 Christopher M. Kohlhoff (chris at kohlhoff dot com)
+/// Copyright (c) 2003-2017 Christopher M. Kohlhoff (chris at kohlhoff dot com)
+/// Copyright (c) 2012-2017 Sebastien Rombauts (sebastien.rombauts@gmail.com)
 ///
 /// Distributed under the Boost Software License, Version 1.0. (See accompanying
 /// file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -13,7 +14,6 @@
 #include <fstream>
 #include <sstream>
 #include <string>
-#include <boost/lexical_cast.hpp>
 #include <boost/filesystem.hpp>
 #include "mime_types.hpp"
 #include "reply.hpp"
@@ -90,7 +90,7 @@ void request_handler::handle_request(const request& req, reply& rep)
     }
   }
 
-  // Determine the file extension.
+  // Extract the file extension.
   std::size_t last_slash_pos = request_path.find_last_of("/");
   std::size_t last_dot_pos = request_path.find_last_of(".");
   std::string extension;
@@ -113,11 +113,11 @@ void request_handler::handle_request(const request& req, reply& rep)
   char buf[512];
   while (is.read(buf, sizeof(buf)).gcount() > 0)
   {
-    rep.content.append(buf, (unsigned int)is.gcount());
+    rep.content.append(buf, is.gcount());
   }
   rep.headers.reserve(2);
   rep.headers.push_back(http::server::header{"Content-Length", std::to_string(rep.content.size())});
-  rep.headers.push_back(http::server::header{"Content-Type", "text/html"});
+  rep.headers.push_back(http::server::header{"Content-Type", mime_types::extension_to_type(extension)});
 }
 
 bool request_handler::url_decode(const std::string& in, std::string& out)
