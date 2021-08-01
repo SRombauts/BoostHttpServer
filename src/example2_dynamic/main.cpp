@@ -20,17 +20,17 @@
 #include <boost/lexical_cast.hpp>
 #include "../server/server.hpp"
 
-#include "../../CTML/CTML/CTML.h"
+#include "../../CTML/include/ctml.hpp"
 
 /// Function to generate our first dynamic resource : root "/" web page
 void on_request_page_root (const http::server::request& /*req*/, const http::server::params_map& /*params*/, http::server::reply& rep)
 {
 //rep.content = "<html><head><title>Welcome</title></head><body><p>Welcome</p><a href=\"/stop\">stop</a></body></html>";
   CTML::Document document;
-  document.AddNodeToHead(CTML::Node("title", "Welcome"));
-  document.AddNodeToBody(CTML::Node("p", "Welcome"));
-  document.AddNodeToBody(CTML::Node("a", "stop").SetAttribute("href", "/stop"));
-  rep.content = document.ToString(CTML::Readability::MULTILINE);
+  document.AppendNodeToHead(CTML::Node("title", "Welcome"));
+  document.AppendNodeToBody(CTML::Node("p", "Welcome"));
+  document.AppendNodeToBody(CTML::Node("a", "stop").SetAttribute("href", "/stop"));
+  rep.content = document.ToString(CTML::StringFormatting::MULTIPLE_LINES);
   rep.headers.push_back(http::server::header{"Content-Type", "text/html"});
   rep.status = http::server::reply::ok;
 }
